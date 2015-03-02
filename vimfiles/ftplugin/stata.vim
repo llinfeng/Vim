@@ -1,7 +1,7 @@
 " Structural setting.
 setlocal fdm=manual
 setlocal wrap nolinebreak nolist textwidth=0 wrapmargin=0
-setlocal formatoptions=cq
+setlocal formatoptions=ocq
 
 
 
@@ -45,3 +45,5 @@ vnoremap <buffer> <F11> <Esc>:<C-U>call RunIt() <ENTER>
 noremap  <buffer> <F12> V:<C-U>call RunDoLines() <CR>
 inoremap <buffer> <F12> <ESC>V:<C-U>call RunDoLines() <CR>
 vnoremap <buffer> <F12> :<C-U>call RunDoLines() <CR>
+
+setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://

@@ -27,7 +27,7 @@ set backupdir=C:\Users\llinfeng\Onedrive\Vim-document\VimBackupFiles
 set viewdir=C:\Users\llinfeng\Onedrive\Vim-document\ViewFiles
 set undodir=C:\Users\llinfeng\Onedrive\Vim-document\undodir
 autocmd BufEnter * silent! lcd %:p:h
-autocmd BufEnter * silent! set fdm=manual
+autocmd BufEnter * silent! set foldingmethod=manual
 " }}}
 " Canned ·â´æ {{{
 
@@ -1052,3 +1052,4 @@ nnoremap <leader>v :set filetype=vimwiki<cr>
 nnoremap <leader>vs :set filetype=stata<cr>
 nnoremap <leader>m :so $MYVIMRC<cr>
 set fdm=manual
+set viewoptions=cursor,folds,slash,unix
