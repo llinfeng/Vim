@@ -1053,3 +1053,6 @@ nnoremap <leader>vs :set filetype=stata<cr>
 nnoremap <leader>m :so $MYVIMRC<cr>
 set fdm=manual
 set viewoptions=cursor,folds,slash,unix
+
+" To be god like coder!
+let &colorcolumn="80,".join(range(120,999),",")

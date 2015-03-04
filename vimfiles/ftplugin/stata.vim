@@ -1,7 +1,8 @@
 " Structural setting.
 setlocal fdm=manual
-setlocal wrap nolinebreak nolist textwidth=0 wrapmargin=0
-setlocal formatoptions=ocq
+setlocal wrap nolinebreak nolist textwidth=80 wrapmargin=0
+setlocal formatoptions=crncqj
+" c==> only auto format the comments. (to comply with the 80 width standard)
 
 
 
