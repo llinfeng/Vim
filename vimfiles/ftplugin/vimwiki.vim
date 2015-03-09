@@ -1,5 +1,5 @@
 " Configure line breaking
-setlocal linebreak nolist textwidth=93 wrapmargin=0 
+setlocal linebreak nolist textwidth=80 wrapmargin=0 
 setlocal formatoptions=roqtc 
 setlocal fdm=manual
 
