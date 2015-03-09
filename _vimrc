@@ -829,7 +829,6 @@ nnoremap <leader>o :only<CR>
 
 
 "unmap <cr>
-cd c:\noda
 
 nnoremap <leader>c :CC<CR>
 nnoremap <leader>u :UC<CR>
