@@ -125,11 +125,11 @@ set textwidth=0
 set wrapmargin=0
 set formatoptions+=l "No reformatting while typing on the exciting line.
 
-" Due to the auto line wrapping, we entitle the movement key with right to move around the same line.
-nnoremap  j gj
-nnoremap  k gk
-vnoremap  j gj
-vnoremap  k gk
+"" Due to the auto line wrapping, we entitle the movement key with right to move around the same line.
+"nnoremap  j gj
+"nnoremap  k gk
+"vnoremap  j gj
+"vnoremap  k gk
 
 
 " For coding purpose: no wrapping. Currently, these are not working well!
@@ -1059,3 +1059,6 @@ let &colorcolumn="80,".join(range(120,999),",")
 "Disable Ex mode
 nnoremap Q <Nop>
 nnoremap gQ <Nop>
+
+"Z for quitting
+nnoremap Z :wall!<CR>:qa<CR>
