@@ -172,7 +172,8 @@ set showmatch
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Highlight current line
 set cursorline
-set nocursorcolumn
+set cursorcolumn
+"set nocursorcolumn
 
 " Sets how many lines of history VIM has to remember
 set history=700
@@ -1062,3 +1063,13 @@ nnoremap gQ <Nop>
 
 "Z for quitting
 nnoremap Z :wall!<CR>:qa<CR>
+
+function! VimwikiLinkHandler(link)
+ if a:link =~ "command:"
+      let cmd = a:link[8:]
+ execute cmd
+ return 1
+    else
+      return 0
+    endif
+endfunction
