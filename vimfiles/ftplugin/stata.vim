@@ -1,8 +1,11 @@
+" Let vim know all types of commenting styles.
+setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
 " Structural setting.
 setlocal fdm=manual
 setlocal wrap nolinebreak nolist textwidth=80 wrapmargin=0
-setlocal formatoptions=crncqj
+"
 " c==> only auto format the comments. (to comply with the 80 width standard)
+setlocal formatoptions=crnqj
 
 
 
@@ -47,4 +50,3 @@ noremap  <buffer> <F12> V:<C-U>call RunDoLines() <CR>
 inoremap <buffer> <F12> <ESC>V:<C-U>call RunDoLines() <CR>
 vnoremap <buffer> <F12> :<C-U>call RunDoLines() <CR>
 
-setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://

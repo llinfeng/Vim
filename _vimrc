@@ -1,6 +1,9 @@
 " Use spaces instead of tabs
 "set expandtab
-colorscheme papayawhip
+colorscheme solarized
+set background=dark
+"set background=light
+"papayawhip
 "default
 "olive
 set fdm=manual
@@ -848,9 +851,6 @@ let g:solarized_termcolors=256
 
 "Or | "high" or "low"
 let g:solarized_visibility="normal" 
-"colorscheme solarized 
-"set background=dark
-"set background=light
 call togglebg#map("<leader>ttt")
 
 " }}} 
