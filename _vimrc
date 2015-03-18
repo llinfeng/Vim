@@ -151,8 +151,6 @@ colorscheme solarized
 "papayawhip
 "default
 "olive
-set background=dark
-"set background=light
 " Sets how many lines of history VIM has to remember
 set history=200
 " For stopping the display of @ when a line goes too long and got wrapped.
@@ -683,3 +681,6 @@ iab rq <c-r>=strftime("20%y-%m-%d")<cr>
 iab SJ <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>
 " }}}
 " }}}
+
+"set background=dark
+set background=light
