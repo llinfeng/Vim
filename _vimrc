@@ -1,13 +1,14 @@
 "" Issues: as of 2015-03-17 23:02:06
 " 1. Upon starting Vim and calling $VIMRC, solarized should have admitted italic font. This should not happen.
 
+" Preamble {{{
 " Enable filetype plugin
 filetype plugin on
 filetype indent on
 " The new feature for Vim 7.4.338 ==> To wrap a long line with indentation!
 set breakindent
 " Other fundamental options.
-set fdm=marker
+set fdm=manual
 let mapleader = ","
 let g:mapleader = ","
 set nocompatible
@@ -15,6 +16,7 @@ set nocompatible
 "Disable Ex mode
 nnoremap Q <Nop>
 nnoremap gQ <Nop>
+" }}}
 
 " Vim settings {{{
 " Change current directory to the file of the buffer.
@@ -415,6 +417,11 @@ nnoremap <C-S-CR> :Open<CR>
 let g:dwm_master_pane_width="50%"
 nnoremap <c-c> <C-W>c
 " }}}
+" twe4ked/vim-colorscheme-switcher {{{
+nnoremap <F6> :call NextColor(1)<CR>
+nnoremap <F5> :call NextColor(-1)<CR>
+nnoremap <A-F5> :call NextColor(0)<CR>
+"}}}
 " }}}
 
 " AutoCommand sequence {{{
@@ -460,16 +467,6 @@ vnoremap <leader>t :TC<CR>
 "nnoremap <leader>w :w!<CR>
 " }}}
 
-"Testing
-nmap <F5> :windo set scrollbind!<cr>
-
-
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ==> Mapping
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <MiddleMouse> <LeftMouse>*
 
 " Mapings {{{
 " Line-toggle using Alt+J/K {{{
@@ -484,62 +481,45 @@ vmap <A-j> :m'>+<cr>`<my`>mzgv`yo`z
 vmap <A-k> :m'<-2<cr>`>my`<mzgv`yo`z
 "}}} 
 " Mapping for key-combination  {{{
+"Ctrl keys
 nnoremap <C-s> :wall!<CR>
 inoremap <C-s> <ESC>:wall!<CR><right>
 inoremap <C-BS> <C-W>
-
-" nnoremap <C-space> :DWM_Focus<CR>
-" Forget about this: now use <C-@>
-
-"unnoremap <C-n>
-"nnoremap <C-n> :tabnext<CR>
-"nnoremap <C-n> :bn<CR>
-
-" Visually select all (to prepare for other formating methods)
-"map <C-A> ggVG
-" Comment: This would be primitive, but I am happy to introduce it here. 
-" The above line enables visual selecting the entire text of the file.
-
+"Alt keys
 nnoremap <M-w> :tabclose<CR>
 nnoremap <M-c> :tabnew<CR>
 nnoremap <M-n> :tabnext<CR>
 nnoremap <M-p> :tabprevious<CR>
 inoremap <S-tab> <backspace><backspace><backspace><backspace>
-
 " Mapping anything to jj is not a good idea.
 inoremap  aa <ESC>[sz=
 nnoremap  aa <ESC>[sz=
 " }}}
 " Mapping for Single Keys & (F1-F12) keys {{{
 " Short key feature for toggling
-"
-nnoremap <insert> :LanguageToolCheck<CR>
-nnoremap <S-insert> :LanguageToolClear<CR>
-inoremap <silent> <insert> <ESC>:YRShow<CR>
-noremap <F2> :NERDTreeToggle<CR> 
-noremap <silent> <F3> :noh<cr>
+"nnoremap <insert> :LanguageToolCheck<CR>
+"nnoremap <S-insert> :LanguageToolClear<CR>
+"inoremap <silent> <insert> <ESC>:YRShow<CR>
+nnoremap <F2> :NERDTreeToggle<CR> 
+nnoremap <F3> :windo set scrollbind!<cr>
 nnoremap <F4> :GundoToggle<CR>
-nnoremap Y y$
-
-" To add a task in VimWiki.
-" All the mappings have been transported to the ftpluging .vim files. 
-
-
+" F5 and F6 used for toggling the color schemes.
+nnoremap <silent> <F9> :ToggleSlash<CR>
+nnoremap <silent> <F10> :ToggleSlash<CR>
+" F11 had been used by shell to toggle full screen view.
+nnoremap <silent> <F12> :ToggleSlash<CR>
 " }}}
 " Mapping for moving cursor around (both windows and tabs) {{{
-
 " Treat long lines as break lines (useful when moving around in them)
 noremap <home> g0
 noremap <end> g$
-"noremap 0 g0
-"noremap $ g$
+" }}}
+" Mapping for Windows {{{
+"Arrow keys in insert mode.
 inoremap <silent> <Down> <C-o>gj
 inoremap <silent> <Up> <C-o>gk
 inoremap <home> <C-o>g0
 inoremap <end> <C-o>g$
-
-" }}}
-" Mapping for Windows {{{
 " Behave like Win: 
 vnoremap <BS> d
 "When having mapped <CR> somewhere
@@ -559,20 +539,11 @@ cnoremap <C-A> <C-C>gggH<C-O>G
 onoremap <C-A> <C-C>gggH<C-O>G
 vnoremap <C-C> "+y
 " }}}
-
-" }}} 
-" Changing the coloring.
-" TODO: with conflict with redo a deleted buffer. as of 2015-03-17 22:14:06
-nnoremap <F8> :call NextColor(1)<CR>
-nnoremap <F9> :call NextColor(-1)<CR>
-nnoremap <A-F8> :call NextColor(0)<CR>
-" Toggle slash for the line.
-noremap <silent> <F9> :ToggleSlash<CR>	
-noremap <silent> <F10> :ToggleSlash<CR>	
-noremap <silent> <F12> :ToggleSlash<CR>	
-noremap  <leader>/ :ToggleSlash<CR>	
+" MISC mappings {{{
 " Space as page down.
 nnoremap <space> <C-F>
+"}}}
+" }}} 
 
 " Command Line: {{{
 " Command line shortcuts for motion.
@@ -601,11 +572,7 @@ command! SO :so $MYVIMRC
 command! So :so $MYVIMRC
 " }}}
 
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ==> User defined functions
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" User defined functions {{{
 " Vim as Stata IDE, the support functions {{{
 " Run the whole do file at a time.
     fun! RunIt()
@@ -646,6 +613,9 @@ function! ToggleSlash(independent) range
   endfor
 endfunction
 command! -bang -range ToggleSlash <line1>,<line2>call ToggleSlash(<bang>1)
+" Toggle slash for the line.
+nnoremap  <leader>/ :ToggleSlash<CR>	
+vnoremap  <leader>/ :ToggleSlash<CR>	
 " }}}
 " Toggling capitalization in a roll {{{
 "Source: http://vim.wikia.com/wiki/Switching_case_of_characters
@@ -661,16 +631,17 @@ function! TwiddleCase(str)
 endfunction
 vnoremap ~ y:call setreg('', TwiddleCase(@"), getregtype(''))<CR>gv""Pgv
 "}}}
+" }}}
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ==> Functional scripts
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Functional scripts and mappings. {{{
+" Middle-key as crosshairs.
+nnoremap <MiddleMouse> <LeftMouse>*
 " For the cursor line, split into new lines by spaces
 nnoremap <leader><leader><space> :s/ /\r/g<CR>
-" Undo bdelete
+" Undo bdelete (only one level though)
 autocmd BufDelete * let g:latest_deleted_buffer = expand("<afile>:p")
-nnoremap <F8> :e <C-R>=fnameescape(g:latest_deleted_buffer)<CR><CR>
-nnoremap <F8> :e <C-R>=fnameescape(g:latest_deleted_buffer)<CR><CR>
+nnoremap <leader>r :e <C-R>=fnameescape(g:latest_deleted_buffer)<CR><CR>
 " Expand functions {{{
 " Vim with file operation: file names and path
     " Path(absolute) to the file: "%:p" 
@@ -702,10 +673,13 @@ let @o = ":CikV:s/ /*/gJx50A*80d|:nohl"
 " Add a structure, at higher level.
 let @i = ":centerI*A*O*SECTION*71i*jo79i*A*j"
 " }}}
-"Z for quitting
+
+" Unique for Linfeng {{{
+"Z for quitting.
 nnoremap Z :wall!<CR>:qa<CR>
-" iab mapping: saving keystrokes
+" iab mapping: saving keystrokes.
 iab sj <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>
 iab rq <c-r>=strftime("20%y-%m-%d")<cr>
 iab SJ <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>
-set fdm=marker
+" }}}
+" }}}
