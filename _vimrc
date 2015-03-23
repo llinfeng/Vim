@@ -530,7 +530,6 @@ exe 'inoremap <script> <C-V> <C-G>u' . paste#paste_cmd['i']
 exe 'vnoremap <script> <C-V> ' . paste#paste_cmd['v']
 imap <S-Insert>		<C-V>
 vmap <S-Insert>		<C-V>
-noremap <C-Q>		<C-V>
 noremap <C-A> gggH<C-O>G
 inoremap <C-A> <C-O>gg<C-O>gH<C-O>G
 cnoremap <C-A> <C-C>gggH<C-O>G
@@ -684,4 +683,5 @@ iab SJ <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>
 
 "set background=dark
 set background=light
-nnoremap 9 i<CR><ESC>
+nnoremap <C-q> i<CR><ESC>
+nnoremap <tab> <C-W>w
