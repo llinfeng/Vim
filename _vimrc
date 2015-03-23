@@ -684,3 +684,4 @@ iab SJ <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>
 
 "set background=dark
 set background=light
+nnoremap 9 i<CR><ESC>
