@@ -494,9 +494,6 @@ inoremap  aa <ESC>[sz=
 nnoremap  aa <ESC>[sz=
 " For adding a hard linkbreak at the point of cursor, silently.
 nnoremap <C-q> i<CR><ESC>
-" For <C-K> used for conforming the texts to 80 characters long.
-" For some reason, marker z should not have been stored! Don't know why this happened, but this is exactly what I wanted.
-nnoremap <C-K> mzggVGgq`z
 " }}}
 " Mapping for Single Keys & (F1-F12) keys {{{
 " For easy switching of buffer.
