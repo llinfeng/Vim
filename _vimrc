@@ -670,6 +670,8 @@ let @r = "Vgg€ýc€ýb"
 let @o = ":CikV:s/ /*/gJx50A*80d|:nohl"
 " Add a structure, at higher level.
 let @i = ":centerI*A*O*SECTION*71i*jo79i*A*j"
+" To fix the absolute addresses and make it openable in Vimwiki
+let @f == "gI[[A]]€k9llifile:j"
 " }}}
 
 " Unique for Linfeng {{{
