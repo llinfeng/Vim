@@ -683,5 +683,10 @@ iab SJ <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>
 
 "set background=dark
 set background=light
+" For adding a hard linkbreak at the point of cursor, silently.
 nnoremap <C-q> i<CR><ESC>
+" For easy switching of buffer.
 nnoremap <tab> <C-W>w
+" For <C-K> used for conforming the texts to 80 characters long.
+" For some reason, marker z should not have been stored! Don't know why this happened, but this is exactly what I wanted.
+nnoremap <C-K> mzggVGgq`z
