@@ -493,7 +493,7 @@ inoremap <S-tab> <backspace><backspace><backspace><backspace>
 inoremap  aa <ESC>[sz=
 nnoremap  aa <ESC>[sz=
 " For adding a hard linkbreak at the point of cursor, silently.
-nnoremap <C-q> i<CR><ESC>
+nnoremap <S-q> i<CR><ESC>
 " }}}
 " Mapping for Single Keys & (F1-F12) keys {{{
 " For easy switching of buffer.
@@ -671,7 +671,9 @@ let @o = ":CikV:s/ /*/gJx50A*80d|:nohl"
 " Add a structure, at higher level.
 let @i = ":centerI*A*O*SECTION*71i*jo79i*A*j"
 " To fix the absolute addresses and make it openable in Vimwiki
-let @f == "gI[[A]]€k9llifile:j"
+let @f = '"gI[[A]]€k9llifile:j"'
+" Temp: stored only for the current project.
+let @t = "$dawOlabel copy pJ$yawolabel values p pj"
 " }}}
 
 " Unique for Linfeng {{{
