@@ -201,7 +201,6 @@ Plugin 'Shougo/vimproc.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'dkprice/vim-easygrep'
 Plugin 'llinfeng/FeralToggleCommentify.vim'
-Plugin 'llinfeng/LanguageTool'
 Plugin 'llinfeng/vim-airline'
 Plugin 'llinfeng/vim-latex-suite'
 Plugin 'llinfeng/vim-snipmate'
@@ -226,6 +225,7 @@ Plugin 'kshenoy/vim-signature'
 Plugin 'vim-scripts/restore_view.vim'
 Plugin 'vim-scripts/shuffle.vim'
 Plugin 'twe4ked/vim-colorscheme-switcher'
+"Plugin 'llinfeng/LanguageTool'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -492,12 +492,16 @@ inoremap <S-tab> <backspace><backspace><backspace><backspace>
 " Mapping anything to jj is not a good idea.
 inoremap  aa <ESC>[sz=
 nnoremap  aa <ESC>[sz=
+" For adding a hard linkbreak at the point of cursor, silently.
+nnoremap <C-q> i<CR><ESC>
+" For <C-K> used for conforming the texts to 80 characters long.
+" For some reason, marker z should not have been stored! Don't know why this happened, but this is exactly what I wanted.
+nnoremap <C-K> mzggVGgq`z
 " }}}
 " Mapping for Single Keys & (F1-F12) keys {{{
+" For easy switching of buffer.
+nnoremap <tab> <C-W>w
 " Short key feature for toggling
-"nnoremap <insert> :LanguageToolCheck<CR>
-"nnoremap <S-insert> :LanguageToolClear<CR>
-"inoremap <silent> <insert> <ESC>:YRShow<CR>
 nnoremap <F2> :NERDTreeToggle<CR> 
 nnoremap <F3> :windo set scrollbind!<cr>
 nnoremap <F4> :GundoToggle<CR>
@@ -683,10 +687,3 @@ iab SJ <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>
 
 "set background=dark
 set background=light
-" For adding a hard linkbreak at the point of cursor, silently.
-nnoremap <C-q> i<CR><ESC>
-" For easy switching of buffer.
-nnoremap <tab> <C-W>w
-" For <C-K> used for conforming the texts to 80 characters long.
-" For some reason, marker z should not have been stored! Don't know why this happened, but this is exactly what I wanted.
-nnoremap <C-K> mzggVGgq`z
