@@ -28,7 +28,6 @@ autocmd CmdwinEnter * nnoremap <CR> <CR>
 autocmd BufReadPost quickfix nnoremap <CR> <CR>
 
 iab <buffer> sj ******************************<c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>*******************************
-nnoremap <buffer> <S-CR> :M<CR>
 
 
 " Old sources.

@@ -420,6 +420,17 @@ nnoremap <F6> :call NextColor(1)<CR>
 nnoremap <F5> :call NextColor(-1)<CR>
 nnoremap <A-F5> :call NextColor(0)<CR>
 "}}}
+" Syntastic: {{{
+    set statusline+=%#warningmsg#
+    set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
+
+    let g:syntastic_always_populate_loc_list = 1
+    let g:syntastic_auto_loc_list = 1
+    let g:syntastic_check_on_open = 1
+    let g:syntastic_check_on_wq = 0
+
+" }}}
 " }}}
 
 " AutoCommand sequence {{{
@@ -692,3 +703,8 @@ iab SJ <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>
 
 "set background=dark
 set background=light
+
+" avoid the ESC on the left top corner!
+inoremap jk <ESC>l
+cab drop C:\users\llinfeng\dropbox
+cab ft C:\vim\vimfiles\ftplugin
