@@ -1,5 +1,5 @@
 " Line breaking modification.
-setlocal linebreak nolist textwidth=93 wrapmargin=0 formatoptions=roqtc fdm=manual
+setlocal linebreak nolist textwidth=80 wrapmargin=0 formatoptions=roqtc fdm=manual
 
 " TIP: if you write your \label's as \label{fig:something}, then if you
 " type in \ref{fig: and press <C-n> you will automatically cycle through
@@ -35,7 +35,6 @@ let g:Tex_Env_frame="\\begin{frame}\<CR>\\frametitle{<+FrameTitle+>}\<CR><++>\<C
 "vmap <buffer> <C-l> <Plug>Tex_LeftRight
 
 
-iab <buffer> sj <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>
 
 nnoremap <buffer> <leader>c :CC<CR>
 nnoremap <buffer> <leader>u :UC<CR>
@@ -50,3 +49,6 @@ imap <C-J> <Plug>IMAP_JumpForward
 nmap <C-J> <Plug>IMAP_JumpForward
 vmap <C-J> <Plug>IMAP_JumpForward
 vmap <C-J> <Plug>IMAP_DeleteAndJumpForward
+
+" Use <leader>v to reveal structure by VOom
+nnoremap <leader>v :Voom latex<CR>

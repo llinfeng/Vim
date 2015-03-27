@@ -458,6 +458,7 @@ nnoremap <leader>t :TC<CR>
 vnoremap <leader>c :CC<CR>
 vnoremap <leader>u :UC<CR>
 vnoremap <leader>t :TC<CR>
+" Construct a table though Vimwiki, with column-num + row-num.
 nnoremap <leader>table :VimwikiTable 
 """"""""""""""""  Of potential use """""""""""""""""""""""""""""""""""""""""""""
 " k for keyword, use the system local grep.
