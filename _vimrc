@@ -458,6 +458,7 @@ nnoremap <leader>t :TC<CR>
 vnoremap <leader>c :CC<CR>
 vnoremap <leader>u :UC<CR>
 vnoremap <leader>t :TC<CR>
+nnoremap <leader>table :VimwikiTable 
 """"""""""""""""  Of potential use """""""""""""""""""""""""""""""""""""""""""""
 " k for keyword, use the system local grep.
 " easy-grep had solved this issue. <leader>vv was used there.
@@ -634,7 +635,7 @@ vnoremap ~ y:call setreg('', TwiddleCase(@"), getregtype(''))<CR>gv""Pgv
 
 " Functional scripts and mappings. {{{
 " Middle-key as crosshairs.
-nnoremap <MiddleMouse> <LeftMouse>*
+nnoremap <MiddleMouse> <LeftMouse>*<C-O>
 " For the cursor line, split into new lines by spaces
 nnoremap <leader><leader><space> :s/ /\r/g<CR>
 " Undo bdelete (only one level though)
@@ -674,6 +675,8 @@ let @i = ":centerI*A*O*SECTION*71i*jo79i*A*j"
 let @f = '"gI[[A]]€k9llifile:j"'
 " Temp: stored only for the current project.
 let @t = "$dawOlabel copy pJ$yawolabel values p pj"
+let @q = '"Ilabel define WWWi"A", defreplacej"'
+let @w = 't st"Ilabel define WWWi"A", modifyj"'
 " }}}
 
 " Unique for Linfeng {{{
