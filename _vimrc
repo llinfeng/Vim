@@ -708,3 +708,10 @@ set background=light
 inoremap jk <ESC>l
 cab drop C:\users\llinfeng\dropbox
 cab ft C:\vim\vimfiles\ftplugin
+cab noda C:\NODA
+
+func! Eatchar(pat)
+    let c = nr2char(getchar(0))
+    return (c =~ a:pat) ? '' : c
+endfunc
+iabbr <silent> if if ()<Left><C-R>=Eatchar('\s')<CR>
