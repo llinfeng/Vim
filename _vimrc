@@ -707,8 +707,10 @@ set background=light
 " avoid the ESC on the left top corner!
 inoremap jk <ESC>l
 cab drop C:\users\llinfeng\dropbox
+cab home C:\users\llinfeng\dropbox\home
 cab ft C:\vim\vimfiles\ftplugin
 cab noda C:\NODA
+cab latex d:\git\vim-latex-suite\ftplugin\latex-suite\templates
 
 func! Eatchar(pat)
     let c = nr2char(getchar(0))
