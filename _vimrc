@@ -711,6 +711,7 @@ cab home C:\users\llinfeng\dropbox\home
 cab ft C:\vim\vimfiles\ftplugin
 cab noda C:\NODA
 cab latex d:\git\vim-latex-suite\ftplugin\latex-suite\templates
+cab git D:\git
 
 func! Eatchar(pat)
     let c = nr2char(getchar(0))
