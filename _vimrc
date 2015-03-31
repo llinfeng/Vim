@@ -706,12 +706,14 @@ set background=light
 
 " avoid the ESC on the left top corner!
 inoremap jk <ESC>l
+" Shortcut for directories
 cab drop C:\users\llinfeng\dropbox
 cab home C:\users\llinfeng\dropbox\home
 cab ft C:\vim\vimfiles\ftplugin
 cab noda C:\NODA
 cab latex d:\git\vim-latex-suite\ftplugin\latex-suite\templates
-cab git D:\git
+" Shortcut for files.
+cab att c:\Users\llinfeng\Dropbox\ATT Billing\ªß÷˜’ ∫≈∫Õ√‹¬Î.txt
 
 func! Eatchar(pat)
     let c = nr2char(getchar(0))
