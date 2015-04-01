@@ -476,6 +476,8 @@ nnoremap <leader>table :VimwikiTable
 " easy-grep had solved this issue. <leader>vv was used there.
 "nnoremap <leader>k :grep <cword> *<CR>
 "nnoremap <leader>w :w!<CR>
+" For invoking the Work wiki.
+nnoremap <leader>W :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/Work.wiki<CR>
 " }}}
 
 
@@ -516,8 +518,8 @@ nnoremap <F2> :NERDTreeToggle<CR>
 nnoremap <F3> :windo set scrollbind!<cr>
 nnoremap <F4> :GundoToggle<CR>
 " F5 and F6 used for toggling the color schemes.
-nnoremap <silent> <F9> :ToggleSlash<CR>
-nnoremap <silent> <F10> :ToggleSlash<CR>
+"nnoremap <silent> <F9> :ToggleSlash<CR>
+"nnoremap <silent> <F10> :ToggleSlash<CR>
 " F11 had been used by shell to toggle full screen view.
 nnoremap <silent> <F12> :ToggleSlash<CR>
 " }}}
@@ -707,16 +709,21 @@ set background=light
 " avoid the ESC on the left top corner!
 inoremap jk <ESC>l
 " Shortcut for directories
+    " Rules: the cab shortcuts shall not used as query item;
+    "        the cab shortcuts shall be most-usually-used items.
 cab drop C:\users\llinfeng\dropbox
 cab home C:\users\llinfeng\dropbox\home
 cab ft C:\vim\vimfiles\ftplugin
-cab noda C:\NODA
 cab latex d:\git\vim-latex-suite\ftplugin\latex-suite\templates
 " Shortcut for files.
 cab att c:\Users\llinfeng\Dropbox\ATT Billing\ªß÷˜’ ∫≈∫Õ√‹¬Î.txt
 
+" Supporting function that deletes the trailing space entered though expending abbreviation.
 func! Eatchar(pat)
     let c = nr2char(getchar(0))
     return (c =~ a:pat) ? '' : c
 endfunc
 iabbr <silent> if if ()<Left><C-R>=Eatchar('\s')<CR>
+
+" <C-K> in visual mode to replace gq
+vnoremap <c-k> gq<CR>

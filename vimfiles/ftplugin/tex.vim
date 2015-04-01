@@ -52,3 +52,8 @@ vmap <C-J> <Plug>IMAP_DeleteAndJumpForward
 
 " Use <leader>v to reveal structure by VOom
 nnoremap <leader>v :Voom latex<CR>
+
+" Not sure why F9 is not working. As of 2015-04-01 10:46:21
+	 inoremap <silent> <Plug>Tex_Completion <Esc>:call Tex_Complete("default","text")<CR>
+	 imap <buffer> <silent> <F9> <Plug>Tex_Completion
+	 imap <buffer> <F9> <Plug>Tex_Completion
