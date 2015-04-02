@@ -4,7 +4,7 @@ setlocal linebreak nolist textwidth=0 wrapmargin=0
 " For some reason, marker z should not have been stored! Don't know why this happened, but this is exactly what I wanted.
 nnoremap <C-K> mzggVGgq`z
 
-setlocal formatoptions=roqtc 
+setlocal formatoptions=roqjn
 setlocal fdm=manual
 
 

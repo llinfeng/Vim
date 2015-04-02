@@ -1,3 +1,5 @@
+" Behavior of text wrapping.
+setlocal formatoptions=rqcnj
 " Line breaking modification.
 setlocal linebreak nolist textwidth=80 wrapmargin=0 formatoptions=roqtc fdm=manual
 
@@ -42,7 +44,6 @@ nnoremap <buffer> <leader>t :TC<CR>
 nnoremap <buffer> <leader><leader>T :set syntax=tex<CR>
 nnoremap <buffer> <leader><leader>t :Voom latex<CR>
 
-setlocal formatoptions=roqtc
 
 " Fix to dwm, to re-emphasis the mapping of <C-J>.
 imap <C-J> <Plug>IMAP_JumpForward
@@ -54,6 +55,8 @@ vmap <C-J> <Plug>IMAP_DeleteAndJumpForward
 nnoremap <leader>v :Voom latex<CR>
 
 " Not sure why F9 is not working. As of 2015-04-01 10:46:21
-	 inoremap <silent> <Plug>Tex_Completion <Esc>:call Tex_Complete("default","text")<CR>
-	 imap <buffer> <silent> <F9> <Plug>Tex_Completion
-	 imap <buffer> <F9> <Plug>Tex_Completion
+inoremap <silent> <Plug>Tex_Completion <Esc>:call Tex_Complete("default","text")<CR>
+imap <buffer> <silent> <F9> <Plug>Tex_Completion
+imap <buffer> <F9> <Plug>Tex_Completion
+
+imap <buffer> <C-B> <Plug>Tex_Completion
