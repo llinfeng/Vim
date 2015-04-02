@@ -662,9 +662,9 @@ nnoremap <leader>r :e <C-R>=fnameescape(g:latest_deleted_buffer)<CR><CR>
     " File name only: "%:t"
     " Relative path: "%"
 "Copy the full file path to windows clipboard.
-nnoremap yyy :let @* = expand("%:p")<CR>
+nnoremap Y :let @* = expand("%:p")<CR>
 "Copy the file name to windows clipboard.
-nnoremap Y :let @* = expand("%:p:t")<CR>
+nnoremap yy :let @* = expand("%:p:t")<CR>
 nnoremap DDD :call delete(expand('%')) 
 "Now using leaders:
 " Full path
