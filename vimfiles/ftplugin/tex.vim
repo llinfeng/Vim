@@ -1,7 +1,7 @@
 " Behavior of text wrapping.
-setlocal formatoptions=rqcnj
+setlocal formatoptions=rqctnjw
 " Line breaking modification.
-setlocal linebreak nolist textwidth=80 wrapmargin=0 formatoptions=roqtc fdm=manual
+setlocal wrap linebreak nolist textwidth=80 wrapmargin=0 fdm=manual
 
 " TIP: if you write your \label's as \label{fig:something}, then if you
 " type in \ref{fig: and press <C-n> you will automatically cycle through

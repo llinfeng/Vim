@@ -1,3 +1,6 @@
+set encoding=utf-8
+"set langmenu=zh_CN.UTF-8
+"language message zh_CN.UTF-8
 "" Issues: as of 2015-03-17 23:02:06
 " 1. Upon starting Vim and calling $VIMRC, solarized should have admitted italic font. This should not happen.
 
@@ -664,7 +667,7 @@ nnoremap <leader>r :e <C-R>=fnameescape(g:latest_deleted_buffer)<CR><CR>
 "Copy the full file path to windows clipboard.
 nnoremap Y :let @* = expand("%:p")<CR>
 "Copy the file name to windows clipboard.
-nnoremap yy :let @* = expand("%:p:t")<CR>
+nnoremap yyy :let @* = expand("%:p:t")<CR>
 nnoremap DDD :call delete(expand('%')) 
 "Now using leaders:
 " Full path
@@ -712,7 +715,7 @@ inoremap jk <ESC>l
     " Rules: the cab shortcuts shall not used as query item;
     "        the cab shortcuts shall be most-usually-used items.
 cab drop C:\users\llinfeng\dropbox
-cab home C:\users\llinfeng\dropbox\home
+cab home C:\users\llinfeng
 cab ft C:\vim\vimfiles\ftplugin
 cab latex d:\git\vim-latex-suite\ftplugin\latex-suite\templates
 " Shortcut for files.
