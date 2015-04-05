@@ -83,7 +83,7 @@ set autoread
 " Enabling Spell-check and make changes to how it looks.
 set spell spelllang=en_us
     "Don't show too much suggestion for spell check.
-    set spellsuggest=best,20
+    set spellsuggest=fast,20
 " To enable spell check for main body of tex file.
 autocmd BufEnter * syntax spell toplevel
 " to jump BRIEFLY to the matching bracket
@@ -708,8 +708,8 @@ iab ve \verb\|\|<Left><C-R>=Eatchar('\s')<CR>
 " }}}
 " }}}
 
-set background=dark
-"set background=light
+"set background=dark
+set background=light
 
 " avoid the ESC on the left top corner!
 inoremap jk <ESC>l
