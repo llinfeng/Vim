@@ -703,11 +703,13 @@ nnoremap Z :wall!<CR>:qa<CR>
 iab sj <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>
 iab rq <c-r>=strftime("20%y-%m-%d")<cr>
 iab SJ <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>
+" iab mapping that works better than snippets.
+iab ve \verb\|\|<Left><C-R>=Eatchar('\s')<CR>
 " }}}
 " }}}
 
-"set background=dark
-set background=light
+set background=dark
+"set background=light
 
 " avoid the ESC on the left top corner!
 inoremap jk <ESC>l
@@ -719,7 +721,8 @@ cab home C:\users\llinfeng
 cab ft C:\vim\vimfiles\ftplugin
 cab latex d:\git\vim-latex-suite\ftplugin\latex-suite\templates
 " Shortcut for files.
-cab att c:\Users\llinfeng\Dropbox\ATT Billing\ªß÷˜’ ∫≈∫Õ√‹¬Î.txt
+cab bat_dir c:\Users\llinfeng\Dropbox\Tool\bat_file
+cab snippets d:\git\vim-snipmate\snippets
 
 " Supporting function that deletes the trailing space entered though expending abbreviation.
 func! Eatchar(pat)
