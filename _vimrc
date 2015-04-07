@@ -708,8 +708,8 @@ iab ve \verb\|\|<Left><C-R>=Eatchar('\s')<CR>
 " }}}
 " }}}
 
-"set background=dark
-set background=light
+set background=dark
+"set background=light
 
 " avoid the ESC on the left top corner!
 inoremap jk <ESC>l
@@ -738,4 +738,10 @@ endfunc
 
 " <C-K> in visual mode to replace gq
 vnoremap <c-k> gq<CR>
+
+
+" Temp mapping:
+nnoremap D f.s
+nnoremap - jF"ci"
+nnoremap = }jV:<C-U>call RunIt() <CR>
 
