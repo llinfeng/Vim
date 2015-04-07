@@ -151,7 +151,7 @@ set cursorline
 set cursorcolumn
 " Color scheme and background.
 colorscheme solarized
-"papayawhip
+"colorscheme papayawhip
 "default
 "olive
 " Sets how many lines of history VIM has to remember
@@ -718,11 +718,15 @@ inoremap jk <ESC>l
     "        the cab shortcuts shall be most-usually-used items.
 cab drop C:\users\llinfeng\dropbox
 cab home C:\users\llinfeng
-cab ft C:\vim\vimfiles\ftplugin
+cab ftpl C:\vim\vimfiles\ftplugin
 cab latex d:\git\vim-latex-suite\ftplugin\latex-suite\templates
 " Shortcut for files.
 cab bat_dir c:\Users\llinfeng\Dropbox\Tool\bat_file
-cab snippets d:\git\vim-snipmate\snippets
+" Color scheme switching: 
+cab pap colorscheme papayawhip
+" Shortcut for command-line deleting empty lines!
+cab empty v/\S/d
+
 
 " Supporting function that deletes the trailing space entered though expending abbreviation.
 func! Eatchar(pat)
@@ -734,3 +738,4 @@ endfunc
 
 " <C-K> in visual mode to replace gq
 vnoremap <c-k> gq<CR>
+

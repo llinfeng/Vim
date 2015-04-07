@@ -3,6 +3,9 @@ setlocal formatoptions=rqctnjw
 " Line breaking modification.
 setlocal wrap linebreak nolist textwidth=80 wrapmargin=0 fdm=manual
 
+" iab mapping for inserting time stamps.
+iab <buffer> sj % <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr><ESC>o
+" <esc>o<esc>o<C-R>=Eatchar('\s')<CR><C-O>cc
 " TIP: if you write your \label's as \label{fig:something}, then if you
 " type in \ref{fig: and press <C-n> you will automatically cycle through
 " all the figure labels. Very useful!
@@ -60,3 +63,8 @@ imap <buffer> <silent> <F9> <Plug>Tex_Completion
 imap <buffer> <F9> <Plug>Tex_Completion
 
 imap <buffer> <C-B> <Plug>Tex_Completion
+
+" Latex folding using the Suite
+let Tex_FoldedSections=""
+let Tex_FoldedEnvironments=""
+let Tex_FoldedMisc=""
