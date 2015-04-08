@@ -741,7 +741,8 @@ vnoremap <c-k> gq<CR>
 
 
 " Temp mapping:
-nnoremap D f.s
-nnoremap - jF"ci"
-nnoremap = }jV:<C-U>call RunIt() <CR>
-
+nnoremap D jf.x"+pbbx4li <esc>bhx
+nnoremap DD jf.s
+nnoremap - <esc>jF"ci"
+nnoremap _ <esc>jf"ci"
+nnoremap = }jV:<C-U>call RunDoLines()<CR>
