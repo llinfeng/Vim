@@ -228,6 +228,8 @@ Plugin 'kshenoy/vim-signature'
 Plugin 'vim-scripts/restore_view.vim'
 Plugin 'vim-scripts/shuffle.vim'
 Plugin 'twe4ked/vim-colorscheme-switcher'
+Plugin 'nathanaelkane/vim-indent-guides'
+
 "Plugin 'llinfeng/LanguageTool'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -423,11 +425,23 @@ nnoremap <F6> :call NextColor(1)<CR>
 nnoremap <F5> :call NextColor(-1)<CR>
 nnoremap <A-F5> :call NextColor(0)<CR>
 "}}}
+" Vim-indent-guidelines {{{
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1 
+
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=red ctermbg=3
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+
+hi IndentGuidesOdd guibg=red ctermbg=3
+
+hi IndentGuidesEven guibg=green ctermbg=4
+
+" }}}
 " Syntastic: {{{
     set statusline+=%#warningmsg#
     set statusline+=%{SyntasticStatuslineFlag()}
     set statusline+=%*
-
     let g:syntastic_always_populate_loc_list = 1
     let g:syntastic_auto_loc_list = 1
     let g:syntastic_check_on_open = 1
@@ -708,8 +722,8 @@ iab ve \verb\|\|<Left><C-R>=Eatchar('\s')<CR>
 " }}}
 " }}}
 
-set background=dark
-"set background=light
+"set background=dark
+set background=light
 
 " avoid the ESC on the left top corner!
 inoremap jk <ESC>l
@@ -741,8 +755,15 @@ vnoremap <c-k> gq<CR>
 
 
 " Temp mapping:
-nnoremap D jf.x"+pbbx4li <esc>bhx
+nnoremap D mmjf.x"+pbbx4li <esc>bhx
 nnoremap DD jf.s
 nnoremap - <esc>jF"ci"
 nnoremap _ <esc>jf"ci"
 nnoremap = }jV:<C-U>call RunDoLines()<CR>
+
+nnoremap <M-y> 0vE"+y
+
+inoremap <C-]> <ESC>
+
+iab s snippet
+iab doubi 399032
