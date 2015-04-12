@@ -289,6 +289,9 @@ let g:Tex_IgnoreLevel = 9
 let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_CompileRule_pdf = 'pdflatex --synctex=-1 -src-specials -interaction=nonstopmode $*'
 let g:Tex_ViewRule_pdf = 'C:\Program Files (x86)\SumatraPDF\SumatraPDF.exe -reuse-instance -inverse-search "C:\vim\vim74\gvim  -c \":RemoteOpen +\%l \%f\"" '
+let g:Tex_FoldedSections=""
+let g:Tex_FoldedEnvironments=""
+let g:Tex_FoldedMisc=""
 " "C:\Program Files (x86)\Notepad++\notepad++.exe" -n%l "%f"
 let g:Tex_MultipleCompileFormats='pdf'
 " Functional mappings: just to reinforce the correct ones.
