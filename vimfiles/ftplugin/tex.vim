@@ -65,6 +65,8 @@ imap <buffer> <F9> <Plug>Tex_Completion
 imap <buffer> <C-B> <Plug>Tex_Completion
 
 " Latex folding using the Suite
-let Tex_FoldedSections=""
-let Tex_FoldedEnvironments=""
-let Tex_FoldedMisc=""
+let g:Tex_FoldedSections=""
+let g:Tex_FoldedEnvironments=""
+let g:Tex_FoldedMisc=""
+
+setlocal nofoldenable
