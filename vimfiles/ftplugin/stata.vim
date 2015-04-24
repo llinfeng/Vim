@@ -49,3 +49,12 @@ noremap  <buffer> <F12> V:<C-U>call RunDoLines() <CR>
 inoremap <buffer> <F12> <ESC>V:<C-U>call RunDoLines() <CR>
 vnoremap <buffer> <F12> :<C-U>call RunDoLines() <CR>
 
+" Mapping for SOC coding, finished 5512 in the end.
+"nnoremap <buffer> D j0f.x"+pbbx4li <esc>bhx
+"nnoremap <buffer> DD j0f.s
+"nnoremap <buffer> - <esc>j0f"ci"
+"inoremap <buffer> - <esc>j0f"ci"
+"inoremap <buffer> -- -
+"inoremap <buffer> = <esc>}jV:<C-U>call RunDoLines()<CR>
+"nnoremap <buffer> = }jV:<C-U>call RunDoLines()<CR>
+"nmap <buffer> dd DD

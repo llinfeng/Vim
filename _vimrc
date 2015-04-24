@@ -289,9 +289,6 @@ let g:Tex_IgnoreLevel = 9
 let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_CompileRule_pdf = 'pdflatex --synctex=-1 -src-specials -interaction=nonstopmode $*'
 let g:Tex_ViewRule_pdf = 'C:\Program Files (x86)\SumatraPDF\SumatraPDF.exe -reuse-instance -inverse-search "C:\vim\vim74\gvim  -c \":RemoteOpen +\%l \%f\"" '
-let g:Tex_FoldedSections=""
-let g:Tex_FoldedEnvironments=""
-let g:Tex_FoldedMisc=""
 " "C:\Program Files (x86)\Notepad++\notepad++.exe" -n%l "%f"
 let g:Tex_MultipleCompileFormats='pdf'
 " Functional mappings: just to reinforce the correct ones.
@@ -709,7 +706,7 @@ let @i = ":centerI*A*O*SECTION*71i*jo79i*A*j"
 let @f = '"gI[[A]]€k9llifile:j"'
 " Temp: stored only for the current project.
 let @t = "$dawOlabel copy pJ$yawolabel values p pj"
-let @q = '"Ilabel define WWWi"A", defreplacej"'
+"let @q = '"Ilabel define WWWi"A", defreplacej"'
 let @w = 't st"Ilabel define WWWi"A", modifyj"'
 " }}}
 
@@ -725,8 +722,8 @@ iab ve \verb\|\|<Left><C-R>=Eatchar('\s')<CR>
 " }}}
 " }}}
 
-"set background=dark
-set background=light
+set background=dark
+"set background=light
 
 " avoid the ESC on the left top corner!
 inoremap jk <ESC>l
@@ -757,16 +754,8 @@ endfunc
 vnoremap <c-k> gq<CR>
 
 
-" Temp mapping:
-nnoremap D mmjf.x"+pbbx4li <esc>bhx
-nnoremap DD jf.s
-nnoremap - <esc>jF"ci"
-nnoremap _ <esc>jf"ci"
-nnoremap = }jV:<C-U>call RunDoLines()<CR>
-
 nnoremap <M-y> 0vE"+y
 
 inoremap <C-]> <ESC>
 
-iab s snippet
-iab doubi 399032
+let @t = "0v14lyIrename A pj0"

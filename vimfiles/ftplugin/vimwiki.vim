@@ -21,3 +21,4 @@ nnoremap <buffer> C VC
 iab <buffer> sj ===<c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>===<CR><CR><C-R>=Eatchar('\s')<CR>
 
 nmap <buffer> <silent> <C-CR> <Plug>VimwikiToggleListItem
+nnoremap <leader>v :Voom vimwiki<CR>
