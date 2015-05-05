@@ -759,3 +759,6 @@ nnoremap <M-y> 0vE"+y
 inoremap <C-]> <ESC>
 
 let @t = "0v14lyIrename A pj0"
+
+
+let @g = "{}{jV}k:s/ /\&/gV{j,tt$b{j$yV}k:s/&//g"
