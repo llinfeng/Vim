@@ -15,8 +15,8 @@ This is a Vim distribution for personal use, contributed by a non-programmer. So
     One may use `git clone` directly, but copy-pasting from another indepednent directory has been tested to work.
 5. Open Vim and ignore the errors. Then execute `PluginInstall` through `Ex Mode`.
 6. (Minor tune, 1) Vimwiki would need to get onto `dev` mode. Steps to take: 
-    1) Use abitrary shell for `git` to change directory to: (`c:\vim\vimfiles\bundle\vimwiki\`)
-    2) execute the following git command: `git checkout origin/dev`.
+    1. Use abitrary shell for `git` to change directory to: (`c:\vim\vimfiles\bundle\vimwiki\`)
+    2. execute the following git command: `git checkout origin/dev`.
 
 # Known Problems:
 ## 32-bit Vim with 32-bit python
