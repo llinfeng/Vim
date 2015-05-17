@@ -1,13 +1,10 @@
-Intro
-===
+# Intro
 Renewed branch containing the most up-to-date Vim installation on my windows machines.
 
-Features
-====
+# Features
 Vundle deployed, together with all handy tools. Satiable for coding in Stata and writing Latex.
 
-How to Install
-===
+# How to Install
 This is a Vim distribution for personal use, contributed by a non-programmer. So, no open-box installation shall be readily available at this point. All the following steps are tested to work on a 64-bit Windows 7 machine (as well as Windows 8 machine).
 
 0. Clear the previous installation of Vim from registry (yes, Windows has annoying Registry feature)
@@ -24,10 +21,8 @@ This is a Vim distribution for personal use, contributed by a non-programmer. So
     1) Use abitrary shell for `git` to change directory to: (`c:\vim\vimfiles\bundle\vimwiki\`)
     2) execute the following git command: `git checkout origin/dev`.
 
-Known Problems:
-===
-32-bit Vim with 32-bit python
-====
+# Known Problems:
+## 32-bit Vim with 32-bit python
 To make the python integration work, 32-bit Vim downloaded through Cream (http://sourceforge.net/projects/cream/files/Vim/) would need **32-bit** Python.
 
 Installing SPSS on a 64-bit machine will distort the Python integration.
