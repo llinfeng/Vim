@@ -224,7 +224,7 @@ Plugin 'xolox/vim-reload'
 Plugin 'xolox/vim-shell'
 Plugin 'scrooloose/syntastic'
 Plugin 'finbarrocallaghan/highlights.vim'
-"Plugin 'kshenoy/vim-signature'
+Plugin 'kshenoy/vim-signature'
 Plugin 'vim-scripts/restore_view.vim'
 Plugin 'vim-scripts/shuffle.vim'
 Plugin 'twe4ked/vim-colorscheme-switcher'
@@ -722,8 +722,8 @@ iab ve \verb\|\|<Left><C-R>=Eatchar('\s')<CR>
 " }}}
 " }}}
 
-set background=dark
-"set background=light
+"set background=dark
+set background=light
 
 " avoid the ESC on the left top corner!
 inoremap jk <ESC>l
