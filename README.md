@@ -23,3 +23,6 @@ This is a Vim distribution for personal use, contributed by a non-programmer. So
 To make the python integration work, 32-bit Vim downloaded through Cream (http://sourceforge.net/projects/cream/files/Vim/) would need **32-bit** Python.
 
 * Installing SPSS on a 64-bit machine will distort the Python integration.
+
+# TODO:
+* [ ] Clean the UTF-8 characters in the `_vimrc`. They may distort the execution since they are irregular expressions.
