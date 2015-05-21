@@ -469,7 +469,7 @@ augroup END
 " Leader Mapping {{{
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
-nnoremap <Leader>d :bd<CR>
+nnoremap <Leader>d :bd<CR>:bnext<CR>
 nnoremap <Leader>D :bd!<CR>
 nnoremap <Leader>e :e $MYVIMRC<CR> 
 noremap <leader>f <ESC>:Fullscreen<CR>
