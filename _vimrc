@@ -383,10 +383,9 @@ call unite#filters#matcher_default#use(['matcher_fuzzy'])
 let g:unite_source_history_yank_enable = 1
 " Mappings and shortcut at command line.
 nnoremap <C-p> :Unite -start-insert file buffer<CR>
-nnoremap <C-L> :Unite -start-insert line<CR>
 nnoremap <c-m> :Unite -start-insert file_mru<CR>
-nnoremap <C-L> :Unite -start-insert line<CR>
-nnoremap <S-CR> :Unite -start-insert file_mru
+"nnoremap <C-L> :Unite -start-insert line<CR>
+nnoremap <S-CR> :Unite -start-insert file_mru<CR>
 nnoremap S :Unite -start-insert file buffer file_mru<CR>
 " Leader mappings for Unite
 nnoremap <leader>l :Unite -start-insert line<CR>
@@ -762,3 +761,6 @@ let @t = "0v14lyIrename A pj0"
 
 
 let @g = "{}{jV}k:s/ /\&/gV{j,tt$b{j$yV}k:s/&//g"
+
+set suffixes+=.log
+unmap <CR>
