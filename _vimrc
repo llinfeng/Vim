@@ -713,11 +713,11 @@ let @w = 't st"Ilabel define WWWi"A", modifyj"'
 "Z for quitting.
 nnoremap Z :wall!<CR>:qa<CR>
 " iab mapping: saving keystrokes.
-iab sj <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>
-iab rq <c-r>=strftime("20%y-%m-%d")<cr>
-iab SJ <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>
+inoreab sj <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>
+inoreab rq <c-r>=strftime("20%y-%m-%d")<cr>
+inoreab SJ <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>
 " iab mapping that works better than snippets.
-iab ve \verb\|\|<Left><C-R>=Eatchar('\s')<CR>
+inoreab ve \verb\|\|<Left><C-R>=Eatchar('\s')<CR>
 " }}}
 " }}}
 
