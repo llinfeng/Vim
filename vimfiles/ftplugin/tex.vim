@@ -1,7 +1,8 @@
 " Behavior of text wrapping.
 setlocal formatoptions=rqctnjw
 " Line breaking modification.
-setlocal wrap linebreak nolist textwidth=80 wrapmargin=0 fdm=manual
+setlocal wrap linebreak nolist textwidth=80 wrapmargin=0 
+setlocal foldmethod=manual
 
 " iab mapping for inserting time stamps.
 inorea <buffer> sj % <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr><ESC>o
