@@ -164,7 +164,7 @@ set matchtime=2
 " ==> GUI Options
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "set guioptions+=a
-set guioptions-=r " Make sure that the touch-screen effectiveness. 
+set guioptions+=r " Make sure that the touch-screen effectiveness. 
 set guioptions+=h
 set guioptions-=m  "remove menu bar
 set guioptions-=T
