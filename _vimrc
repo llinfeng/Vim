@@ -455,7 +455,7 @@ autocmd BufNewFile,BufReadPost *.md setlocal filetype=markdown
 " File type specific recognition scheme.
 autocmd BufRead,BufNewFile *.log set ft=stata
 " Auto save.
-autocmd FocusLost * wall!
+autocmd FocusLost * stopinsert | wall!
 " MISC setting.
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") |   exe "normal g`\"" | endif
 " Auto source _vimrc upon saving.
