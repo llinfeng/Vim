@@ -230,6 +230,8 @@ Plugin 'vim-scripts/shuffle.vim'
 Plugin 'twe4ked/vim-colorscheme-switcher'
 Plugin 'nathanaelkane/vim-indent-guides'
 
+Plugin 'klen/python-mode'
+
 "Plugin 'llinfeng/LanguageTool'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
