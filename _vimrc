@@ -766,3 +766,6 @@ let @g = "{}{jV}k:s/ /\&/gV{j,tt$b{j$yV}k:s/&//g"
 
 set suffixes+=.log
 unmap <CR>
+
+" New section for Sonja's project.
+let @z = '"f"k0EWv$hjf"ci""'
