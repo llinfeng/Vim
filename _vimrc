@@ -231,6 +231,8 @@ Plugin 'twe4ked/vim-colorscheme-switcher'
 Plugin 'nathanaelkane/vim-indent-guides'
 
 Plugin 'klen/python-mode'
+Plugin 'jcfaria/Vim-R-plugin'
+
 
 "Plugin 'llinfeng/LanguageTool'
 " All of your Plugins must be added before the following line
@@ -769,3 +771,8 @@ unmap <CR>
 
 " New section for Sonja's project.
 let @z = '"f"k0EWv$hjf"ci""'
+
+
+"let g:pymode_paths = ["C:\Program Files\Anacoda\Scripts"]
+
+let g:pymode_rope_show_doc_bind = 'K'

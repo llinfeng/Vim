@@ -6,3 +6,4 @@ nnoremap <buffer> <CR> :PymodeRun<CR>
 
 let g:pymode_doc = 1
 
+
