@@ -459,7 +459,8 @@ autocmd BufNewFile,BufReadPost *.md setlocal filetype=markdown
 " File type specific recognition scheme.
 autocmd BufRead,BufNewFile *.log set ft=stata
 " Auto save.
-autocmd FocusLost * stopinsert | wall!
+"autocmd FocusLost * stopinsert | wall!
+autocmd FocusLost *  wall!
 " MISC setting.
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") |   exe "normal g`\"" | endif
 " Auto source _vimrc upon saving.
@@ -495,7 +496,7 @@ nnoremap <leader>table :VimwikiTable
 " k for keyword, use the system local grep.
 " easy-grep had solved this issue. <leader>vv was used there.
 "nnoremap <leader>k :grep <cword> *<CR>
-"nnoremap <leader>w :w!<CR>
+nnoremap <leader>w :wall!<CR>
 " For invoking the Work wiki.
 nnoremap <leader>W :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/Work.wiki<CR>
 " }}}
@@ -591,11 +592,11 @@ command! V :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/Vault.wiki
 command! T :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/todo.wiki
 command! Shu :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/shu.wiki
 command! D :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/dao.wiki
-command! Sstata :tabedit c:/vim/vimfiles/bundle/vim-snipmate/snippets/stata.snippets
-command! Stex :tabedit c:/vim/vimfiles/bundle/vim-snipmate/snippets/tex.snippets
+command! Sstata :edit c:/vim/vimfiles/bundle/vim-snipmate/snippets/stata.snippets
+command! Stex :edit c:/vim/vimfiles/bundle/vim-snipmate/snippets/tex.snippets
 command! Folder :e C:/Users/llinfeng/Dropbox/Shu/Stata/DeployingFolderStructure.do
 command! Vstata :e c:/vim/vimfiles/ftplugin/stata.vim
-command! Vtex :e c:/vim/vimfiles/ftplugin/tex.vim
+command! FTtex :e c:/vim/vimfiles/ftplugin/tex.vim
 command! U :e c:/Users/llinfeng/Dropbox/Wiki/Warehouse/URL.wiki
 command! Stata :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/stata.wiki
 command! D :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/dao.wiki
@@ -717,16 +718,17 @@ let @w = 't st"Ilabel define WWWi"A", modifyj"'
 "Z for quitting.
 nnoremap Z :wall!<CR>:qa<CR>
 " iab mapping: saving keystrokes.
-inoreab sj <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>
-inoreab rq <c-r>=strftime("20%y-%m-%d")<cr>
-inoreab SJ <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>
+inorea sj <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>
+inorea rq <c-r>=strftime("20%y-%m-%d")<cr>
+inorea SJ <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>
+
 " iab mapping that works better than snippets.
-inoreab ve \verb\|\|<Left><C-R>=Eatchar('\s')<CR>
+inorea ve \verb\|\|<Left><C-R>=Eatchar('\s')<CR>
 " }}}
 " }}}
 
-"set background=dark
-set background=light
+set background=dark
+"set background=light
 
 " avoid the ESC on the left top corner!
 inoremap jk <ESC>l
@@ -776,3 +778,5 @@ let @z = '"f"k0EWv$hjf"ci""'
 "let g:pymode_paths = ["C:\Program Files\Anacoda\Scripts"]
 
 let g:pymode_rope_show_doc_bind = 'K'
+
+vnoremap <leader>q gq

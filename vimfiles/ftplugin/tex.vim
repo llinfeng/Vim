@@ -5,7 +5,8 @@ setlocal wrap linebreak nolist textwidth=80 wrapmargin=0
 setlocal foldmethod=manual
 
 " iab mapping for inserting time stamps.
-inorea <buffer> sj % <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr><ESC>o
+"inorea <buffer> sj % <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr><ESC>o
+"
 " <esc>o<esc>o<C-R>=Eatchar('\s')<CR><C-O>cc
 " TIP: if you write your \label's as \label{fig:something}, then if you
 " type in \ref{fig: and press <C-n> you will automatically cycle through
