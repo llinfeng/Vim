@@ -780,3 +780,13 @@ let @z = '"f"k0EWv$hjf"ci""'
 let g:pymode_rope_show_doc_bind = 'K'
 
 vnoremap <leader>q gq
+
+" Testing VimIM
+let g:Vimim_cloud = -1
+"let g:Vimim_cloud = "google"
+"let g:Vimim_cloud = "google,sogou,baidu,qq"
+" Don't understand this.
+"let g:Vimim_map = 'tab_as_gi'
+
+" ¼æ¹ËÆ´ÒôÒôµ÷ºÍÊı×Ö±êÇ©£º1,2,3,4 ¼ü¶¨ÎªÒôµ÷
+let g:Vimim_enable_pinyin_tcdth=1
