@@ -338,6 +338,8 @@ let g:vimwiki_html_header_numbering_sym = '.'
 " First wiki, for academic use
 let wiki_1 = {}
 let wiki_1.index = 'Academia'
+" This option is turned down since Vimwiki cannot convert markdown syntax to html.
+"let wiki_1.syntax = 'markdown'
 let wiki_1.path = 'C:/Users/llinfeng/Dropbox/Wiki/Warehouse'
 let wiki_1.diary_rel_path = ''
 let wiki_1.diary_index = 'Journal'
@@ -533,7 +535,8 @@ nnoremap <S-q> i<CR><ESC>
 " }}}
 " Mapping for Single Keys & (F1-F12) keys {{{
 " For easy switching of buffer.
-nnoremap <tab> <C-W>w
+"nnoremap <tab> <C-W>w
+
 " Short key feature for toggling
 nnoremap <F2> :NERDTreeToggle<CR> 
 nnoremap <F3> :windo set scrollbind!<cr>
@@ -782,11 +785,14 @@ let g:pymode_rope_show_doc_bind = 'K'
 vnoremap <leader>q gq
 
 " Testing VimIM
-let g:Vimim_cloud = -1
+"let g:Vimim_cloud = -1
 "let g:Vimim_cloud = "google"
+let g:Vimim_cloud = "baidu"
 "let g:Vimim_cloud = "google,sogou,baidu,qq"
-" Don't understand this.
-"let g:Vimim_map = 'tab_as_gi'
+let g:Vimim_toggle = 'baidu' 
 
 " 兼顾拼音音调和数字标签：1,2,3,4 键定为音调
 let g:Vimim_enable_pinyin_tcdth=1
+
+"let g:Vimim_mode='dynamic'
+let g:Vimim_mode='static'
