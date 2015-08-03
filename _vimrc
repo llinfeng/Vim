@@ -232,6 +232,10 @@ Plugin 'nathanaelkane/vim-indent-guides'
 
 Plugin 'klen/python-mode'
 Plugin 'jcfaria/Vim-R-plugin'
+" For markdown document editing (with extra mapping in ftplugin/markdown.vim)
+Plugin 'plasticboy/vim-markdown'
+Plugin 'godlygeek/tabular'
+
 
 
 "Plugin 'llinfeng/LanguageTool'
@@ -787,12 +791,12 @@ vnoremap <leader>q gq
 " Testing VimIM
 "let g:Vimim_cloud = -1
 "let g:Vimim_cloud = "google"
-let g:Vimim_cloud = "baidu"
-"let g:Vimim_cloud = "google,sogou,baidu,qq"
-let g:Vimim_toggle = 'baidu' 
+"let g:Vimim_cloud = "baidu"
+let g:Vimim_cloud = "google,sogou,baidu,qq"
+"let g:Vimim_toggle = 'baidu' 
 
 " 兼顾拼音音调和数字标签：1,2,3,4 键定为音调
 let g:Vimim_enable_pinyin_tcdth=1
 
-"let g:Vimim_mode='dynamic'
-let g:Vimim_mode='static'
+let g:Vimim_mode='dynamic'
+"let g:Vimim_mode='static'
