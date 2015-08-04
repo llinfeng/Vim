@@ -782,11 +782,14 @@ unmap <CR>
 let @z = '"f"k0EWv$hjf"ci""'
 
 
+" Python help doc (not working yet)
 "let g:pymode_paths = ["C:\Program Files\Anacoda\Scripts"]
-
 let g:pymode_rope_show_doc_bind = 'K'
 
 vnoremap <leader>q gq
+vnoremap q gq
+
+
 
 " Testing VimIM
 "let g:Vimim_cloud = -1
@@ -798,5 +801,6 @@ let g:Vimim_cloud = "google,sogou,baidu,qq"
 " ¼æ¹ËÆ´ÒôÒôµ÷ºÍÊý×Ö±êÇ©£º1,2,3,4 ¼ü¶¨ÎªÒôµ÷
 let g:Vimim_enable_pinyin_tcdth=1
 
+" Not sure how this option is taking effect.
 let g:Vimim_mode='dynamic'
 "let g:Vimim_mode='static'
