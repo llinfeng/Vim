@@ -1,12 +1,17 @@
 " Behavior of text wrapping.
 setlocal formatoptions=rqctnjw
+
 " Line breaking modification.
 setlocal wrap linebreak nolist textwidth=80 wrapmargin=0 
 setlocal foldmethod=manual
+setlocal nofoldenable
 
 " iab mapping for inserting time stamps.
 "inorea <buffer> sj % <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr><ESC>o
-"
+"ia <buffer> sj % <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr><ESC>o<backspace>
+ia <buffer> sj % <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>
+
+
 " <esc>o<esc>o<C-R>=Eatchar('\s')<CR><C-O>cc
 " TIP: if you write your \label's as \label{fig:something}, then if you
 " type in \ref{fig: and press <C-n> you will automatically cycle through
@@ -71,11 +76,9 @@ let g:Tex_FoldedSections=""
 let g:Tex_FoldedEnvironments=""
 let g:Tex_FoldedMisc=""
 
-setlocal nofoldenable
 
 " iab mapping that works better than snippets.
 inorea ve \verb\|\|<Left><C-R>=Eatchar('\s')<CR>
-
 
 " Disable concealing
 setlocal conceallevel=0

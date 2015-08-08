@@ -1,5 +1,6 @@
 " Set folding method
 setlocal foldmethod=manual
+setlocal nofoldenable
 
 " For <C-K> used for conforming the texts to 80 characters long.
 " For some reason, marker z should not have been stored! Don't know why this happened, but this is exactly what I wanted.
@@ -16,7 +17,11 @@ nnoremap <buffer> <C-D> :VimwikiToggleListItem<CR>j
 
 nnoremap <buffer> C VC
 
-inorea <buffer> sj ===<c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>===<CR><CR><C-R>=Eatchar('\s')<CR>
+" Time tag
+"inorea <buffer> sj ===<c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>===<CR><CR><C-R>=Eatchar('\s')<CR>
+"inorea <buffer> SJ <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>
+ia <buffer> sj ===<c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>===<CR><CR><C-R>=Eatchar('\s')<CR>
+ia <buffer> SJ <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>
 
 nmap <buffer> <silent> <C-CR> <Plug>VimwikiToggleListItem
 nnoremap <leader>v :Voom vimwiki<CR>
