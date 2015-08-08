@@ -804,3 +804,4 @@ let g:Vimim_enable_pinyin_tcdth=1
 " Not sure how this option is taking effect.
 let g:Vimim_mode='dynamic'
 "let g:Vimim_mode='static'
+
