@@ -72,3 +72,10 @@ let g:Tex_FoldedEnvironments=""
 let g:Tex_FoldedMisc=""
 
 setlocal nofoldenable
+
+" iab mapping that works better than snippets.
+inorea ve \verb\|\|<Left><C-R>=Eatchar('\s')<CR>
+
+
+" Disable concealing
+setlocal conceallevel=0

@@ -26,3 +26,6 @@ nnoremap <leader><leader>t :Voom vimwiki<CR>
 " setlocal linebreak nolist textwidth=0 wrapmargin=0 
 setlocal wrap linebreak nolist textwidth=80 wrapmargin=0
 setlocal formatoptions=crtnqj
+
+" Disable concealing
+setlocal conceallevel=2

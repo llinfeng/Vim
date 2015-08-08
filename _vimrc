@@ -725,12 +725,10 @@ let @w = 't st"Ilabel define WWWi"A", modifyj"'
 "Z for quitting.
 nnoremap Z :wall!<CR>:qa<CR>
 " iab mapping: saving keystrokes.
-inorea sj <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>
+"inorea sj <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>
 inorea rq <c-r>=strftime("20%y-%m-%d")<cr>
 inorea SJ <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>
 
-" iab mapping that works better than snippets.
-inorea ve \verb\|\|<Left><C-R>=Eatchar('\s')<CR>
 " }}}
 " }}}
 
@@ -805,3 +803,5 @@ let g:Vimim_enable_pinyin_tcdth=1
 let g:Vimim_mode='dynamic'
 "let g:Vimim_mode='static'
 
+" Disable concealing
+set conceallevel=0
