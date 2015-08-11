@@ -726,13 +726,13 @@ let @w = 't st"Ilabel define WWWi"A", modifyj"'
 nnoremap Z :wall!<CR>:qa<CR>
 " iab mapping: saving keystrokes.
 "inorea <buffer> sj <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>
-inorea rq <c-r>=strftime("20%y-%m-%d")<cr>
+"inorea rq <c-r>=strftime("20%y-%m-%d")<cr>
 
 " }}}
 " }}}
 
-set background=dark
-"set background=light
+"set background=dark
+set background=light
 
 " avoid the ESC on the left top corner!
 inoremap jk <ESC>l
