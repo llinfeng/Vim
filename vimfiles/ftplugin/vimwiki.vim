@@ -32,5 +32,12 @@ nnoremap <leader><leader>t :Voom vimwiki<CR>
 setlocal wrap linebreak nolist textwidth=80 wrapmargin=0
 setlocal formatoptions=crtnqj
 
-" Disable concealing
-setlocal conceallevel=2
+" With conceallevel = 1: 
+"   1. URLs will be bended;
+"   2. That bold-mark will be replaced by "-"
+" With conceallevel = 2:
+"   1. URLs are bended;
+"   2. Additionally, internal marks will be hidden.
+" Nevertheless, hiding chars and abridging display does not help too much.
+"setlocal conceallevel=2
+setlocal conceallevel=0

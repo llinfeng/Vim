@@ -339,6 +339,8 @@ let g:vimwiki_auto_checkbox = 1
 "let g:vimwiki_folding='expr'
 let g:vimwiki_table_auto_fmt = 1
 let g:vimwiki_html_header_numbering_sym = '.'
+let g:vimwiki_conceallevel = 0
+
 " First wiki, for academic use
 let wiki_1 = {}
 let wiki_1.index = 'Academia'
