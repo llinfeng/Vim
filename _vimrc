@@ -236,9 +236,10 @@ Plugin 'jcfaria/Vim-R-plugin'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'godlygeek/tabular'
 
+" Language Checking?
+Plugin 'llinfeng/LanguageTool'
 
 
-"Plugin 'llinfeng/LanguageTool'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -311,7 +312,7 @@ let MRU_Max_Entries = 400
 let MRU_Exclude_Files = '.tmp'     
 " }}}
 " LanguageTool {{{
-let g:languagetool_jar= 'c:\users\llinfeng\apps\LanguageTool-2.7\languagetool-commandline.jar'
+let g:languagetool_jar= 'c:\users\llinfeng\dropbox\Tool_Private\LanguageTool-3.0\languagetool-commandline.jar'
 " as of 2015-03-17 21:50:39, Language tool had not yet been fully fixed.
 " }}}
 " NERDTree {{{
