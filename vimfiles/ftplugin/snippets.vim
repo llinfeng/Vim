@@ -1,2 +1,1 @@
-
-iab s snippet
+iab <buffer> s snippet
