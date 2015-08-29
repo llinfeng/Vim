@@ -81,7 +81,8 @@ let &colorcolumn="80,".join(range(120,999),",")
 " Set to auto read when a file is changed from the outside
 set autoread
 " Enabling Spell-check and make changes to how it looks.
-set spell spelllang=en_us
+set spell spelllang=en_us spell
+
     "Don't show too much suggestion for spell check.
     set spellsuggest=fast,20
 " To enable spell check for main body of tex file.
