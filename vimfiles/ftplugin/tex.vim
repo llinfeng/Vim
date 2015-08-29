@@ -12,6 +12,8 @@ setlocal nofoldenable
 "ia <buffer> sj % <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>
 iab <buffer> sj % <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr><ESC>
 iab <buffer> rq <c-r>=strftime("20%y-%m-%d")<cr>
+iab <buffer> := \coloneqq
+iab <buffer> defeq \coloneqq
 
 
 " <esc>o<esc>o<C-R>=Eatchar('\s')<CR><C-O>cc

@@ -414,6 +414,7 @@ command! M :Unite -start-insert file_mru
 " }}}
 " Solarized Coloring {{{
 syntax enable
+let g:solarized_contrast = "low"
 let g:solarized_italic=0 " All parameters should be set before calling the color scheme. 
 let g:solarized_termcolors=256
 "Or | "high" or "low"
@@ -604,6 +605,7 @@ command! Shu :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/shu.wiki
 command! D :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/dao.wiki
 command! Sstata :edit c:/vim/vimfiles/bundle/vim-snipmate/snippets/stata.snippets
 command! Stex :edit c:/vim/vimfiles/bundle/vim-snipmate/snippets/tex.snippets
+command! Ttex :edit c:/vim/vimfiles/bundle/vim-snipmate/snippets/tex.snippets
 command! Folder :e C:/Users/llinfeng/Dropbox/Shu/Stata/DeployingFolderStructure.do
 command! Vstata :e c:/vim/vimfiles/ftplugin/stata.vim
 command! FTtex :e c:/vim/vimfiles/ftplugin/tex.vim
