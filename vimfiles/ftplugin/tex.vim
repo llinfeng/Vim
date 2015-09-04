@@ -14,6 +14,7 @@ iab <buffer> sj % <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr><ESC>
 iab <buffer> rq <c-r>=strftime("20%y-%m-%d")<cr>
 iab <buffer> := \coloneqq
 iab <buffer> defeq \coloneqq
+iab <buffer> limpt \lim_{x \to x_0}
 
 
 " <esc>o<esc>o<C-R>=Eatchar('\s')<CR><C-O>cc
