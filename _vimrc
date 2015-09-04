@@ -243,6 +243,8 @@ Plugin 'llinfeng/LanguageTool'
 
 " Ascetics
 Plugin 'ntpeters/vim-better-whitespace'
+let g:strip_whitespace_on_save = 1
+
 
 
 " All of your Plugins must be added before the following line
