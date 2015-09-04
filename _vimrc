@@ -32,14 +32,14 @@ set rtp+=c:\Vim\vimfiles\bundle\vim-snipmate\snippets\
 let path='C:/Vim/vimfiles/bundle'
 " For handling the .swp file and files that ends with ~
 set noswapfile
-set autoread 
+set autoread
 set directory=C:\Users\llinfeng\Onedrive\Vim-document\VimSwapFiles
 set viewdir=C:\Users\llinfeng\Onedrive\Vim-document\ViewFiles
 "Backup files
-set backup " Backups are nice 
+set backup " Backups are nice
 set backupdir=C:\Users\llinfeng\Onedrive\Vim-document\VimBackupFiles
 "Persistent undo
-set undofile " So is persistent undo 
+set undofile " So is persistent undo
 set undolevels=10000 " Maximum number of changes that can be undone
 set undoreload=10000 " Maximum number lines to save for undo on a buffer reload
 set undodir=C:\Users\llinfeng\Onedrive\Vim-document\undodir
@@ -48,7 +48,7 @@ set history=1000
 " }}}
 " Canned 封存 {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => 启动窗口最大化, maximizing the interface upon start. 
+" => 启动窗口最大化, maximizing the interface upon start.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " To maximize the Vim window in Windows. Does not grantee proper functionality in *nix environment.
 if has("gui_running")
@@ -72,7 +72,7 @@ function! HasPaste()
     return ''
 endfunction
 " }}}
-" Set-commends: Customize my editor {{{ 
+" Set-commends: Customize my editor {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ==> Setting for Vim functionality.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -96,7 +96,7 @@ set ruler
 set hidden
 " Wild menu settings {{{
 set wildmenu
-" Ignore compiled files (including those from tex files). 
+" Ignore compiled files (including those from tex files).
 set wildignore=*.o,*~,*.pyc,*.aux,*.bak,*.bbl,*.blg,*.out,*.synctex,*.png,*.jpg,*.pdf
 set wildignore+=*.pdfsync,*.sty,*.bst
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
@@ -127,14 +127,14 @@ set nolist " list disables linebreak
 set textwidth=0
 set wrapmargin=0
 set formatoptions+=l "No reformatting while typing on the exciting line.
-" Further settings are to be found in the 
+" Further settings are to be found in the
     " c:\vim\vimfiles\ftplugin\
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Search Options, search
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" For manipulating the search environment. 
-set ignorecase 
-" When searching try to be smart about cases 
+" For manipulating the search environment.
+set ignorecase
+" When searching try to be smart about cases
 set smartcase
 " Highlight search results
 set hlsearch
@@ -158,14 +158,14 @@ colorscheme solarized
 " Sets how many lines of history VIM has to remember
 set history=200
 " For stopping the display of @ when a line goes too long and got wrapped.
-set display=lastline  
+set display=lastline
 "How many tenths of a second to blink
-set matchtime=2 
+set matchtime=2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ==> GUI Options
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "set guioptions+=a
-set guioptions+=r " Make sure that the touch-screen effectiveness. 
+set guioptions+=r " Make sure that the touch-screen effectiveness.
 set guioptions+=h
 set guioptions+=m  "remove menu bar
 set guioptions-=T
@@ -187,8 +187,9 @@ set timeoutlen=1000
 set ttimeoutlen=100
 "For splitting new windows: put it below
 set splitbelow
-" }}} 
 " }}}
+" }}}
+
 
 " Plugins {{{
 " Vundle Setup and Installing other packages {{{
@@ -214,13 +215,13 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'sjl/gundo.vim' " (Requires +Python)
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tomtom/tlib_vim'
-Plugin 'tpope/vim-surround' " It is not well performing. I just added it in directly. 
+Plugin 'tpope/vim-surround' " It is not well performing. I just added it in directly.
 Plugin 'vim-scripts/Align'
 Plugin 'vim-scripts/listmaps.vim'
 Plugin 'vim-scripts/matlab_run.vim'
 Plugin 'vim-voom/VOoM'
 Plugin 'vimwiki/vimwiki'
-Plugin 'xolox/vim-misc' 
+Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-reload'
 Plugin 'xolox/vim-shell'
 Plugin 'scrooloose/syntastic'
@@ -237,15 +238,18 @@ Plugin 'jcfaria/Vim-R-plugin'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'godlygeek/tabular'
 
-" Language Checking?
+" Language Checking
 Plugin 'llinfeng/LanguageTool'
+
+" Ascetics
+Plugin 'ntpeters/vim-better-whitespace'
 
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-" }}} 
-" Vim-Latex {{{ 
+" }}}
+" Vim-Latex {{{
 filetype plugin on
 filetype indent on
 set shellslash
@@ -285,7 +289,7 @@ let g:Tex_GotoError=0 " Will keep the cursor as is.
 "        \'There were undefined references'."\n".
 "        \'Citation %.%# undefined'."\n".
 "        \'Font Warning'
-let g:tex_IgnoredWarnings = 
+let g:tex_IgnoredWarnings =
     \'Underfull'."\n".
     \'Overfull'."\n".
     \'specifier changed to'."\n".
@@ -306,11 +310,11 @@ imap <C-J> <Plug>IMAP_JumpForward
 nnoremap <C-J> <Plug>IMAP_JumpForward
 vmap <C-J> <Plug>IMAP_JumpForward
 vmap <C-J> <Plug>IMAP_DeleteAndJumpForward
-" }}} 
+" }}}
 " MRU {{{
-highlight link MRUFileName LineNr 
+highlight link MRUFileName LineNr
 let MRU_Max_Entries = 400
-let MRU_Exclude_Files = '.tmp'     
+let MRU_Exclude_Files = '.tmp'
 " }}}
 " LanguageTool {{{
 let g:languagetool_jar= 'c:\users\llinfeng\dropbox\Tool_Private\LanguageTool-3.0\languagetool-commandline.jar'
@@ -318,7 +322,7 @@ let g:languagetool_jar= 'c:\users\llinfeng\dropbox\Tool_Private\LanguageTool-3.0
 " }}}
 " NERDTree {{{
 let NERDTreeIgnore=['\~$', '\.aux', '\.pdf','\.out', '\.pdfsync', '\.synctex', '\.latexmain', '\.bst', '\.sty', '\.bbl', '\.blg', '\.bak', '\.sav']
-" }}} 
+" }}}
 " Vim Airline {{{
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
@@ -379,11 +383,11 @@ let wiki_3.template_path = 'C:/Users/llinfeng/Dropbox/Shu/HTML/Template-Defualt'
 let wiki_3.template_default = 'default'
 let wiki_3.template_ext = '.html'
 let wiki_3.auto_export = 0
-" This is the "make" commend that constructs the two wiki's. 
+" This is the "make" commend that constructs the two wiki's.
 let g:vimwiki_list = [wiki_1, wiki_2, wiki_3]
-" }}} 
+" }}}
 " xolox-shell {{{
-" Customizing the xolox-shell, for full-screen looks of Vim the editor 
+" Customizing the xolox-shell, for full-screen looks of Vim the editor
 let g:shell_fullscreen_always_on_top = 0
 let g:shell_fullscreen_items="mT"
 "}}}
@@ -416,12 +420,12 @@ command! M :Unite -start-insert file_mru
 " Solarized Coloring {{{
 syntax enable
 let g:solarized_contrast = "low"
-let g:solarized_italic=0 " All parameters should be set before calling the color scheme. 
+let g:solarized_italic=0 " All parameters should be set before calling the color scheme.
 let g:solarized_termcolors=256
 "Or | "high" or "low"
-let g:solarized_visibility="normal" 
+let g:solarized_visibility="normal"
 call togglebg#map("<leader>ttt")
-" }}} 
+" }}}
 " restore_view {{{
 "The suggested options for functionality of the plug-in.
 set viewoptions=cursor,folds,slash,unix
@@ -442,7 +446,7 @@ nnoremap <A-F5> :call NextColor(0)<CR>
 " Vim-indent-guidelines {{{
 let g:indent_guides_auto_colors = 0
 let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1 
+let g:indent_guides_guide_size = 1
 
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=red ctermbg=3
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
@@ -476,7 +480,7 @@ autocmd FocusLost *  wall!
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") |   exe "normal g`\"" | endif
 " Auto source _vimrc upon saving.
 " TODO: This is often distorting the coloration of Vim, especially the coloration of the tab line.
-augroup vimscript 
+augroup vimscript
     autocmd!
     autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END
@@ -487,7 +491,7 @@ augroup END
 " like <leader>w saves the current file
 nnoremap <Leader>d :bd<CR>:bnext<CR>
 nnoremap <Leader>D :bd!<CR>
-nnoremap <Leader>e :e $MYVIMRC<CR> 
+nnoremap <Leader>e :e $MYVIMRC<CR>
 noremap <leader>f <ESC>:Fullscreen<CR>
 " For togging the Menu.
 nnoremap <leader>M :if &go=~'m'<bar>set go-=m<bar>else<bar>set go+=m<bar>endif<cr>
@@ -502,7 +506,7 @@ vnoremap <leader>c :CC<CR>
 vnoremap <leader>u :UC<CR>
 vnoremap <leader>t :TC<CR>
 " Construct a table though Vimwiki, with column-num + row-num.
-nnoremap <leader>table :VimwikiTable 
+nnoremap <leader>table :VimwikiTable
 """"""""""""""""  Of potential use """""""""""""""""""""""""""""""""""""""""""""
 " k for keyword, use the system local grep.
 " easy-grep had solved this issue. <leader>vv was used there.
@@ -524,7 +528,7 @@ nnoremap <A-j> mz:m+<cr>`z
 nnoremap <A-k> mz:m-2<cr>`z
 vmap <A-j> :m'>+<cr>`<my`>mzgv`yo`z
 vmap <A-k> :m'<-2<cr>`>my`<mzgv`yo`z
-"}}} 
+"}}}
 " Mapping for key-combination  {{{
 "Ctrl keys
 nnoremap <C-s> :wall!<CR>
@@ -547,7 +551,7 @@ nnoremap <S-q> i<CR><ESC>
 "nnoremap <tab> <C-W>w
 
 " Short key feature for toggling
-nnoremap <F2> :NERDTreeToggle<CR> 
+nnoremap <F2> :NERDTreeToggle<CR>
 nnoremap <F3> :windo set scrollbind!<cr>
 nnoremap <F4> :GundoToggle<CR>
 " F5 and F6 used for toggling the color schemes.
@@ -567,7 +571,7 @@ inoremap <silent> <Down> <C-o>gj
 inoremap <silent> <Up> <C-o>gk
 inoremap <home> <C-o>g0
 inoremap <end> <C-o>g$
-" Behave like Win: 
+" Behave like Win:
 vnoremap <BS> d
 "When having mapped <CR> somewhere
 autocmd CmdwinEnter * nnoremap <CR> <CR>
@@ -589,7 +593,7 @@ vnoremap <C-C> "+y
 " Space as page down.
 nnoremap <space> <C-F>
 "}}}
-" }}} 
+" }}}
 
 " Command Line: {{{
 " Command line shortcuts for motion.
@@ -661,8 +665,8 @@ function! ToggleSlash(independent) range
 endfunction
 command! -bang -range ToggleSlash <line1>,<line2>call ToggleSlash(<bang>1)
 " Toggle slash for the line.
-nnoremap  <leader>/ :ToggleSlash<CR>	
-vnoremap  <leader>/ :ToggleSlash<CR>	
+nnoremap  <leader>/ :ToggleSlash<CR>
+vnoremap  <leader>/ :ToggleSlash<CR>
 " }}}
 " Toggling capitalization in a roll {{{
 "Source: http://vim.wikia.com/wiki/Switching_case_of_characters
@@ -691,7 +695,7 @@ autocmd BufDelete * let g:latest_deleted_buffer = expand("<afile>:p")
 nnoremap <leader>r :e <C-R>=fnameescape(g:latest_deleted_buffer)<CR><CR>
 " Expand functions {{{
 " Vim with file operation: file names and path
-    " Path(absolute) to the file: "%:p" 
+    " Path(absolute) to the file: "%:p"
     " Path to the directory of the file: "%:p:h"
     " File name only: "%:t"
     " Relative path: "%"
@@ -699,7 +703,7 @@ nnoremap <leader>r :e <C-R>=fnameescape(g:latest_deleted_buffer)<CR><CR>
 nnoremap Y :let @* = expand("%:p")<CR>
 "Copy the file name to windows clipboard.
 nnoremap yyy :let @* = expand("%:p:t")<CR>
-nnoremap DDD :call delete(expand('%')) 
+nnoremap DDD :call delete(expand('%'))
 "Now using leaders:
 " Full path
 nnoremap <leader><leader>f :let @* = expand("%:p")<CR>
@@ -751,7 +755,7 @@ cab ftpl C:\vim\vimfiles\ftplugin
 cab latex d:\git\vim-latex-suite\ftplugin\latex-suite\templates
 " Shortcut for files.
 cab bat_dir c:\Users\llinfeng\Dropbox\Tool\bat_file
-" Color scheme switching: 
+" Color scheme switching:
 cab pap colorscheme papayawhip
 " Shortcut for command-line deleting empty lines!
 cab empty v/\S/d
@@ -799,7 +803,7 @@ vnoremap q gq
 "let g:Vimim_cloud = "google"
 "let g:Vimim_cloud = "baidu"
 let g:Vimim_cloud = "google,sogou,baidu,qq"
-"let g:Vimim_toggle = 'baidu' 
+"let g:Vimim_toggle = 'baidu'
 
 " 兼顾拼音音调和数字标签：1,2,3,4 键定为音调
 let g:Vimim_enable_pinyin_tcdth=1
