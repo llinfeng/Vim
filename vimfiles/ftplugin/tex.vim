@@ -1,8 +1,8 @@
 " Behavior of text wrapping.
-setlocal formatoptions=rqctnjw
+setlocal formatoptions=crtnqj
 
 " Line breaking modification.
-setlocal wrap linebreak nolist textwidth=80 wrapmargin=0 
+setlocal wrap linebreak nolist textwidth=80 wrapmargin=0
 setlocal foldmethod=manual
 setlocal nofoldenable
 
