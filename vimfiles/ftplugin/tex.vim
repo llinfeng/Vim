@@ -27,6 +27,7 @@ setlocal iskeyword+=_
 
 map <buffer> <C-s> :wall!<CR><leader>ll
 imap <buffer> <C-s> <ESC>:wall!<CR>
+imap <F10> <F9>
 
 
 " These are written before using Snippet (2015-02-22 18:10:27)
