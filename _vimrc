@@ -738,7 +738,8 @@ let @w = 't st"Ilabel define WWWi"A", modifyj"'
 nnoremap Z :wall!<CR>:qa<CR>
 " iab mapping: saving keystrokes.
 "inorea <buffer> sj <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>
-inorea rq <c-r>=strftime("20%y-%m-%d")<cr>
+iab rq <c-r>=strftime("20%y-%m-%d")<cr>
+iab RQ <c-r>=strftime("20%y-%m-%d")<cr>
 
 " }}}
 " }}}
