@@ -1,7 +1,7 @@
 set encoding=utf-8
+" language message zh_CN.UTF-8
 "set langmenu=zh_CN.UTF-8
-"language message zh_CN.UTF-8
-"" Issues: as of 2015-03-17 23:02:06
+" Issues: as of 2015-03-17 23:02:06
 " 1. Upon starting Vim and calling $VIMRC, solarized should have admitted italic font. This should not happen.
 
 " Preamble {{{
@@ -150,11 +150,6 @@ set showmatch
 " Highlight the row and column. (row = line)
 set cursorline
 set cursorcolumn
-" Color scheme and background.
-colorscheme solarized
-"colorscheme papayawhip
-"default
-"olive
 " Sets how many lines of history VIM has to remember
 set history=200
 " For stopping the display of @ when a line goes too long and got wrapped.
@@ -398,7 +393,7 @@ imap <tab> <Plug>snipMateNextOrTrigger
 smap <tab> <Plug>snipMateNextOrTrigger
 "}}}
 " Voom {{{
-let g:voom_tree_width = 50
+let g:voom_tree_width = 45
 " }}}
 " Unite {{{
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
@@ -424,12 +419,21 @@ command! M :Unite -start-insert file_mru
 " }}}
 " Solarized Coloring {{{
 syntax enable
+" All parameters should be set before calling the color scheme.
 let g:solarized_contrast = "low"
-let g:solarized_italic=0 " All parameters should be set before calling the color scheme.
 let g:solarized_termcolors=256
 "Or | "high" or "low"
 let g:solarized_visibility="normal"
+let g:solarized_italic=0
+"let g:solarized_bold=0
+let g:solarized_degrade   =   0
 call togglebg#map("<leader>ttt")
+" Color scheme and background.
+" Only enforce colorscheme  after having specified its parameters.
+colorscheme solarized
+"colorscheme papayawhip
+"default
+"olive
 " }}}
 " restore_view {{{
 "The suggested options for functionality of the plug-in.
@@ -762,7 +766,7 @@ cab latex d:\git\vim-latex-suite\ftplugin\latex-suite\templates
 " Shortcut for files.
 cab bat_dir c:\Users\llinfeng\Dropbox\Tool\bat_file
 " Color scheme switching:
-cab pap colorscheme papayawhip
+"cab pap colorscheme papayawhip
 " Shortcut for command-line deleting empty lines!
 cab empty v/\S/d
 
