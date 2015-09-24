@@ -397,6 +397,9 @@ let g:shell_fullscreen_items="mT"
 imap <tab> <Plug>snipMateNextOrTrigger
 smap <tab> <Plug>snipMateNextOrTrigger
 "}}}
+" Voom {{{
+let g:voom_tree_width = 50
+" }}}
 " Unite {{{
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 " Search through yank history.
