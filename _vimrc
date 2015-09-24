@@ -1,3 +1,4 @@
+set guifont=Bitstream_Vera_Sans_Mono:h11:cANSI
 set encoding=utf-8
 " language message zh_CN.UTF-8
 "set langmenu=zh_CN.UTF-8
@@ -393,7 +394,8 @@ imap <tab> <Plug>snipMateNextOrTrigger
 smap <tab> <Plug>snipMateNextOrTrigger
 "}}}
 " Voom {{{
-let g:voom_tree_width = 45
+let g:voom_tree_width = 34
+let g:voom_tree_placement = "right"
 " }}}
 " Unite {{{
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
