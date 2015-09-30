@@ -394,7 +394,7 @@ imap <tab> <Plug>snipMateNextOrTrigger
 smap <tab> <Plug>snipMateNextOrTrigger
 "}}}
 " Voom {{{
-let g:voom_tree_width = 34
+let g:voom_tree_width = 31
 let g:voom_tree_placement = "right"
 " }}}
 " Unite {{{
