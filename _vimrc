@@ -118,6 +118,9 @@ set smartindent
 set expandtab
 set tabstop=4
 set shiftwidth=4
+inoremap <S-Tab> <C-d>
+nnoremap <Tab> >>
+nnoremap <S-Tab> <<
 " Line numbering.
 set number
 set relativenumber
