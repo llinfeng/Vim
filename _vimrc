@@ -121,6 +121,8 @@ set shiftwidth=4
 inoremap <S-Tab> <C-d>
 nnoremap <Tab> >>
 nnoremap <S-Tab> <<
+vnoremap <Tab> >
+vnoremap <S-Tab> <
 " Line numbering.
 set number
 set relativenumber
@@ -166,7 +168,7 @@ set matchtime=2
 "set guioptions+=a
 set guioptions+=r " Make sure that the touch-screen effectiveness.
 set guioptions+=h
-set guioptions+=m  "remove menu bar
+set guioptions+=m  "menu bar
 set guioptions-=T
 set guioptions-=R
 set guioptions-=l
@@ -249,6 +251,10 @@ let g:strip_whitespace_on_save = 1
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+" }}}
+" Vim-R-plugin{{{
+let vimrplugin_r_path = 'C:\\Program Files\\R\\R-3.2.2\\bin\\i386'
+
 " }}}
 " Vim-Latex {{{
 filetype plugin on
@@ -339,6 +345,7 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 set ttimeoutlen=50
 " }}}
 " VimWiki {{{
+"Settings
 let g:vimwiki_use_mouse = 1
 let g:vimwiki_use_calendar = 1
 let g:vimwiki_hl_cb_checked = 1
@@ -553,7 +560,6 @@ nnoremap <M-w> :tabclose<CR>
 nnoremap <M-c> :tabnew<CR>
 nnoremap <M-n> :tabnext<CR>
 nnoremap <M-p> :tabprevious<CR>
-inoremap <S-tab> <backspace><backspace><backspace><backspace>
 " Mapping anything to jj is not a good idea.
 inoremap  aa <ESC>[sz=
 nnoremap  aa <ESC>[sz=
@@ -706,7 +712,7 @@ nnoremap <MiddleMouse> <LeftMouse>*<C-O>
 nnoremap <leader><leader><space> :s/ /\r/g<CR>
 " Undo bdelete (only one level though)
 autocmd BufDelete * let g:latest_deleted_buffer = expand("<afile>:p")
-nnoremap <leader>r :e <C-R>=fnameescape(g:latest_deleted_buffer)<CR><CR>
+"nnoremap <leader>r :e <C-R>=fnameescape(g:latest_deleted_buffer)<CR><CR>
 " Expand functions {{{
 " Vim with file operation: file names and path
     " Path(absolute) to the file: "%:p"

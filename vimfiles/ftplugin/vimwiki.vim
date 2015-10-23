@@ -10,9 +10,9 @@ nnoremap <C-K> mzggVGgq`z
 nnoremap <buffer> <leader>T :set syntax=vimwiki<CR>
 nnoremap <buffer> <leader>t :Voom vimwiki<CR>
 
-"autocmd Filetype wiki 
+"autocmd Filetype wiki
 nnoremap <buffer> <F10> I* [ ] <ESC>
-inoremap <buffer> <F10> <ESC>I* [ ] 
+inoremap <buffer> <F10> <ESC>I* [ ]
 nnoremap <buffer> <C-D> :VimwikiToggleListItem<CR>j
 
 nnoremap <buffer> C VC
@@ -28,11 +28,11 @@ nnoremap <leader>v :Voom vimwiki<CR>
 nnoremap <leader><leader>t :Voom vimwiki<CR>
 
 " Configure line breaking, which involves too fields of editing: textwidth + formatoptions
-" setlocal linebreak nolist textwidth=0 wrapmargin=0 
+" setlocal linebreak nolist textwidth=0 wrapmargin=0
 setlocal wrap linebreak nolist textwidth=80 wrapmargin=0
 setlocal formatoptions=crtnqj
 
-" With conceallevel = 1: 
+" With conceallevel = 1:
 "   1. URLs will be bended;
 "   2. That bold-mark will be replaced by "-"
 " With conceallevel = 2:
@@ -41,3 +41,9 @@ setlocal formatoptions=crtnqj
 " Nevertheless, hiding chars and abridging display does not help too much.
 "setlocal conceallevel=2
 setlocal conceallevel=0
+
+" Mappings:
+inoremap  <C-E> <Plug>VimwikiIncreaseLvlSingleItem
+nnoremap  <C-CR> <Plug>VimwikiVSplitLink
+
+
