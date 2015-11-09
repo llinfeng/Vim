@@ -87,3 +87,6 @@ inorea ve \verb\|\|<Left><C-R>=Eatchar('\s')<CR>
 
 " Disable concealing
 setlocal conceallevel=0
+" Disable folding
+setlocal foldmethod=manual
+setlocal nofoldenable

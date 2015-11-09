@@ -771,7 +771,7 @@ inoremap jk <ESC>l
     " Rules: the cab shortcuts shall not used as query item;
     "        the cab shortcuts shall be most-usually-used items.
 cab drop_dir C:\users\llinfeng\dropbox
-"cab home_dir C:\users\llinfeng
+cab home C:\users\llinfeng
 cab ~ C:\users\llinfeng
 cab ftpl C:\vim\vimfiles\ftplugin
 cab latex d:\git\vim-latex-suite\ftplugin\latex-suite\templates
