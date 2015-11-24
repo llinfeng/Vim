@@ -606,6 +606,8 @@ nnoremap <M-p> :tabprevious<CR>
 " Mapping anything to jj is not a good idea.
 inoremap  aa <ESC>[sz=
 nnoremap  aa <ESC>[sz=
+inoremap  ff <ESC>]sz=
+nnoremap  ff <ESC>]sz=
 " For adding a hard linkbreak at the point of cursor, silently.
 nnoremap <S-q> i<CR><ESC>
 " }}}
