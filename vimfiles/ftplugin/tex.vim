@@ -90,3 +90,5 @@ setlocal conceallevel=0
 " Disable folding
 setlocal foldmethod=manual
 setlocal nofoldenable
+
+setlocal viewoptions-=folds
