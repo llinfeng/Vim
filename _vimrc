@@ -246,7 +246,8 @@ Plugin 'llinfeng/LanguageTool'
 Plugin 'ntpeters/vim-better-whitespace'
 let g:strip_whitespace_on_save = 1
 
-
+" Synatx Highlighting for Google Closure templating language
+Plugin 'duganchen/vim-soy'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
