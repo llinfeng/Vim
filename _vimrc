@@ -808,8 +808,8 @@ iab RQ <c-r>=strftime("20%y-%m-%d")<cr>
 " }}}
 " }}}
 
-"set background=dark
-set background=light
+set background=dark
+"set background=light
 
 " avoid the ESC on the left top corner!
 inoremap jk <ESC>l

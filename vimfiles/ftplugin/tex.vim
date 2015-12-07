@@ -92,3 +92,10 @@ setlocal foldmethod=manual
 setlocal nofoldenable
 
 setlocal viewoptions-=folds
+
+"" Problem with <Alt-i> in insert mode, unable to fix yet.
+" Note sure why <m-i> is not working
+"inoremap <c-i> <C-r>=Tex_InsertItem()<CR>
+"inoremap <m-i> <c-r><Plug>Tex_InsertItemOnThisLine
+" Found in c:\vim\vimfiles\bundle\vim-latex-suite\ftplugin\latex-suite\envmacros.vim
+"inoremap <script> <silent> <Plug>Tex_InsertItemOnNextLine <ESC>o<C-R>=Tex_InsertItem()<CR>
