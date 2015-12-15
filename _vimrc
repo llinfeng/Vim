@@ -377,6 +377,8 @@ let NERDTreeIgnore=['\~$', '\.aux', '\.pdf','\.out', '\.pdfsync', '\.synctex', '
 " Vim Airline {{{
 " Show status line
 set laststatus=2
+" Change theme
+let g:airline_theme='badwolf'
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
 " Show just the filename
@@ -384,6 +386,9 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 " Displaying Time ^.^
 let g:airline_section_b = '%{strftime("%c")}'
 let g:airline_section_y = 'BN: %{bufnr("%")}'
+" Word count?
+let g:airline_section_x = "%{airline#extensions#pandoc#word_count()} Words"
+
 " Separators can be configured independently for the tabline, so here is how you can define "straight" tabs:
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
