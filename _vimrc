@@ -375,6 +375,8 @@ let g:languagetool_jar= 'c:\users\llinfeng\dropbox\Tool_Private\LanguageTool-3.0
 let NERDTreeIgnore=['\~$', '\.aux', '\.pdf','\.out', '\.pdfsync', '\.synctex', '\.latexmain', '\.bst', '\.sty', '\.bbl', '\.blg', '\.bak', '\.sav']
 " }}}
 " Vim Airline {{{
+" Show status line
+set laststatus=2
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
 " Show just the filename
