@@ -245,6 +245,7 @@ Plugin 'llinfeng/LanguageTool'
 " Ascetics
 Plugin 'ntpeters/vim-better-whitespace'
 let g:strip_whitespace_on_save = 1
+let g:better_whitespace_filetypes_blacklist = ['vimwiki', 'text']
 
 " Synatx Highlighting for Google Closure templating language
 Plugin 'duganchen/vim-soy'
@@ -378,7 +379,7 @@ let NERDTreeIgnore=['\~$', '\.aux', '\.pdf','\.out', '\.pdfsync', '\.synctex', '
 " Show status line
 set laststatus=2
 " Change theme
-let g:airline_theme='badwolf'
+let g:airline_theme='solarized'
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
 " Show just the filename
@@ -455,7 +456,7 @@ imap <tab> <Plug>snipMateNextOrTrigger
 smap <tab> <Plug>snipMateNextOrTrigger
 "}}}
 " Voom {{{
-let g:voom_tree_width = 31
+let g:voom_tree_width = 27
 let g:voom_tree_placement = "right"
 " }}}
 " Unite {{{
@@ -623,6 +624,8 @@ nnoremap <S-q> i<CR><ESC>
 " For easy switching of buffer.
 "nnoremap <tab> <C-W>w
 
+" F1 mapping: to find spaces totaling more than one; as writing assistance.
+nnoremap <F1> / \{2,}<CR>
 " Short key feature for toggling
 nnoremap <F2> :NERDTreeToggle<CR>
 nnoremap <F3> :windo set scrollbind!<cr>
@@ -809,14 +812,13 @@ let @w = 't st"Ilabel define WWWi"A", modifyj"'
 nnoremap Z :wall!<CR>:qa<CR>
 " iab mapping: saving keystrokes.
 "inorea <buffer> sj <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>
-iab rq <c-r>=strftime("20%y-%m-%d")<cr>
 iab RQ <c-r>=strftime("20%y-%m-%d")<cr>
 
 " }}}
 " }}}
 
-set background=dark
-"set background=light
+"set background=dark
+set background=light
 
 " avoid the ESC on the left top corner!
 inoremap jk <ESC>l
@@ -835,7 +837,6 @@ cab bat_dir c:\Users\llinfeng\Dropbox\Tool\bat_file
 " Shortcut for command-line deleting empty lines!
 cab empty v/\S/d
 
-
 " Supporting function that deletes the trailing space entered though expending abbreviation.
 func! Eatchar(pat)
     let c = nr2char(getchar(0))
@@ -846,8 +847,6 @@ endfunc
 
 " <C-K> in visual mode to replace gq
 vnoremap <c-k> gq<CR>
-
-
 nnoremap <M-y> 0vE"+y
 
 inoremap <C-]> <ESC>
@@ -871,8 +870,6 @@ let g:pymode_rope_show_doc_bind = 'K'
 vnoremap <leader>q gq
 vnoremap q gq
 
-
-
 " Testing VimIM
 "let g:Vimim_cloud = -1
 "let g:Vimim_cloud = "google"
@@ -891,3 +888,5 @@ let g:Vimim_mode='dynamic'
 set conceallevel=0
 
 let $PYTHONHOME = 'C:/Program Files/Anacoda'
+
+nnoremap <F1> / \{2,}<CR>

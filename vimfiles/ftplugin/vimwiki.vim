@@ -21,6 +21,7 @@ nnoremap <buffer> C VC
 "inorea <buffer> sj ===<c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>===<CR><CR><C-R>=Eatchar('\s')<CR>
 "inorea <buffer> SJ <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>
 ia <buffer> sj ===<c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>===<CR><CR><C-R>=Eatchar('\s')<CR>
+ia <buffer> rq =<c-r>=strftime("20%y-%m-%d")<cr>=<CR><CR><C-R>=Eatchar('\s')<CR>
 ia <buffer> SJ <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>
 
 nmap <buffer> <silent> <C-CR> <Plug>VimwikiToggleListItem
