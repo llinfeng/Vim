@@ -255,7 +255,7 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 " }}}
 " Vim-R-plugin{{{
-let vimrplugin_r_path = 'C:\\Program Files\\R\\R-3.2.2\\bin\\i386'
+let vimrplugin_r_path = 'C:\\Program Files\\R\\R-3.2.3\\bin\\i386'
 
 " }}}
 " {{{
