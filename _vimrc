@@ -1,4 +1,5 @@
 set guifont=Bitstream_Vera_Sans_Mono:h11:cANSI
+set fileencoding=utf-8
 set encoding=utf-8
 " language message zh_CN.UTF-8
 "set langmenu=zh_CN.UTF-8
@@ -47,9 +48,9 @@ set undodir=C:\Users\llinfeng\Onedrive\Vim-document\undodir
 "Memory of commands on command line.
 set history=1000
 " }}}
-" Canned ·â´æ {{{
+" Canned å°å­˜ {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Æô¶¯´°¿Ú×î´ó»¯, maximizing the interface upon start.
+" => å¯åŠ¨çª—å£æœ€å¤§åŒ–, maximizing the interface upon start.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " To maximize the Vim window in Windows. Does not grantee proper functionality in *nix environment.
 if has("gui_running")
@@ -587,6 +588,7 @@ nnoremap <leader>table :VimwikiTable
 nnoremap <leader>w :wall!<CR>
 " For invoking the Work wiki.
 nnoremap <leader>W :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/Work.wiki<CR>
+"nnoremap <leader>W <Plug>VimwikiMakeDiaryNote
 " }}}
 
 
@@ -794,13 +796,13 @@ nnoremap <leader><leader>p :let @* = expand("%:p:h")<CR>
 " Macros: {{{
 " Don't tough my macros!
 " Run the script from beginning up to this point.
-let @r = "Vgg€ıc€ıb"
+let @r = "Vggâ‚¬é½â‚¬é½œ"
 " Add a Oh line, for catching attention to the section splitter.
 let @o = ":CikV:s/ /*/gJx50A*80d|:nohl"
 " Add a structure, at higher level.
 let @i = ":centerI*A*O*SECTION*71i*jo79i*A*j"
 " To fix the absolute addresses and make it openable in Vimwiki
-let @f = '"gI[[A]]€k9llifile:j"'
+let @f = '"gI[[A]]â‚¬k9llifile:j"'
 " Temp: stored only for the current project.
 let @t = "$dawOlabel copy pJ$yawolabel values p pj"
 "let @q = '"Ilabel define WWWi"A", defreplacej"'
@@ -826,7 +828,7 @@ inoremap jk <ESC>l
     " Rules: the cab shortcuts shall not used as query item;
     "        the cab shortcuts shall be most-usually-used items.
 cab drop_dir C:/users/llinfeng/dropbox
-cab home C:/users/llinfeng
+cab hoome C:/users/llinfeng
 cab temp C:/vim/vimfiles/bundle/vim-latex-suite/ftplugin/latex-suite/templates
 cab ~ C:\users\llinfeng
 cab ftpl C:\vim\vimfiles\ftplugin
@@ -877,7 +879,7 @@ vnoremap q gq
 let g:Vimim_cloud = "google,sogou,baidu,qq"
 "let g:Vimim_toggle = 'baidu'
 
-" ¼æ¹ËÆ´ÒôÒôµ÷ºÍÊı×Ö±êÇ©£º1,2,3,4 ¼ü¶¨ÎªÒôµ÷
+" å…¼é¡¾æ‹¼éŸ³éŸ³è°ƒå’Œæ•°å­—æ ‡ç­¾ï¼š1,2,3,4 é”®å®šä¸ºéŸ³è°ƒ
 let g:Vimim_enable_pinyin_tcdth=1
 
 " Not sure how this option is taking effect.
