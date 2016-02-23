@@ -1,4 +1,5 @@
-set guifont=Bitstream_Vera_Sans_Mono:h11:cANSI
+set guifont=Bitstream_Vera_Sans_Mono:h12:cANSI
+"set guifont=Bitstream_Vera_Sans_Mono:h24:cANSI
 set fileencoding=utf-8
 set encoding=utf-8
 " language message zh_CN.UTF-8
@@ -99,7 +100,7 @@ set hidden
 " Wild menu settings {{{
 set wildmenu
 " Ignore compiled files (including those from tex files).
-set wildignore=*.o,*~,*.pyc,*.aux,*.bak,*.bbl,*.blg,*.out,*.synctex,*.png,*.jpg,*.pdf
+set wildignore=*.o,*~,*.pyc,*.aux,*.bak,*.bbl,*.blg,*.out,*.synctex,*.png,*.jpg,*.pdf,*.latexmain
 set wildignore+=*.pdfsync,*.sty,*.bst
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 set wildignore+=*.xlsx,*.mm,*.pptx,*.docx,*.doc,*.xls
@@ -169,7 +170,8 @@ set matchtime=2
 "set guioptions+=a
 set guioptions+=r " Make sure that the touch-screen effectiveness.
 set guioptions+=h
-set guioptions+=m  "menu bar
+set guioptions+=m  "menu bar (leave it as is, as when doing formal editing,
+                   "will enter Full screen mode nevertheless)
 set guioptions-=T
 set guioptions-=R
 set guioptions-=l
@@ -355,7 +357,9 @@ let g:tex_IgnoredWarnings =
 let g:Tex_IgnoreLevel = 9
 let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_CompileRule_pdf = 'pdflatex --synctex=-1 -src-specials -interaction=nonstopmode $*'
-let g:Tex_ViewRule_pdf = 'C:\Program Files (x86)\SumatraPDF\SumatraPDF.exe -reuse-instance -inverse-search "C:\vim\vim74\gvim  -c \":RemoteOpen +\%l \%f\"" '
+let g:Tex_ViewRule_pdf = 'C:\Program Files\SumatraPDF\SumatraPDF.exe -reuse-instance -inverse-search "\"C:\vim\vim74\gvim\"  -c \":RemoteOpen +\%l \%f\"" '
+"
+"let g:Tex_ViewRule_pdf = 'C:\Program Files\SumatraPDF\SumatraPDF.exe gvim --remote +%l %f -reuse-instance -inverse-search " " '
 " "C:\Program Files (x86)\Notepad++\notepad++.exe" -n%l "%f"
 let g:Tex_MultipleCompileFormats='pdf'
 " Functional mappings: just to reinforce the correct ones.
@@ -815,6 +819,8 @@ nnoremap Z :wall!<CR>:qa<CR>
 " iab mapping: saving keystrokes.
 "inorea <buffer> sj <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>
 iab RQ <c-r>=strftime("20%y-%m-%d")<cr>
+iab homo homoscedasticity
+iab hetero heteroscedasticity
 
 " }}}
 " }}}
