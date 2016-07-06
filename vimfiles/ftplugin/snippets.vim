@@ -1,1 +1,0 @@
-iab <buffer> s snippet
