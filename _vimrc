@@ -1618,3 +1618,5 @@ nnoremap <F1> / \{2,}<CR>
 "imap <c-q> <Plug>snipMateNextOrTrigger
 "smap <c-q> <Plug>snipMateNextOrTrigger
 """}}}
+
+let $PYTHONHOME = 'C:/python27'
