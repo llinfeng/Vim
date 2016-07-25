@@ -158,8 +158,8 @@ set showmatch
 " ==> Vim display setting
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Highlight the row and column. (row = line)
-set cursorline
-set cursorcolumn
+"set cursorline
+"set cursorcolumn
 " Sets how many lines of history VIM has to remember
 set history=200
 " For stopping the display of @ when a line goes too long and got wrapped.
@@ -915,3 +915,4 @@ nnoremap <F1> / \{2,}<CR>
 "imap <c-q> <Plug>snipMateNextOrTrigger
 "smap <c-q> <Plug>snipMateNextOrTrigger
 """}}}
+
