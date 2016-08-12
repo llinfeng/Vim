@@ -1,8 +1,8 @@
 " Vim syntax file
 " Language:	TeX
 " Maintainer:	Charles E. Campbell <NdrchipO@ScampbellPfamily.AbizM>
-" Last Change:	Feb 18, 2016
-" Version:	92
+" Last Change:	Jun 17, 2016
+" Version:	97
 " URL:		http://www.drchip.org/astronaut/vim/index.html#SYNTAX_TEX
 "
 " Notes: {{{1
@@ -83,10 +83,14 @@ else
  let s:tex_conceal= g:tex_conceal
 endif
 if !exists("g:tex_superscripts")
- let g:tex_superscripts= "[0-9a-zA-W.,:;+-<>/()=]"
+ let s:tex_superscripts= '[0-9a-zA-W.,:;+-<>/()=]'
+else
+ let s:tex_superscripts= g:tex_superscripts
 endif
 if !exists("g:tex_subscripts")
- let g:tex_subscripts= "[0-9aehijklmnoprstuvx,+-/().]"
+ let s:tex_subscripts= '[0-9aehijklmnoprstuvx,+-/().]'
+else
+ let s:tex_subscripts= g:tex_subscripts
 endif
 
 " Determine whether or not to use "*.sty" mode {{{1
@@ -129,7 +133,7 @@ endif
 " g:tex_isk
 if exists("g:tex_isk")
  exe "setlocal isk=".g:tex_isk
-elseif !has("patch-7.4.1141")
+elseif !has("patch-7.4.1142")
  setl isk=48-57,a-z,A-Z,192-255
 else
  syn iskeyword 48-57,a-z,A-Z,192-255
@@ -202,16 +206,16 @@ endif
 " Try to flag {} and () mismatches: {{{1
 if s:tex_fast =~# 'm'
   if !s:tex_no_error
-   syn region texMatcher		matchgroup=Delimiter start="{" skip="\\\\\|\\[{}]"	end="}"		transparent contains=@texMatchGroup,texError
-   syn region texMatcher		matchgroup=Delimiter start="\["				end="]"		transparent contains=@texMatchGroup,texError,@NoSpell
+   syn region texMatcher	matchgroup=Delimiter start="{" skip="\\\\\|\\[{}]"	end="}"			transparent contains=@texMatchGroup,texError
+   syn region texMatcher	matchgroup=Delimiter start="\["				end="]"			transparent contains=@texMatchGroup,texError,@NoSpell
   else
-   syn region texMatcher		matchgroup=Delimiter start="{" skip="\\\\\|\\[{}]"	end="}"		transparent contains=@texMatchGroup
-   syn region texMatcher		matchgroup=Delimiter start="\["				end="]"		transparent contains=@texMatchGroup
+   syn region texMatcher	matchgroup=Delimiter start="{" skip="\\\\\|\\[{}]"	end="}"			transparent contains=@texMatchGroup
+   syn region texMatcher	matchgroup=Delimiter start="\["				end="]"			transparent contains=@texMatchGroup
   endif
   if !s:tex_nospell
-   syn region texParen		start="("						end=")"		transparent contains=@texMatchGroup,@Spell
+   syn region texParen		start="("	end=")"								transparent contains=@texMatchGroup,@Spell
   else
-   syn region texParen		start="("						end=")"		transparent contains=@texMatchGroup
+   syn region texParen		start="("	end=")"								transparent contains=@texMatchGroup
   endif
 endif
 if !s:tex_no_error
@@ -262,7 +266,7 @@ syn match texLigature		"\\\([ijolL]\|ae\|oe\|ss\|AA\|AE\|OE\)$"
 syn match  texBeginEnd		"\\begin\>\|\\end\>" nextgroup=texBeginEndName
 if s:tex_fast =~# 'm'
   syn region texBeginEndName		matchgroup=Delimiter	start="{"		end="}"	contained	nextgroup=texBeginEndModifier	contains=texComment
-  syn region texBeginEndModifier	matchgroup=Delimiter	start="\["		end="]"	contained	contains=texComment,@NoSpell
+  syn region texBeginEndModifier	matchgroup=Delimiter	start="\["		end="]"	contained	contains=texComment,@texMathZones,@NoSpell
 endif
 
 " \documentclass, \documentstyle, \usepackage: {{{1
@@ -296,7 +300,7 @@ syn match texTypeStyle		"\\sc\>"
 syn match texTypeStyle		"\\tt\>"
 
 " Type Styles: attributes, commands, families, etc (LaTeX2E): {{{1
-if s:tex_conceal !~ 'b'
+if s:tex_conceal !~# 'b'
  syn match texTypeStyle		"\\textbf\>"
  syn match texTypeStyle		"\\textit\>"
 endif
@@ -541,7 +545,7 @@ if !exists("g:tex_no_math")
  syn match texOnlyMath		"[_^]"
 endif
 syn match texSpecialChar	"\^\^[0-9a-f]\{2}\|\^\^\S"
-if s:tex_conceal !~ 'S'
+if s:tex_conceal !~# 'S'
  syn match texSpecialChar	'\\glq\>'	contained conceal cchar=‚
  syn match texSpecialChar	'\\grq\>'	contained conceal cchar=‘
  syn match texSpecialChar	'\\glqq\>'	contained conceal cchar=„
@@ -1049,7 +1053,7 @@ if has("conceal") && &enc == 'utf-8'
   endif
   " s:SuperSub:
   fun! s:SuperSub(group,leader,pat,cchar)
-    if a:pat =~# '^\\' || (a:leader == '\^' && a:pat =~# g:tex_superscripts) || (a:leader == '_' && a:pat =~# g:tex_subscripts)
+    if a:pat =~# '^\\' || (a:leader == '\^' && a:pat =~# s:tex_superscripts) || (a:leader == '_' && a:pat =~# s:tex_subscripts)
 "     call Decho("SuperSub: group<".a:group."> leader<".a:leader."> pat<".a:pat."> cchar<".a:cchar.">")
      exe 'syn match '.a:group." '".a:leader.a:pat."' contained conceal cchar=".a:cchar
      exe 'syn match '.a:group."s '".a:pat        ."' contained conceal cchar=".a:cchar.' nextgroup='.a:group.'s'
@@ -1132,9 +1136,21 @@ if has("conceal") && &enc == 'utf-8'
   call s:SuperSub('texSubscript','_','9','₉')
   call s:SuperSub('texSubscript','_','a','ₐ')
   call s:SuperSub('texSubscript','_','e','ₑ')
+  call s:SuperSub('texSubscript','_','h','ₕ')
   call s:SuperSub('texSubscript','_','i','ᵢ')
+  call s:SuperSub('texSubscript','_','j','ⱼ')
+  call s:SuperSub('texSubscript','_','k','ₖ')
+  call s:SuperSub('texSubscript','_','l','ₗ')
+  call s:SuperSub('texSubscript','_','m','ₘ')
+  call s:SuperSub('texSubscript','_','n','ₙ')
   call s:SuperSub('texSubscript','_','o','ₒ')
+  call s:SuperSub('texSubscript','_','p','ₚ')
+  call s:SuperSub('texSubscript','_','r','ᵣ')
+  call s:SuperSub('texSubscript','_','s','ₛ')
+  call s:SuperSub('texSubscript','_','t','ₜ')
   call s:SuperSub('texSubscript','_','u','ᵤ')
+  call s:SuperSub('texSubscript','_','v','ᵥ')
+  call s:SuperSub('texSubscript','_','x','ₓ')
   call s:SuperSub('texSubscript','_',',','︐')
   call s:SuperSub('texSubscript','_','+','₊')
   call s:SuperSub('texSubscript','_','-','₋')
@@ -1150,6 +1166,7 @@ if has("conceal") && &enc == 'utf-8'
   call s:SuperSub('texSubscript','_','\\phi\>'  ,'ᵩ')
   call s:SuperSub('texSubscript','_','\\gamma\>','ᵧ')
   call s:SuperSub('texSubscript','_','\\chi\>'  ,'ᵪ')
+
   delfun s:SuperSub
  endif
 
