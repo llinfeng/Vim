@@ -42,7 +42,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'godlygeek/tabular'
 Plug 'danielmiessler/VimBlog'
 Plug 'llinfeng/LanguageTool'
-"Plug 'ntpeters/vim-better-whitespace'
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'llinfeng/vim-latex-suite'
 " Add plugins to &runtimepath
 call plug#end()
@@ -747,7 +747,6 @@ cab bat_dir c:\Users\llinfeng\Dropbox\Tool\bat_file
 cab empty v/\S/d
 cab WW w! C:/users/llinfeng/Desktop/Tasks.txt
 cab ww w! C:/users/llinfeng/Desktop/Tasks.txt
-cab ILL :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/illusion.wiki
 
 " Supporting function that deletes the trailing space entered though expending abbreviation. (This function may serve for some plugin)
 func! Eatchar(pat)
