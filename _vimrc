@@ -578,8 +578,9 @@ nnoremap <space> <C-F>
 
 " Command Line: {{{
 " Command line shortcuts for font size
-command! F :set guifont=Bitstream_Vera_Sans_Mono:h18:cANSI
-command! FONT :set guifont=Bitstream_Vera_Sans_Mono:h18:cANSI
+cab F :set guifont=Bitstream_Vera_Sans_Mono:h12:cANSI
+cab FF :set guifont=Bitstream_Vera_Sans_Mono:h18:cANSI
+cab FFF :set guifont=Bitstream_Vera_Sans_Mono:h28:cANSI
 " Command line shortcuts for motion.
 command! O only
 command! R right
@@ -748,6 +749,7 @@ cab empty v/\S/d
 cab WW w! C:/users/llinfeng/Desktop/Tasks.txt
 cab ww w! C:/users/llinfeng/Desktop/Tasks.txt
 cab ILL e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/illusion.wiki
+"autocmd BufReadPost C:/Users/llinfeng/Dropbox/Wiki/Warehouse/illusion.wiki 
 
 " Supporting function that deletes the trailing space entered though expending abbreviation. (This function may serve for some plugin)
 func! Eatchar(pat)
@@ -1527,7 +1529,7 @@ let @w = 't st"Ilabel define WWWi"A", modifyj"'
 "Z for quitting.
 nnoremap Z :wall!<CR>:qa<CR>
     map z1<cr> <nop>
-nnoremap KK [sz=1<CR><ESC>
+nnoremap KK [sz=1<CR><ESC><c-o>
 nnoremap II [sz=
 " iab mapping: saving keystrokes.
 "inorea <buffer> sj <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>
