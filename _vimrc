@@ -134,6 +134,7 @@ let &colorcolumn="80,".join(range(120,999),",")
 set spell spelllang=en_us spell
     "Don't show too much suggestion for spell check.
     set spellsuggest=fast,20
+    set spellfile+=c:\vim\vimfiles\spell\en.utf-8.add
 " To enable spell check for main body of tex file.
 autocmd BufEnter * syntax spell toplevel
 " to jump BRIEFLY to the matching bracket
