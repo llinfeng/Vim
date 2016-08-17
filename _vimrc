@@ -7,43 +7,43 @@ Plug 'Shougo/neomru.vim'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim'
 Plug 'altercation/vim-colors-solarized'
+Plug 'danielmiessler/VimBlog'
 Plug 'dkprice/vim-easygrep'
+Plug 'finbarrocallaghan/highlights.vim'
+Plug 'godlygeek/tabular'
+Plug 'kien/tabman.vim'
+Plug 'klen/python-mode'
+Plug 'kshenoy/vim-signature'
 Plug 'llinfeng/FeralToggleCommentify.vim'
+Plug 'llinfeng/LanguageTool'
+Plug 'llinfeng/dwm.vim'
+Plug 'llinfeng/linediff.vim'
 Plug 'llinfeng/vim-airline'
 Plug 'llinfeng/vim-latex-suite'
+Plug 'llinfeng/vim-latex-suite'
 Plug 'llinfeng/vim-snipmate'
-Plug 'llinfeng/linediff.vim'
-Plug 'llinfeng/dwm.vim'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdtree'
+"Plug 'scrooloose/syntastic'
 Plug 'sjl/gundo.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tomtom/tlib_vim'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'
-Plug 'kien/tabman.vim'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+"Plug 'twe4ked/vim-colorscheme-switcher'
 Plug 'vim-scripts/Align'
 Plug 'vim-scripts/listmaps.vim'
 Plug 'vim-scripts/matlab_run.vim'
+Plug 'vim-scripts/restore_view.vim'
+Plug 'vim-scripts/shuffle.vim'
 Plug 'vim-voom/VOoM'
 Plug 'vimwiki/vimwiki'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-reload'
 Plug 'xolox/vim-shell'
-Plug 'scrooloose/syntastic'
-Plug 'finbarrocallaghan/highlights.vim'
-Plug 'kshenoy/vim-signature'
-Plug 'vim-scripts/restore_view.vim'
-Plug 'vim-scripts/shuffle.vim'
-Plug 'twe4ked/vim-colorscheme-switcher'
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'klen/python-mode'
-Plug 'plasticboy/vim-markdown'
-Plug 'godlygeek/tabular'
-Plug 'danielmiessler/VimBlog'
-Plug 'llinfeng/LanguageTool'
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'llinfeng/vim-latex-suite'
 " Add plugins to &runtimepath
 call plug#end()
 " }}}
@@ -578,9 +578,8 @@ nnoremap <space> <C-F>
 
 " Command Line: {{{
 " Command line shortcuts for font size
-cab F :set guifont=Bitstream_Vera_Sans_Mono:h12:cANSI
-cab FF :set guifont=Bitstream_Vera_Sans_Mono:h18:cANSI
-cab FFF :set guifont=Bitstream_Vera_Sans_Mono:h28:cANSI
+command! F :set guifont=Bitstream_Vera_Sans_Mono:h18:cANSI
+command! FONT :set guifont=Bitstream_Vera_Sans_Mono:h18:cANSI
 " Command line shortcuts for motion.
 command! O only
 command! R right
@@ -749,7 +748,6 @@ cab empty v/\S/d
 cab WW w! C:/users/llinfeng/Desktop/Tasks.txt
 cab ww w! C:/users/llinfeng/Desktop/Tasks.txt
 cab ILL e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/illusion.wiki
-"autocmd BufReadPost C:/Users/llinfeng/Dropbox/Wiki/Warehouse/illusion.wiki 
 
 " Supporting function that deletes the trailing space entered though expending abbreviation. (This function may serve for some plugin)
 func! Eatchar(pat)
@@ -1529,7 +1527,7 @@ let @w = 't st"Ilabel define WWWi"A", modifyj"'
 "Z for quitting.
 nnoremap Z :wall!<CR>:qa<CR>
     map z1<cr> <nop>
-nnoremap KK [sz=1<CR><ESC><c-o>
+nnoremap KK [sz=1<CR><ESC>
 nnoremap II [sz=
 " iab mapping: saving keystrokes.
 "inorea <buffer> sj <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>
