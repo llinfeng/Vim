@@ -748,7 +748,6 @@ endfunc
 " Sample for using natural-input method for snippet-ing!
 "iabbr <silent> if if ()<Left><C-R>=Eatchar('\s')<CR>
 " ==> if (<cursor here>)
-
 " <C-K> in visual mode to replace gq
 vnoremap <c-k> gq<CR>
 
@@ -826,7 +825,8 @@ let g:pymode_folding = 0
 "Z for quitting.
 nnoremap Z :wall!<CR>:qa<CR>
     map z1<cr> <nop>
-nnoremap KK [sz=1<CR><ESC>
+nnoremap KK [sz=1<CR><ESC><c-o>
+inoremap KK <ESC>[sz=1<CR><ESC><C-O>
 nnoremap II [sz=
 " iab mapping: saving keystrokes.
 "inorea <buffer> sj <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>
