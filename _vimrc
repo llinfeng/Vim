@@ -47,7 +47,7 @@ Plug 'xolox/vim-shell'
 " Add Support for R
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'vim-pandoc/vim-rmarkdown'
-Plug 'Vim-R-plugin'
+Plug 'jalvesaq/Nvim-R'
 " Add plugins to &runtimepath
 call plug#end()
 " }}}
