@@ -851,3 +851,11 @@ inoremap <F1> <esc>/ \{2,}<CR>
 """}}}
 
 let $PYTHONHOME = 'C:/python27'
+
+" Section for Auto Commands
+autocmd bufreadpre *.tmp setlocal textwidth=80
+autocmd bufreadpre *.txt setlocal textwidth=80
+autocmd bufreadpre *.txt setlocal textwidth=80
+autocmd bufreadpre *.txt setlocal textwidth=80
+
+autocmd TextChanged,TextChangedI <buffer> silent write
