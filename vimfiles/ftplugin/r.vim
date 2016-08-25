@@ -1,3 +1,2 @@
-
-let maplocalleader = ","
-let g:maplocalleader = ","
+let maplocalleader = ";"
+let g:maplocalleader = ";"
