@@ -69,6 +69,8 @@ set breakindent
 set fdm=manual
 let mapleader = ","
 let g:mapleader = ","
+let maplocalleader = ";"
+let g:maplocalleader = ";"
 set nocompatible
 " Let Vim behave itself in a modern way
 "Disable Ex mode
