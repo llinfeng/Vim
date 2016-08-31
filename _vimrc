@@ -830,6 +830,7 @@ let g:pymode_folding = 0
 " Unique for Linfeng {{{
 "Z for quitting.
 nnoremap Z :wall!<CR>:qa<CR>
+    nnoremap gZ :wall!<CR>:qa<CR>
     map z1<cr> <nop>
 nnoremap KK [sz=1<CR><ESC><c-o>
 inoremap KK <ESC>[sz=1<CR><ESC><C-O>
