@@ -586,7 +586,8 @@ nnoremap <space> <C-F>
 
 " Command Line: {{{
 " Command line shortcuts for font size
-command! F :set guifont=Bitstream_Vera_Sans_Mono:h18:cANSI
+command! F :set guifont=Bitstream_Vera_Sans_Mono:h16:cANSI
+command! Fnormal :set guifont=Bitstream_Vera_Sans_Mono:h12:cANSI
 command! FONT :set guifont=Bitstream_Vera_Sans_Mono:h18:cANSI
 " Command line shortcuts for motion.
 command! O only
@@ -865,4 +866,4 @@ autocmd bufreadpre *.txt setlocal textwidth=80
 autocmd bufreadpre *.txt setlocal textwidth=80
 autocmd bufreadpre *.txt setlocal textwidth=80
 
-autocmd TextChanged,TextChangedI <buffer> silent write
+"autocmd TextChanged,TextChangedI <buffer> silent write
