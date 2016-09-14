@@ -347,6 +347,7 @@ let g:vimwiki_auto_checkbox = 1
 let g:vimwiki_table_auto_fmt = 1
 let g:vimwiki_html_header_numbering_sym = '.'
 let g:vimwiki_conceallevel = 0
+let g:vimwiki_html_header_numbering = 1
 
 " First wiki, for academic use
 let wiki_1 = {}
@@ -586,7 +587,7 @@ nnoremap <space> <C-F>
 
 " Command Line: {{{
 " Command line shortcuts for font size
-command! F :set guifont=Bitstream_Vera_Sans_Mono:h16:cANSI
+command! F :set guifont=Bitstream_Vera_Sans_Mono:h15:cANSI
 command! Fnormal :set guifont=Bitstream_Vera_Sans_Mono:h12:cANSI
 command! FONT :set guifont=Bitstream_Vera_Sans_Mono:h18:cANSI
 " Command line shortcuts for motion.
