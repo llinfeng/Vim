@@ -1,4 +1,4 @@
-set background=dark
+set background=light
 " Let plug.vim handle the packages {{{
 call plug#begin('C:/Vim/plugged')
 Plug 'MarcWeber/vim-addon-async'
@@ -174,8 +174,8 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 "inoremap <S-Tab> <C-d>
-nnoremap <Tab> >>
-nnoremap <S-Tab> <<
+nnoremap <Tab> <c-w>w
+nnoremap <S-Tab> <c-w>W
 vnoremap <Tab> >
 vnoremap <S-Tab> <
 " Line numbering.
@@ -209,8 +209,8 @@ set showmatch
 " ==> Vim display setting
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Highlight the row and column. (row = line)
-set cursorline
-set cursorcolumn
+set nocursorline
+set nocursorcolumn
 " Sets how many lines of history VIM has to remember
 set history=200
 " For stopping the display of @ when a line goes too long and got wrapped.
@@ -311,6 +311,7 @@ let g:Tex_MultipleCompileFormats='pdf'
 
 " NERDTree {{{
 let NERDTreeIgnore=['\~$', '\.aux', '\.pdf','\.out', '\.pdfsync', '\.synctex', '\.latexmain', '\.bst', '\.sty', '\.bbl', '\.blg', '\.bak', '\.sav']
+let NERDTreeWinSize=35
 " }}}
 
 
@@ -401,7 +402,7 @@ call unite#filters#matcher_default#use(['matcher_fuzzy'])
 " Search through yank history.
 let g:unite_source_history_yank_enable = 1
 " Mappings and shortcut at command line.
-nnoremap <c-l> :Unite file buffer<CR>
+"nnoremap <c-l> :Unite file buffer<CR>
 nnoremap <c-cr> :Unite -start-insert file_mru<CR>
 "nnoremap <c-m> :Unite -start-insert file_mru<CR>
 "nnoremap <C-L> :Unite -start-insert line<CR>
