@@ -24,7 +24,6 @@ nnoremap <buffer> <leader>v :Voom vimwiki<CR>
 " setlocal linebreak nolist textwidth=0 wrapmargin=0
 setlocal wrap linebreak nolist textwidth=80 wrapmargin=0
 setlocal formatoptions=crtnqj
-
 " With conceallevel = 1:
 "   1. URLs will be bended;
 "   2. That bold-mark will be replaced by "-"
