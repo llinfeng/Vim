@@ -176,8 +176,6 @@ set shiftwidth=4
 "inoremap <S-Tab> <C-d>
 nnoremap <Tab> <c-w>w
 nnoremap <S-Tab> <c-w>W
-vnoremap <Tab> >
-vnoremap <S-Tab> <
 " Line numbering.
 set number
 set relativenumber
@@ -349,6 +347,8 @@ let g:vimwiki_table_auto_fmt = 1
 let g:vimwiki_html_header_numbering_sym = '.'
 let g:vimwiki_conceallevel = 0
 let g:vimwiki_html_header_numbering = 1
+" Vimwiki maps the tab key to jumping to the next cell when editing a table. You can try to disable this mapping by putting this line into you vimrc:
+let g:vimwiki_table_mappings = 0
 
 " First wiki, for academic use
 let wiki_1 = {}
@@ -528,11 +528,6 @@ nnoremap <M-w> :tabclose<CR>
 nnoremap <M-c> :tabnew<CR>
 nnoremap <M-n> :tabnext<CR>
 nnoremap <M-p> :tabprevious<CR>
-" Mapping anything to jj is not a good idea.
-inoremap  aa <ESC>[sz=
-nnoremap  aa <ESC>[sz=
-"inoremap  ff <ESC>]sz=
-"nnoremap  ff <ESC>]sz=
 " For adding a hard linkbreak at the point of cursor, silently.
 nnoremap <S-q> i<CR><ESC>
 " }}}
@@ -835,8 +830,17 @@ let g:pymode_folding = 0
 nnoremap Z :wall!<CR>:qa<CR>
     nnoremap gZ :wall!<CR>:qa<CR>
     map z1<cr> <nop>
-nnoremap KK [sz=1<CR><ESC><c-o>
-inoremap KK <ESC>[sz=1<CR><ESC><C-O>
+" Spell checking!
+nnoremap aa [sz=1<CR><ESC><c-o>
+inoremap aa <ESC>[sz=1<CR><ESC><C-O>a
+nnoremap AA [sz=1<CR><ESC><c-o>
+inoremap AA <ESC>[sz=1<CR><ESC><C-O>
+" Mapping anything to jj is not a good idea.
+inoremap  kk <ESC>[sz=
+inoremap  KK <ESC>[sz=
+nnoremap  KK <ESC>[sz=
+"inoremap  ff <ESC>]sz=
+"nnoremap  ff <ESC>]sz=
 nnoremap II [sz=
 " iab mapping: saving keystrokes.
 "inorea <buffer> sj <c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>
@@ -853,12 +857,12 @@ set conceallevel=0
 nnoremap <F1> / \{2,}<CR>
 inoremap <F1> <esc>/ \{2,}<CR>
 
-""" Snippet {{{
-"inoremap <tab> <Plug>snipMateNextOrTrigger
-"snoremap <tab> <Plug>snipMateNextOrTrigger
-"imap <c-q> <Plug>snipMateNextOrTrigger
-"smap <c-q> <Plug>snipMateNextOrTrigger
-"""}}}
+" Snippet {{{
+imap <tab> <Plug>snipMateNextOrTrigger
+smap <tab> <Plug>snipMateNextOrTrigger
+imap <c-q> <Plug>snipMateNextOrTrigger
+smap <c-q> <Plug>snipMateNextOrTrigger
+"}}}
 
 let $PYTHONHOME = 'C:/python27'
 

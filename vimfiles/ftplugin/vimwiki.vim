@@ -37,4 +37,3 @@ setlocal conceallevel=0
 " Mappings:
 "inoremap  <buffer> <C-E> <Plug>VimwikiIncreaseLvlSingleItem
 "nnoremap <buffer> <C-CR> <Plug>VimwikiVSplitLink
-
