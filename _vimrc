@@ -861,8 +861,8 @@ imap <c-q> <Plug>snipMateNextOrTrigger
 smap <c-q> <Plug>snipMateNextOrTrigger
 "}}}
 
-let $PYTHONHOME = 'C:/python27'
-"let $PYTHONHOME = 'c:/Program Files(x86)/Anaconda2/'
+"let $PYTHONHOME = 'C:/python27'
+let $PYTHONHOME = 'c:/Program Files (x86)/Anaconda2/'
 
 " Section for Auto Commands
 autocmd bufreadpre *.tmp setlocal textwidth=80
