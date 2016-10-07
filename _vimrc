@@ -7,7 +7,7 @@ Plug 'Shougo/neomru.vim'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim'
 Plug 'altercation/vim-colors-solarized'
-Plug 'danielmiessler/VimBlog'
+"Plug 'danielmiessler/VimBlog'
 Plug 'dkprice/vim-easygrep'
 Plug 'finbarrocallaghan/highlights.vim'
 Plug 'godlygeek/tabular'
@@ -401,6 +401,7 @@ let g:voom_tree_placement = "right"
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 " Search through yank history.
 let g:unite_source_history_yank_enable = 1
+let g:unite_source_line_enable_highlight = 1
 " Mappings and shortcut at command line.
 "nnoremap <c-l> :Unite file buffer<CR>
 nnoremap <c-cr> :Unite -start-insert file_mru<CR>
@@ -409,7 +410,7 @@ nnoremap <c-cr> :Unite -start-insert file_mru<CR>
 "nnoremap <S-CR> :Unite -start-insert file_mru<CR>
 nnoremap S :Unite -start-insert file buffer file_mru<CR>
 " Leader mappings for Unite
-"nnoremap <leader>l :Unite -start-insert line<CR>
+nnoremap <leader>l :Unite -start-insert line<CR>
 "nnoremap <leader>y :<C-u>Unite history/yank<CR>
 "nnoremap <leader>s :Unite -start-insert file buffer file_mru<CR>
 "nnoremap <leader>g :Unite -start-insert grep<CR>
@@ -861,6 +862,7 @@ smap <c-q> <Plug>snipMateNextOrTrigger
 "}}}
 
 let $PYTHONHOME = 'C:/python27'
+"let $PYTHONHOME = 'c:/Program Files(x86)/Anaconda2/'
 
 " Section for Auto Commands
 autocmd bufreadpre *.tmp setlocal textwidth=80
