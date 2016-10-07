@@ -20,7 +20,6 @@ Plug 'llinfeng/dwm.vim'
 Plug 'llinfeng/linediff.vim'
 Plug 'llinfeng/vim-airline'
 Plug 'llinfeng/vim-latex-suite'
-Plug 'llinfeng/vim-latex-suite'
 Plug 'llinfeng/vim-snipmate'
 Plug 'nathanaelkane/vim-indent-guides'
 "Plug 'ntpeters/vim-better-whitespace'
@@ -600,7 +599,7 @@ command! Shu :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/shu.wiki
 command! D :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/dao.wiki
 command! Sstata :edit c:/vim/vimfiles/bundle/vim-snipmate/snippets/stata.snippets
 command! Stex :edit c:/vim/vimfiles/bundle/vim-snipmate/snippets/tex.snippets
-command! Ttex :edit c:/vim/vimfiles/bundle/vim-snipmate/snippets/tex.snippets
+command! Ttex :edit C:/vim/plugged/vim-snipmate/snippets/tex.snippets
 command! Folder :e C:/Users/llinfeng/Dropbox/Shu/Stata/DeployingFolderStructure.do
 command! Vstata :e c:/vim/vimfiles/ftplugin/stata.vim
 command! FTtex :e c:/vim/vimfiles/ftplugin/tex.vim
@@ -741,7 +740,10 @@ cab bat_dir c:\Users\llinfeng\Dropbox\Tool\bat_file
 " Shortcut for command-line deleting empty lines!
 cab empty v/\S/d
 cab WW w! C:/users/llinfeng/Desktop/Tasks.txt
-cab ww w! C:/users/llinfeng/Desktop/Tasks.txt
+cab WW w! C:/users/llinfeng/Desktop/Tasks.txt
+cab TODO w! C:/users/llinfeng/Desktop/Tasks.txt
+cab todo w! C:/users/llinfeng/Desktop/Tasks.txt
+cab task w! C:/users/llinfeng/Desktop/Tasks.txt
 cab ILL e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/illusion.wiki
 
 " Supporting function that deletes the trailing space entered though expending abbreviation. (This function may serve for some plugin)
@@ -816,12 +818,6 @@ let g:pymode_folding = 0
 "hi IndentGuidesOdd guibg=red ctermbg=3
 "hi IndentGuidesEven guibg=green ctermbg=4
 "}}}
-
-
-
-
-
-
 
 
 
