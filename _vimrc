@@ -137,9 +137,9 @@ endfunction
 let &colorcolumn="80,".join(range(120,999),",")
 " Enabling Spell-check and make changes to how it looks.
 set spell spelllang=en_us spell
-    "Don't show too much suggestion for spell check.
-    set spellsuggest=fast,20
-    set spellfile+=c:\vim\vimfiles\spell\en.utf-8.add
+    set spellsuggest=fast,20 "Don't show too much suggestion for spell check.
+    set spellfile=c:\Users\llinfeng\Dropbox\Tool\Vim_Spell_add\en.utf-8.add
+"    set spellfile+=c:\vim\vimfiles\spell\en.utf-8.add
 " To enable spell check for main body of tex file.
 autocmd BufEnter * syntax spell toplevel
 " to jump BRIEFLY to the matching bracket
@@ -299,7 +299,7 @@ let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_CompileRule_pdf = 'pdflatex --synctex=-1 -src-specials -interaction=nonstopmode $*'
 "let g:Tex_CompileRule_pdf = 'xelatex --synctex=-1 -src-specials -interaction=nonstopmode $*'
 "let g:Tex_ViewRule_pdf = 'sumatrapdf'
-let g:Tex_ViewRule_pdf = 'C:\Program Files\SumatraPDF\SumatraPDF.exe -reuse-instance -inverse-search "\"C:\vim\vim74\gvim\"  -c \":RemoteOpen +\%l \%f\"" '
+let g:Tex_ViewRule_pdf = 'C:\Program Files\SumatraPDF\SumatraPDF.exe -reuse-instance -inverse-search "\"C:\vim\vim80\gvim\"  -c \":RemoteOpen +\%l \%f\"" '
 "let g:Tex_ViewRule_pdf = 'C:\Program Files\SumatraPDF\SumatraPDF.exe gvim --remote +%l %f -reuse-instance -inverse-search " " '
 "let g:Tex_ViewRule_pdf = 'skim -reuse-instance -inverse-search "\"C:\vim\vim74\gvim\"  -c \":RemoteOpen +\%l \%f\"" '
 " "C:\Program Files (x86)\Notepad++\notepad++.exe" -n%l "%f"
@@ -333,6 +333,7 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 "To avoid the short pause in insert mode
 set ttimeoutlen=50
 " }}}
+
 " VimWiki {{{
 " Use <Leader>whh to both update the *.wiki and copy/overwrite `style.css`
 nmap <leader>whh :VimwikiAll2HTML<CR>
@@ -348,7 +349,6 @@ let g:vimwiki_conceallevel = 0
 let g:vimwiki_html_header_numbering = 1
 " Vimwiki maps the tab key to jumping to the next cell when editing a table. You can try to disable this mapping by putting this line into you vimrc:
 let g:vimwiki_table_mappings = 0
-
 " First wiki, for academic use
 let wiki_1 = {}
 let wiki_1.index = 'Academia'
@@ -388,13 +388,14 @@ let wiki_3.auto_export = 0
 " This is the "make" commend that constructs the two wiki's.
 let g:vimwiki_list = [wiki_1, wiki_2, wiki_3]
 " }}}
+
 " xolox-shell {{{
 " Customizing the xolox-shell, for full-screen looks of Vim the editor
 let g:shell_fullscreen_always_on_top = 0
 let g:shell_fullscreen_items="mT"
 "}}}
 " Voom {{{
-let g:voom_tree_width = 27
+let g:voom_tree_width = 17
 let g:voom_tree_placement = "right"
 " }}}
 " Unite {{{
@@ -408,7 +409,7 @@ nnoremap <c-cr> :Unite -start-insert file_mru<CR>
 "nnoremap <c-m> :Unite -start-insert file_mru<CR>
 "nnoremap <C-L> :Unite -start-insert line<CR>
 "nnoremap <S-CR> :Unite -start-insert file_mru<CR>
-nnoremap S :Unite -start-insert file buffer file_mru<CR>
+"nnoremap S :Unite -start-insert file buffer file_mru<CR>
 " Leader mappings for Unite
 nnoremap <leader>l :Unite -start-insert line<CR>
 "nnoremap <leader>y :<C-u>Unite history/yank<CR>
@@ -465,6 +466,10 @@ autocmd BufRead,BufNewFile *.log set ft=stata
 " Auto save.
 "autocmd FocusLost * stopinsert | wall!
 autocmd FocusLost *  wall!
+" Auto save upon each key-stroke. This will save the effort of constantly attending to the saving task. I am saving write oto the heard drive when I am typing.
+"autocmd TextChangedI *  silent write!
+"autocmd TextChangedI, TextChanged silent write
+"autocmd TextChanged,TextChangedI <buffer> silent write
 " MISC setting.
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") |   exe "normal g`\"" | endif
 " Auto source _vimrc upon saving.
@@ -612,6 +617,7 @@ command! S :so $MYVIMRC
 nnoremap <leader>s :so $MYVIMRC<CR>
 command! SO :so $MYVIMRC
 command! So :so $MYVIMRC
+command! DU :diffupdate
 " }}}
 
 " User defined functions {{{
@@ -724,7 +730,7 @@ let @w = 't st"Ilabel define WWWi"A", modifyj"'
 
 
 " avoid the ESC on the left top corner!
-inoremap jk <ESC>l
+"inoremap jk <ESC>l
 inoremap <C-]> <ESC>
 " Shortcut for directories
     " Rules: the cab shortcuts shall not used as query item;
@@ -741,10 +747,12 @@ cab bat_dir c:\Users\llinfeng\Dropbox\Tool\bat_file
 " Shortcut for command-line deleting empty lines!
 cab empty v/\S/d
 cab WW w! C:/users/llinfeng/Desktop/Tasks.txt
-cab WW w! C:/users/llinfeng/Desktop/Tasks.txt
-cab TODO w! C:/users/llinfeng/Desktop/Tasks.txt
-cab todo w! C:/users/llinfeng/Desktop/Tasks.txt
-cab task w! C:/users/llinfeng/Desktop/Tasks.txt
+cab Ww w! C:/users/llinfeng/Desktop/Tasks.txt
+cab tt w! C:/users/llinfeng/Desktop/Tasks.txt
+cab t w! C:/users/llinfeng/Desktop/Tasks.txt
+"cab TODO w! C:/users/llinfeng/Desktop/Tasks.txt
+"cab todo w! C:/users/llinfeng/Desktop/Tasks.txt
+"cab task w! C:/users/llinfeng/Desktop/Tasks.txt
 cab ILL e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/illusion.wiki
 
 " Supporting function that deletes the trailing space entered though expending abbreviation. (This function may serve for some plugin)
@@ -758,7 +766,14 @@ endfunc
 " <C-K> in visual mode to replace gq
 vnoremap <c-k> gq<CR>
 
+" Making sure that the *.tex files come first upon wildcard completion
 set suffixes+=.log
+set suffixes+=.bcf
+set suffixes+=.xml
+set suffixes+=.nav
+set suffixes+=.snm
+set suffixes+=.toc
+set suffixes+=.latexmain
 
 
 vnoremap <leader>q gq
@@ -830,13 +845,19 @@ nnoremap Z :wall!<CR>:qa<CR>
 " Spell checking!
 nnoremap aa [sz=1<CR><ESC><c-o>
 inoremap aa <ESC>[sz=1<CR><ESC><C-O>a
-nnoremap AA [sz=1<CR><ESC><c-o>
-inoremap AA <ESC>[sz=1<CR><ESC><C-O>
+"nnoremap AA [sz=1<CR><ESC><c-o>
+"inoremap AA <ESC>[sz=1<CR><ESC><C-O>
+"nnoremap ss ]so=1<CR><ESC>
+"inoremap qq <ESC>]sz=1<CR>ea
+"nnoremap SS ]sz=1<CR><ESC>
+"inoremap SS <ESC>]sz=1<CR>ea
 " Mapping anything to jj is not a good idea.
-inoremap  kk <ESC>[sz=
-inoremap  KK <ESC>[sz=
-nnoremap  KK <ESC>[sz=
-"inoremap  ff <ESC>]sz=
+nnoremap KK ]sz=1<CR><ESC><c-o>
+inoremap kk <ESC>]sz=1<CR>a
+"inoremap  kk <ESC>[sz=
+"inoremap  KK <ESC>[sz=
+"nnoremap  KK <ESC>[sz=
+"in remap  ff <SEC>]so=
 "nnoremap  ff <ESC>]sz=
 nnoremap II [sz=
 " iab mapping: saving keystrokes.
@@ -844,6 +865,7 @@ nnoremap II [sz=
 iab RQ <c-r>=strftime("20%y-%m-%d")<cr>
 iab homo homoscedasticity
 iab hetero heteroscedasticity
+iab eq equilibrium
 " }}}
 " }}}
 
@@ -871,3 +893,9 @@ autocmd bufreadpre *.txt setlocal textwidth=80
 autocmd bufreadpre *.txt setlocal textwidth=80
 
 "autocmd TextChanged,TextChangedI <buffer> silent write
+
+"Source an additional position for spell file?
+"mkspell! D:/en.utf-8.add
+
+" don't as a word
+set iskeyword+='
