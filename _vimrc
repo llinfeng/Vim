@@ -11,6 +11,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'dkprice/vim-easygrep'
 Plug 'finbarrocallaghan/highlights.vim'
 Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 Plug 'kien/tabman.vim'
 Plug 'klen/python-mode'
 Plug 'kshenoy/vim-signature'
@@ -354,7 +355,7 @@ let wiki_1 = {}
 let wiki_1.index = 'Academia'
 " This option is turned down since Vimwiki cannot convert markdown syntax to html.
 "let wiki_1.syntax = 'markdown'
-let wiki_1.path = 'C:/Users/llinfeng/Dropbox/Wiki/Warehouse'
+let wiki_1.path = 'C:\Users\llinfeng\Dropbox\Wiki\Warehouse'
 let wiki_1.diary_rel_path = ''
 let wiki_1.diary_index = 'Journal'
 let wiki_1.path_html = 'C:/Users/llinfeng/Dropbox/Wiki/html'
@@ -366,7 +367,7 @@ let wiki_1.auto_export = 0
 " Second wiki, for personal use.
 let wiki_2 = {}
 let wiki_2.index = 'Life'
-let wiki_2.path = 'C:/Users/llinfeng/Dropbox/Wiki/Warehouse'
+let wiki_2.path = 'C:\Users\llinfeng\Dropbox\Wiki\Warehouse'
 let wiki_2.diary_rel_path = ''
 let wiki_2.diary_index = 'Journal'
 let wiki_2.path_html = 'C:/Users/llinfeng/Dropbox/Wiki/html'
@@ -378,7 +379,7 @@ let wiki_2.auto_export = 0
 " Third wiki, for working purpose (not heavily used.)
 let wiki_3 = {}
 let wiki_3.index = 'Work'
-let wiki_3.path = 'C:/Users/llinfeng/Dropbox/Wiki/Warehouse'
+let wiki_3.path = 'C:\Users\llinfeng\Dropbox\Wiki\Warehouse'
 let wiki_3.path_html = 'C:/Users/llinfeng/Dropbox/Wiki/html'
 let wiki_3.html_header = 'C:/Users/llinfeng/Dropbox/Wiki/html'
 let wiki_3.template_path = 'C:/Users/llinfeng/Dropbox/Shu/HTML/Template-Defualt'
@@ -598,6 +599,8 @@ command! Co :copen
 command! CO :copen
 command! C :center
 " Command line shortcuts for files.
+command! L :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/Life.wiki
+command! Spell :e c:\Users\llinfeng\Dropbox\Tool\Vim_Spell_add\en.utf-8.add
 command! S :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/stata.wiki
 command! V :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/Vault.wiki
 command! T :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/todo.wiki
@@ -700,7 +703,8 @@ autocmd BufDelete * let g:latest_deleted_buffer = expand("<afile>:p")
 nnoremap Y :let @* = expand("%:p")<CR>
 "Copy the file name to windows clipboard.
 nnoremap yyy :let @* = expand("%:p:t")<CR>
-nnoremap DDD :call delete(expand('%'))
+nnoremap DDD :call delete(expand('%'))<CR>
+nnoremap DD :call delete(expand('%'))<CR>
 "Now using leaders:
 " Full path
 nnoremap <leader><leader>f :let @* = expand("%:p")<CR>
@@ -717,7 +721,8 @@ nnoremap <leader><leader>p :let @* = expand("%:p:h")<CR>
 " Run the script from beginning up to this point.
 let @r = "Vgg€齝€齜"
 " Add a Oh line, for catching attention to the section splitter.
-let @o = ":CikV:s/ /*/gJx50A*80d|:nohl"
+let @o = ":CikV:s/ /*/gJx50A*80d|o"
+let @O = ":CikV:s/ /*/gJx50A*80d|"
 " Add a structure, at higher level.
 let @i = ":centerI*A*O*SECTION*71i*jo79i*A*j"
 " To fix the absolute addresses and make it openable in Vimwiki

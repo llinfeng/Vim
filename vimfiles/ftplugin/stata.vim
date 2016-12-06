@@ -1,3 +1,4 @@
+"syntax off
 " Let vim know all types of commenting styles.
 setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
 
