@@ -606,8 +606,8 @@ command! V :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/Vault.wiki
 command! T :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/todo.wiki
 command! Shu :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/shu.wiki
 command! D :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/dao.wiki
-command! Sstata :edit c:/vim/vimfiles/bundle/vim-snipmate/snippets/stata.snippets
-command! Stex :edit c:/vim/vimfiles/bundle/vim-snipmate/snippets/tex.snippets
+command! Sstata :edit c:/vim/plugged/vim-snipmate/snippets/stata.snippets
+command! Stex :edit c:/vim/plugged/vim-snipmate/snippets/tex.snippets
 command! Ttex :edit C:/vim/plugged/vim-snipmate/snippets/tex.snippets
 command! Folder :e C:/Users/llinfeng/Dropbox/Shu/Stata/DeployingFolderStructure.do
 command! Vstata :e c:/vim/vimfiles/ftplugin/stata.vim
