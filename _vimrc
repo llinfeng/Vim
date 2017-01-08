@@ -48,6 +48,8 @@ Plug 'xolox/vim-shell'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'vim-pandoc/vim-rmarkdown'
 Plug 'jalvesaq/Nvim-R'
+" Plugin for storing views?
+Plug 'mhinz/vim-startify'
 " Add plugins to &runtimepath
 call plug#end()
 " }}}
@@ -104,9 +106,9 @@ set history=1000
 set noerrorbells
 set novisualbell
 " }}}
-" Canned 封存 {{{
+" Canned 灏佸瓨 {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => 启动窗口最大化, maximizing the interface upon start.
+" => 鍚姩绐楀彛鏈€澶у寲, maximizing the interface upon start.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " To maximize the Vim window in Windows. Does not grantee proper functionality in *nix environment.
 if has("gui_running")
@@ -529,6 +531,8 @@ vmap <A-k> :m'<-2<cr>`>my`<mzgv`yo`z
 nmap <C-s> :wall!<CR>
 inoremap <C-s> <ESC>:wall!<CR><right>
 inoremap <C-BS> <C-W>
+nnoremap <c-p> :bp<cr>
+nnoremap <c-j> :bn<cr>
 "Alt keys
 nnoremap <M-w> :tabclose<CR>
 nnoremap <M-c> :tabnew<CR>
@@ -703,7 +707,7 @@ autocmd BufDelete * let g:latest_deleted_buffer = expand("<afile>:p")
 nnoremap Y :let @* = expand("%:p")<CR>
 "Copy the file name to windows clipboard.
 nnoremap yyy :let @* = expand("%:p:t")<CR>
-nnoremap DDD :call delete(expand('%'))<CR>
+nnoremap DDD :call delete(expand('%'))<CR>:bclose<CR>
 nnoremap DD :call delete(expand('%'))<CR>
 "Now using leaders:
 " Full path
@@ -719,14 +723,15 @@ nnoremap <leader><leader>p :let @* = expand("%:p:h")<CR>
 " Macros: {{{
 " Don't tough my macros!
 " Run the script from beginning up to this point.
-let @r = "Vgg€齝€齜"
+let @r = "Vgg鈧綕鈧綔"
 " Add a Oh line, for catching attention to the section splitter.
-let @o = ":CikV:s/ /*/gJx50A*80d|o"
-let @O = ":CikV:s/ /*/gJx50A*80d|"
+let @o = ":centerikV:s/ /*/gJx50A*80d|o"
+"let @o = ":centerQk:s/*/€kb€kb /*/gJxA50a*d80|j"
+let @O = ":centerikV:s/ /*/gJx50A*80d|"
 " Add a structure, at higher level.
 let @i = ":centerI*A*O*SECTION*71i*jo79i*A*j"
 " To fix the absolute addresses and make it openable in Vimwiki
-let @f = '"gI[[A]]€k9llifile:j"'
+let @f = '"gI[[A]]鈧琸9llifile:j"'
 " Temp: stored only for the current project.
 let @t = "$dawOlabel copy pJ$yawolabel values p pj"
 "let @q = '"Ilabel define WWWi"A", defreplacej"'
@@ -742,7 +747,7 @@ inoremap <C-]> <ESC>
     "        the cab shortcuts shall be most-usually-used items.
 cab drop_dir C:/users/llinfeng/dropbox
 cab hoome C:/users/llinfeng
-cab temp C:/vim/vimfiles/bundle/vim-latex-suite/ftplugin/latex-suite/templates
+"cab temp C:/vim/vimfiles/bundle/vim-latex-suite/ftplugin/latex-suite/templates
 cab ~ C:\users\llinfeng
 cab ftpl C:\vim\vimfiles\ftplugin
 " Shortcut for files.
@@ -845,6 +850,7 @@ let g:pymode_folding = 0
 " Unique for Linfeng {{{
 "Z for quitting.
 nnoremap Z :wall!<CR>:qa<CR>
+vnoremap Z <ESC>:wall!<CR>:qa<CR>
     nnoremap gZ :wall!<CR>:qa<CR>
     map z1<cr> <nop>
 " Spell checking!
