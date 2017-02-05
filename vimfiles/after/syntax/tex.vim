@@ -32,21 +32,45 @@ syn sync match texSyncMathZoneA		groupthere NONE		"\\end{tabular}"
 syn sync match texSyncMathZoneA		groupthere NONE		"\\\(sub\)*section\>"
 
 
-syn match texItem   "\\item"                                            
-syn match texItem   "\\cite"
 
 "syn match texMath   "\$.*\$"
 hi def link texMath  Number
 
+" Other keywords:
+syn match texItem   "\\item"                                            
+syn match texItem   "\\cite"
+syn match texItem   "\\documentclass"
+syn match texItem   "\\usepackage"
+syn match texItem   "\\newcommand"
+syn match texItem   "\\theoremstyle"
+syn match texItem   "\\newtheorem"
+syn match texItem   "\\section"
+syn match texItem   "\\subsection"
+syn match texItem   "\\subsubsection"
+syn match texItem   "\\paragraph"
+syn match texItem   "\\subparagraph"
+syn match texItem   "\\url"
+
+" Other structures:
+syn match texSymbols_option "\[.*\]"
+"syn match texSymbols_setting "{.*}"
+syn match texSymbols_setting "\\\\"
+syn match texSymbols_setting "&"
+
+" Implmeenting the highlightings 
+hi def link texItem  Identifier
+hi def link texSymbols_setting  Delimiter
+hi def link texSymbols_option  Conditional
 hi def link texComment  Comment
-hi def link texItem  Identifier
-hi def link texItem  Identifier
 hi def link texInputFileOpt  Identifier
 hi def link texBeginEnd  Delimiter
 hi def link texBeginEndModifier  Delimiter
 hi def link texBeginEndName  Delimiter
 
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"What follows are from the original syntax file for Tex from the master Vim distribution"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Math Symbols {{{2
 " (many of these symbols were contributed by Björn Winckler)
 let s:texMathList=[
