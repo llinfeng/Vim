@@ -351,7 +351,7 @@ let g:vimwiki_html_header_numbering_sym = '.'
 let g:vimwiki_conceallevel = 0
 let g:vimwiki_html_header_numbering = 1
 " Vimwiki maps the tab key to jumping to the next cell when editing a table. You can try to disable this mapping by putting this line into you vimrc:
-let g:vimwiki_table_mappings = 0
+let g:vimwiki_table_mappings = 1
 " First wiki, for academic use
 let wiki_1 = {}
 let wiki_1.index = 'Academia'
@@ -720,24 +720,6 @@ nnoremap <leader><leader>e :let @* = expand("%:t:e")<CR>
 nnoremap <leader><leader>p :let @* = expand("%:p:h")<CR>
 "}}}
 
-" Macros: {{{
-" Don't tough my macros!
-" Run the script from beginning up to this point.
-let @r = "Vgg鈧綕鈧綔"
-" Add a Oh line, for catching attention to the section splitter.
-let @o = ":centerikV:s/ /*/gJx50A*80d|o"
-"let @o = ":centerQk:s/*/€kb€kb /*/gJxA50a*d80|j"
-let @O = ":centerikV:s/ /*/gJx50A*80d|"
-" Add a structure, at higher level.
-let @i = ":centerI*A*O*SECTION*71i*jo79i*A*j"
-" To fix the absolute addresses and make it openable in Vimwiki
-let @f = '"gI[[A]]鈧琸9llifile:j"'
-" Temp: stored only for the current project.
-let @t = "$dawOlabel copy pJ$yawolabel values p pj"
-"let @q = '"Ilabel define WWWi"A", defreplacej"'
-let @w = 't st"Ilabel define WWWi"A", modifyj"'
-" }}}
-
 
 " avoid the ESC on the left top corner!
 "inoremap jk <ESC>l
@@ -747,7 +729,7 @@ inoremap <C-]> <ESC>
     "        the cab shortcuts shall be most-usually-used items.
 cab drop_dir C:/users/llinfeng/dropbox
 cab hoome C:/users/llinfeng
-"cab temp C:/vim/vimfiles/bundle/vim-latex-suite/ftplugin/latex-suite/templates
+cab template C:/vim/vimfiles/bundle/vim-latex-suite/ftplugin/latex-suite/templates
 cab ~ C:\users\llinfeng
 cab ftpl C:\vim\vimfiles\ftplugin
 " Shortcut for files.
@@ -905,8 +887,8 @@ autocmd bufreadpre *.txt setlocal textwidth=80
 
 "autocmd TextChanged,TextChangedI <buffer> silent write
 
-"Source an additional position for spell file?
-"mkspell! D:/en.utf-8.add
-
-" don't as a word
-set iskeyword+='
+" Source the macros
+source c:\Users\llinfeng\Dropbox\Tool_Private\Vim-Spelling\macro_sourcing.vim
+command! Macro e c:\Users\llinfeng\Dropbox\Tool_Private\Vim-Spelling\macro_sourcing.vim
+" Source the command settings (across platforms)
+source c:\Users\llinfeng\Dropbox\Tool_Private\Vim-Spelling\general_setting.vim
