@@ -1,3 +1,7 @@
+" Edited as of: 2016-12-06
+" Deleted the following section from the original syntax file:
+    " Stata functions
+
 syn clear
 syn match texComment   "*.*$" 
 
@@ -162,6 +166,7 @@ syn keyword stataCommand webuse
 syn keyword stataCommand which
 syn keyword stataCommand who
 syn keyword stataCommand window
+syn keyword stataCommand TODO
 
 " Literals
 syn match  stataQuote   /"/

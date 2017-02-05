@@ -48,6 +48,11 @@ Plug 'xolox/vim-shell'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'vim-pandoc/vim-rmarkdown'
 Plug 'jalvesaq/Nvim-R'
+" Plugin for storing views?
+Plug 'mhinz/vim-startify'
+" PLugin for align
+Plug 'junegunn/vim-easy-align'
+Plug 'vim-scripts/Align'
 " Add plugins to &runtimepath
 call plug#end()
 " }}}
@@ -343,7 +348,7 @@ let g:vimwiki_use_mouse = 1
 let g:vimwiki_use_calendar = 1
 let g:vimwiki_hl_cb_checked = 1
 let g:vimwiki_auto_checkbox = 1
-"let g:vimwiki_folding='expr'
+let g:vimwiki_folding='syntax'
 let g:vimwiki_table_auto_fmt = 1
 let g:vimwiki_html_header_numbering_sym = '.'
 let g:vimwiki_conceallevel = 0
@@ -529,6 +534,9 @@ vmap <A-k> :m'<-2<cr>`>my`<mzgv`yo`z
 nmap <C-s> :wall!<CR>
 inoremap <C-s> <ESC>:wall!<CR><right>
 inoremap <C-BS> <C-W>
+nnoremap <c-p> :bp<cr>
+nnoremap <c-j> :bn<cr>
+nnoremap <c-k> :bp<cr>
 "Alt keys
 nnoremap <M-w> :tabclose<CR>
 nnoremap <M-c> :tabnew<CR>
@@ -606,11 +614,10 @@ command! V :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/Vault.wiki
 command! T :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/todo.wiki
 command! Shu :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/shu.wiki
 command! D :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/dao.wiki
-command! Sstata :edit c:/vim/vimfiles/bundle/vim-snipmate/snippets/stata.snippets
-command! Stex :edit c:/vim/vimfiles/bundle/vim-snipmate/snippets/tex.snippets
-command! Ttex :edit C:/vim/plugged/vim-snipmate/snippets/tex.snippets
+command! Sstata :edit c:/vim/plugged/vim-snipmate/snippets/stata.snippets
+command! Stex :edit c:/vim/plugged/vim-snipmate/snippets/tex.snippets
+command! Ttex :edit c:/vim/plugged/vim-snipmate/snippets/tex.snippets
 command! Folder :e C:/Users/llinfeng/Dropbox/Shu/Stata/DeployingFolderStructure.do
-command! Vstata :e c:/vim/vimfiles/ftplugin/stata.vim
 command! FTtex :e c:/vim/vimfiles/ftplugin/tex.vim
 command! U :e c:/Users/llinfeng/Dropbox/Wiki/Warehouse/URL.wiki
 command! Stata :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/stata.wiki
@@ -703,7 +710,7 @@ autocmd BufDelete * let g:latest_deleted_buffer = expand("<afile>:p")
 nnoremap Y :let @* = expand("%:p")<CR>
 "Copy the file name to windows clipboard.
 nnoremap yyy :let @* = expand("%:p:t")<CR>
-nnoremap DDD :call delete(expand('%'))<CR>
+nnoremap DDD :call delete(expand('%'))<CR>:bd<CR>
 nnoremap DD :call delete(expand('%'))<CR>
 "Now using leaders:
 " Full path
@@ -716,22 +723,6 @@ nnoremap <leader><leader>e :let @* = expand("%:t:e")<CR>
 nnoremap <leader><leader>p :let @* = expand("%:p:h")<CR>
 "}}}
 
-" Macros: {{{
-" Don't tough my macros!
-" Run the script from beginning up to this point.
-let @r = "Vgg€齝€齜"
-" Add a Oh line, for catching attention to the section splitter.
-let @o = ":CikV:s/ /*/gJx50A*80d|o"
-let @O = ":CikV:s/ /*/gJx50A*80d|"
-" Add a structure, at higher level.
-let @i = ":centerI*A*O*SECTION*71i*jo79i*A*j"
-" To fix the absolute addresses and make it openable in Vimwiki
-let @f = '"gI[[A]]€k9llifile:j"'
-" Temp: stored only for the current project.
-let @t = "$dawOlabel copy pJ$yawolabel values p pj"
-"let @q = '"Ilabel define WWWi"A", defreplacej"'
-let @w = 't st"Ilabel define WWWi"A", modifyj"'
-" }}}
 
 
 " avoid the ESC on the left top corner!
@@ -742,9 +733,10 @@ inoremap <C-]> <ESC>
     "        the cab shortcuts shall be most-usually-used items.
 cab drop_dir C:/users/llinfeng/dropbox
 cab hoome C:/users/llinfeng
-cab temp C:/vim/vimfiles/bundle/vim-latex-suite/ftplugin/latex-suite/templates
+cab template C:/vim/vimfiles/bundle/vim-latex-suite/ftplugin/latex-suite/templates
 cab ~ C:\users\llinfeng
 cab ftpl C:\vim\vimfiles\ftplugin
+cab after C:\vim\vimfiles\after\syntax
 " Shortcut for files.
 cab bat_dir c:\Users\llinfeng\Dropbox\Tool\bat_file
 " Color scheme switching:
@@ -845,6 +837,7 @@ let g:pymode_folding = 0
 " Unique for Linfeng {{{
 "Z for quitting.
 nnoremap Z :wall!<CR>:qa<CR>
+vnoremap Z <ESC>:wall!<CR>:qa<CR>
     nnoremap gZ :wall!<CR>:qa<CR>
     map z1<cr> <nop>
 " Spell checking!
@@ -904,3 +897,41 @@ autocmd bufreadpre *.txt setlocal textwidth=80
 
 " don't as a word
 set iskeyword+='
+
+let g:startify_session_persistence = 1
+let g:startify_session_dir = '~/Dropbox/Tool_Private/Vim-Spelling/Views'
+
+
+" Source the macros
+source c:\Users\llinfeng\Dropbox\Tool_Private\Vim-Spelling\macro_sourcing.vim
+command! Macro e c:\Users\llinfeng\Dropbox\Tool_Private\Vim-Spelling\macro_sourcing.vim
+
+
+
+" Use z] and z[ to jump to closed folds only.
+" As usual, zj and zk will jump over all folds.
+nnoremap <silent> z] :call NextClosedFold('j')<cr>
+nnoremap <silent> z[ :call NextClosedFold('k')<cr>
+function! NextClosedFold(dir)
+    let cmd = 'norm!z' . a:dir
+    let view = winsaveview()
+    let [l0, l, open] = [0, view.lnum, 1]
+    while l != l0 && open
+        exe cmd
+        let [l0, l] = [l, line('.')]
+        let open = foldclosed(l) < 0
+    endwhile
+    if open
+        call winrestview(view)
+    endif
+endfunction
+
+" File shortcuts
+command! Notes e C:/users/llinfeng/SI/Notes/Notes.tex
+command! NOtes e C:/users/llinfeng/SI/Notes/Notes.tex
+command! Nref e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/N_ref.wiki
+
+"" Latex setting - syntax
+"let s:tex_fast= "bcmMprsSvV"
+"let s:tex_fast= "mMp"
+"let s:tex_fast= 0

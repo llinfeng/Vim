@@ -1,3 +1,4 @@
+syntax on
 " Behavior of text wrapping.
 setlocal formatoptions=crtnqj
 
