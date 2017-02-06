@@ -24,7 +24,6 @@ Plug 'llinfeng/vim-latex-suite'
 Plug 'llinfeng/vim-snipmate'
 Plug 'nathanaelkane/vim-indent-guides'
 "Plug 'ntpeters/vim-better-whitespace'
-Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdtree'
 "Plug 'scrooloose/syntastic'
 Plug 'sjl/gundo.vim'
@@ -53,6 +52,9 @@ Plug 'mhinz/vim-startify'
 " PLugin for align
 Plug 'junegunn/vim-easy-align'
 Plug 'vim-scripts/Align'
+" Plugin for Previewing Markdown
+Plug 'suan/vim-instant-markdown'
+
 " Add plugins to &runtimepath
 call plug#end()
 " }}}
@@ -143,7 +145,7 @@ endfunction
 let &colorcolumn="80,".join(range(120,999),",")
 " Enabling Spell-check and make changes to how it looks.
 set spell spelllang=en_us spell
-    set spellsuggest=fast,20 "Don't show too much suggestion for spell check.
+    set spellsuggest=fast,5 "Don't show too much suggestion for spell check.
     set spellfile=c:\Users\llinfeng\Dropbox\Tool\Vim_Spell_add\en.utf-8.add
 "    set spellfile+=c:\vim\vimfiles\spell\en.utf-8.add
 " To enable spell check for main body of tex file.
@@ -935,3 +937,6 @@ command! Nref e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/N_ref.wiki
 "let s:tex_fast= "bcmMprsSvV"
 "let s:tex_fast= "mMp"
 "let s:tex_fast= 0
+
+" Setting for markdown conversion
+let g:instant_markdown_autostart = 0
