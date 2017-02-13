@@ -35,7 +35,9 @@ Plug 'tpope/vim-surround'
 "Plug 'twe4ked/vim-colorscheme-switcher'
 Plug 'vim-scripts/Align'
 Plug 'vim-scripts/listmaps.vim'
-Plug 'vim-scripts/matlab_run.vim'
+"Plug 'vim-scripts/matlab_run.vim'
+"Plug 'sgeb/vim-matlab'
+
 Plug 'vim-scripts/restore_view.vim'
 Plug 'vim-scripts/shuffle.vim'
 Plug 'vim-voom/VOoM'
@@ -66,6 +68,7 @@ set guifont=Bitstream_Vera_Sans_Mono:h12:cANSI
 "set guifont=Bitstream_Vera_Sans_Mono:h24:cANSI
 set fileencoding=utf-8
 set encoding=utf-8
+:set fileformat=unix
 " Preamble {{{
 " Enable filetype plugin
 filetype plugin on
@@ -496,7 +499,7 @@ nnoremap <Leader>D :bd!<CR>
 nnoremap <Leader>e :e $MYVIMRC<CR>
 noremap <leader>f <ESC>:Fullscreen<CR>
 " For togging the Menu.
-nnoremap <leader>M :if &go=~'m'<bar>set go-=m<bar>else<bar>set go+=m<bar>endif<cr>
+"nnoremap <leader>M :if &go=~'m'<bar>set go-=m<bar>else<bar>set go+=m<bar>endif<cr>
 nnoremap <leader><space> :nohl<CR>
 " For buffer management
 nnoremap <leader>o :only<CR>
