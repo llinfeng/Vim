@@ -139,8 +139,6 @@ endfunction
 " To be god like coder who concerned about 80 and 120 boundaries.
 let &colorcolumn="80,".join(range(120,999),",")
 " Enabling Spell-check and make changes to how it looks.
-set spell spelllang=en_us spell
-    set spellsuggest=fast,20 "Don't show too much suggestion for spell check.
     set spellfile=c:\Users\llinfeng\Dropbox\Tool\Vim_Spell_add\en.utf-8.add
 "    set spellfile+=c:\vim\vimfiles\spell\en.utf-8.add
 " To enable spell check for main body of tex file.
@@ -532,7 +530,7 @@ nmap <C-s> :wall!<CR>
 inoremap <C-s> <ESC>:wall!<CR><right>
 inoremap <C-BS> <C-W>
 nnoremap <c-p> :bp<cr>
-nnoremap <c-j> :bn<cr>
+"nnoremap <c-j> :bn<cr>
 "Alt keys
 nnoremap <M-w> :tabclose<CR>
 nnoremap <M-c> :tabnew<CR>
@@ -876,8 +874,8 @@ imap <c-q> <Plug>snipMateNextOrTrigger
 smap <c-q> <Plug>snipMateNextOrTrigger
 "}}}
 
-"let $PYTHONHOME = 'C:/python27'
-let $PYTHONHOME = 'c:/Program Files (x86)/Anaconda2/'
+let $PYTHONHOME = 'C:/python27'
+"let $PYTHONHOME = 'c:/Program Files (x86)/Anaconda2/'
 
 " Section for Auto Commands
 autocmd bufreadpre *.tmp setlocal textwidth=80
@@ -892,3 +890,4 @@ source c:\Users\llinfeng\Dropbox\Tool_Private\Vim-Spelling\macro_sourcing.vim
 command! Macro e c:\Users\llinfeng\Dropbox\Tool_Private\Vim-Spelling\macro_sourcing.vim
 " Source the command settings (across platforms)
 source c:\Users\llinfeng\Dropbox\Tool_Private\Vim-Spelling\general_setting.vim
+
