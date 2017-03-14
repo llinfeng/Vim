@@ -49,14 +49,15 @@ Plug 'xolox/vim-shell'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'vim-pandoc/vim-rmarkdown'
 Plug 'jalvesaq/Nvim-R'
-" Plugin for storing views?
+" Plugin for storing and managing views?
 Plug 'mhinz/vim-startify'
 " PLugin for align
 Plug 'junegunn/vim-easy-align'
 Plug 'vim-scripts/Align'
 " Plugin for Previewing Markdown
 Plug 'suan/vim-instant-markdown'
-
+" Plugin for quicker jumping to a certain word in a line
+Plug 'Lokaltog/vim-easymotion'
 " Add plugins to &runtimepath
 call plug#end()
 " }}}
@@ -336,7 +337,7 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_section_b = '%{strftime("%c")}'
 let g:airline_section_y = 'BN: %{bufnr("%")}'
 " Word count?
-let g:airline_section_x = "%{airline#extensions#pandoc#word_count()} Words"
+"let g:airline_section_x = "%{airline#extensions#pandoc#word_count()} Words"
 
 " Separators can be configured independently for the tabline, so here is how you can define "straight" tabs:
 let g:airline#extensions#tabline#left_sep = ' '
@@ -554,7 +555,7 @@ nnoremap <S-q> i<CR><ESC>
 " F1 mapping: to find spaces totaling more than one; as writing assistance.
 nnoremap <F1> / \{2,}<CR>
 " Short key feature for toggling
-nnoremap <F2> :NERDTreeToggle<CR>
+nnoremap <buffer> <F2> :NERDTreeToggle<CR>
 nnoremap <F3> :windo set scrollbind!<cr>
 nnoremap <F4> :GundoToggle<CR>
 " F5 and F6 used for toggling the color schemes.
@@ -726,6 +727,8 @@ nnoremap <leader><leader>n :let @* = expand("%:t:r")<CR>
 nnoremap <leader><leader>e :let @* = expand("%:t:e")<CR>
 " Parent directory, full.
 nnoremap <leader><leader>p :let @* = expand("%:p:h")<CR>
+" Copy the line number with file name
+nnoremap <leader><leader>l :let @* = expand("%:p").":".line(".")<CR>
 "}}}
 
 
@@ -785,43 +788,6 @@ vnoremap q gq
 
 " Vim-R-plugin{{{
 "let vimrplugin_r_path = 'C:\\Program Files\\R\\R-3.2.3\\bin\\i386'
-" }}}
-
-" {{{
-" Python-mode
-" Activate rope
-" Keys:
-" K Show python docs
-" <Ctrl-Space> Rope autocomplete
-" <Ctrl-c>g Rope goto definition
-" <Ctrl-c>d Rope show documentation
-" <Ctrl-c>f Rope find occurrences
-" <Leader>b Set, unset breakpoint (g:pymode_breakpoint enabled)
-" [[ Jump on previous class or function (normal, visual, operator modes)
-" ]] Jump on next class or function (normal, visual, operator modes)
-" [M Jump on previous class or method (normal, visual, operator modes)
-" ]M Jump on next class or method (normal, visual, operator modes)
-let g:pymode_rope = 1
-" Documentation
-let g:pymode_doc = 1
-let g:pymode_doc_key = 'K'
-"Linting
-let g:pymode_lint = 1
-let g:pymode_lint_checker = "pyflakes,pep8"
-" Auto check on save
-let g:pymode_lint_write = 1
-" Support virtualenv
-let g:pymode_virtualenv = 1
-" Enable breakpoints plugin
-let g:pymode_breakpoint = 1
-let g:pymode_breakpoint_bind = '<leader>b'
-" syntax highlighting
-let g:pymode_syntax = 1
-let g:pymode_syntax_all = 1
-let g:pymode_syntax_indent_errors = g:pymode_syntax_all
-let g:pymode_syntax_space_errors = g:pymode_syntax_all
-" Don't autofold code
-let g:pymode_folding = 0
 " }}}
 
 
@@ -913,23 +879,6 @@ command! Macro e c:\Users\llinfeng\Dropbox\Tool_Private\Vim-Spelling\macro_sourc
 
 
 
-" Use z] and z[ to jump to closed folds only.
-" As usual, zj and zk will jump over all folds.
-nnoremap <silent> z] :call NextClosedFold('j')<cr>
-nnoremap <silent> z[ :call NextClosedFold('k')<cr>
-function! NextClosedFold(dir)
-    let cmd = 'norm!z' . a:dir
-    let view = winsaveview()
-    let [l0, l, open] = [0, view.lnum, 1]
-    while l != l0 && open
-        exe cmd
-        let [l0, l] = [l, line('.')]
-        let open = foldclosed(l) < 0
-    endwhile
-    if open
-        call winrestview(view)
-    endif
-endfunction
 
 " File shortcuts
 command! Notes e C:/users/llinfeng/SI/Notes/Notes.tex
@@ -943,3 +892,4 @@ command! Nref e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/N_ref.wiki
 
 " Setting for markdown conversion
 let g:instant_markdown_autostart = 0
+

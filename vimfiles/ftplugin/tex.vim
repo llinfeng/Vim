@@ -65,3 +65,6 @@ nnoremap <buffer> <leader>t :TC<CR>
 "vnoremap <buffer> <C-J> <Plug>IMAP_DeleteAndJumpForward
 
 setlocal viewoptions-=folds
+
+
+iab stepp [<+->]
