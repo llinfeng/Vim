@@ -51,6 +51,8 @@ Plug 'jalvesaq/Nvim-R'
 " Plugin for storing views?
 Plug 'mhinz/vim-startify'
 " Add plugins to &runtimepath
+" Plugin for quicker jumping to a certain word in a line
+Plug 'Lokaltog/vim-easymotion'
 call plug#end()
 " }}}
 
@@ -796,6 +798,7 @@ let g:pymode_doc_key = 'K'
 "Linting
 let g:pymode_lint = 1
 let g:pymode_lint_checker = "pyflakes,pep8"
+let g:pymode_lint_ignore = "E501,W"
 " Auto check on save
 let g:pymode_lint_write = 1
 " Support virtualenv
