@@ -38,14 +38,8 @@ Plug 'vim-scripts/Align'
 Plug 'vim-scripts/listmaps.vim'
 "Plug 'vim-scripts/matlab_run.vim'
 "Plug 'sgeb/vim-matlab'
-
-Plug 'vim-scripts/restore_view.vim'
-Plug 'vim-scripts/shuffle.vim'
-Plug 'vim-voom/VOoM'
-Plug 'vimwiki/vimwiki'
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-reload'
-Plug 'xolox/vim-shell'
+" buffer kill
+Plug 'qpkorr/vim-bufkill'
 " Add Support for R
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'vim-pandoc/vim-rmarkdown'
@@ -59,6 +53,14 @@ Plug 'vim-scripts/Align'
 Plug 'suan/vim-instant-markdown'
 " Plugin for quicker jumping to a certain word in a line
 Plug 'Lokaltog/vim-easymotion'
+" Other default packages
+Plug 'vim-scripts/restore_view.vim'
+Plug 'vim-scripts/shuffle.vim'
+Plug 'vim-voom/VOoM'
+Plug 'vimwiki/vimwiki'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-reload'
+Plug 'xolox/vim-shell'
 " Add plugins to &runtimepath
 call plug#end()
 " }}}
@@ -494,7 +496,7 @@ augroup END
 " Leader Mapping {{{
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
-nnoremap <Leader>d :bd<CR>:bnext<CR>
+nnoremap <Leader>d :BD<CR>:bnext<CR>
 nnoremap <Leader>D :bd!<CR>
 nnoremap <Leader>e :e $MYVIMRC<CR>
 noremap <leader>f <ESC>:Fullscreen<CR>
