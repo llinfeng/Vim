@@ -24,7 +24,6 @@ Plug 'llinfeng/vim-latex-suite'
 Plug 'llinfeng/vim-snipmate'
 Plug 'nathanaelkane/vim-indent-guides'
 "Plug 'ntpeters/vim-better-whitespace'
-Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdtree'
 "Plug 'scrooloose/syntastic'
 Plug 'sjl/gundo.vim'
@@ -33,10 +32,13 @@ Plug 'tomtom/tlib_vim'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-vinegar'
 "Plug 'twe4ked/vim-colorscheme-switcher'
 Plug 'vim-scripts/Align'
 Plug 'vim-scripts/listmaps.vim'
-Plug 'vim-scripts/matlab_run.vim'
+"Plug 'vim-scripts/matlab_run.vim'
+"Plug 'sgeb/vim-matlab'
+
 Plug 'vim-scripts/restore_view.vim'
 Plug 'vim-scripts/shuffle.vim'
 Plug 'vim-voom/VOoM'
@@ -48,11 +50,16 @@ Plug 'xolox/vim-shell'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'vim-pandoc/vim-rmarkdown'
 Plug 'jalvesaq/Nvim-R'
-" Plugin for storing views?
+" Plugin for storing and managing views?
 Plug 'mhinz/vim-startify'
-" Add plugins to &runtimepath
+" PLugin for align
+Plug 'junegunn/vim-easy-align'
+Plug 'vim-scripts/Align'
+" Plugin for Previewing Markdown
+Plug 'suan/vim-instant-markdown'
 " Plugin for quicker jumping to a certain word in a line
 Plug 'Lokaltog/vim-easymotion'
+" Add plugins to &runtimepath
 call plug#end()
 " }}}
 
@@ -63,6 +70,7 @@ set guifont=Bitstream_Vera_Sans_Mono:h12:cANSI
 "set guifont=Bitstream_Vera_Sans_Mono:h24:cANSI
 set fileencoding=utf-8
 set encoding=utf-8
+:set fileformat=unix
 " Preamble {{{
 " Enable filetype plugin
 filetype plugin on
@@ -108,9 +116,9 @@ set history=1000
 set noerrorbells
 set novisualbell
 " }}}
-" Canned 灏佸瓨 {{{
+" Canned 封存 {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => 鍚姩绐楀彛鏈€澶у寲, maximizing the interface upon start.
+" => 启动窗口最大化, maximizing the interface upon start.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " To maximize the Vim window in Windows. Does not grantee proper functionality in *nix environment.
 if has("gui_running")
@@ -141,6 +149,8 @@ endfunction
 " To be god like coder who concerned about 80 and 120 boundaries.
 let &colorcolumn="80,".join(range(120,999),",")
 " Enabling Spell-check and make changes to how it looks.
+set spell spelllang=en_us spell
+    set spellsuggest=fast,5 "Don't show too much suggestion for spell check.
     set spellfile=c:\Users\llinfeng\Dropbox\Tool\Vim_Spell_add\en.utf-8.add
 "    set spellfile+=c:\vim\vimfiles\spell\en.utf-8.add
 " To enable spell check for main body of tex file.
@@ -328,7 +338,7 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_section_b = '%{strftime("%c")}'
 let g:airline_section_y = 'BN: %{bufnr("%")}'
 " Word count?
-let g:airline_section_x = "%{airline#extensions#pandoc#word_count()} Words"
+"let g:airline_section_x = "%{airline#extensions#pandoc#word_count()} Words"
 
 " Separators can be configured independently for the tabline, so here is how you can define "straight" tabs:
 let g:airline#extensions#tabline#left_sep = ' '
@@ -345,13 +355,13 @@ let g:vimwiki_use_mouse = 1
 let g:vimwiki_use_calendar = 1
 let g:vimwiki_hl_cb_checked = 1
 let g:vimwiki_auto_checkbox = 1
-"let g:vimwiki_folding='expr'
+let g:vimwiki_folding='syntax'
 let g:vimwiki_table_auto_fmt = 1
 let g:vimwiki_html_header_numbering_sym = '.'
 let g:vimwiki_conceallevel = 0
 let g:vimwiki_html_header_numbering = 1
 " Vimwiki maps the tab key to jumping to the next cell when editing a table. You can try to disable this mapping by putting this line into you vimrc:
-let g:vimwiki_table_mappings = 1
+let g:vimwiki_table_mappings = 0
 " First wiki, for academic use
 let wiki_1 = {}
 let wiki_1.index = 'Academia'
@@ -418,10 +428,8 @@ nnoremap <leader>l :Unite -start-insert line<CR>
 "nnoremap <leader>y :<C-u>Unite history/yank<CR>
 "nnoremap <leader>s :Unite -start-insert file buffer file_mru<CR>
 "nnoremap <leader>g :Unite -start-insert grep<CR>
-"nnoremap <leader>m :Unite -start-insert file_mru<CR>
 "nnoremap <leader><leader> :Unite -start-insert file buffer file_mru<CR>
 "nnoremap <leader>r :<C-u>Unite -start-insert file_rec/async:!<CR>
-"nnoremap <leader>m :<C-u>Unite -start-insert file_mru<CR>
 " Command line mapping for Unite
 command! M :Unite -start-insert file_mru
 " }}}
@@ -491,7 +499,7 @@ nnoremap <Leader>D :bd!<CR>
 nnoremap <Leader>e :e $MYVIMRC<CR>
 noremap <leader>f <ESC>:Fullscreen<CR>
 " For togging the Menu.
-nnoremap <leader>M :if &go=~'m'<bar>set go-=m<bar>else<bar>set go+=m<bar>endif<cr>
+"nnoremap <leader>M :if &go=~'m'<bar>set go-=m<bar>else<bar>set go+=m<bar>endif<cr>
 nnoremap <leader><space> :nohl<CR>
 " For buffer management
 nnoremap <leader>o :only<CR>
@@ -532,7 +540,8 @@ nmap <C-s> :wall!<CR>
 inoremap <C-s> <ESC>:wall!<CR><right>
 inoremap <C-BS> <C-W>
 nnoremap <c-p> :bp<cr>
-"nnoremap <c-j> :bn<cr>
+nnoremap <c-j> :bn<cr>
+nnoremap <c-k> :bp<cr>
 "Alt keys
 nnoremap <M-w> :tabclose<CR>
 nnoremap <M-c> :tabnew<CR>
@@ -545,7 +554,7 @@ nnoremap <S-q> i<CR><ESC>
 " F1 mapping: to find spaces totaling more than one; as writing assistance.
 nnoremap <F1> / \{2,}<CR>
 " Short key feature for toggling
-nnoremap <F2> :NERDTreeToggle<CR>
+nnoremap <buffer> <F2> :NERDTreeToggle<CR>
 nnoremap <F3> :windo set scrollbind!<cr>
 nnoremap <F4> :GundoToggle<CR>
 " F5 and F6 used for toggling the color schemes.
@@ -611,10 +620,9 @@ command! T :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/todo.wiki
 command! Shu :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/shu.wiki
 command! D :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/dao.wiki
 command! Sstata :edit c:/vim/plugged/vim-snipmate/snippets/stata.snippets
-command! Stex :edit c:/vim/plugge/vim-snipmate/snippets/tex.snippets
-command! Ttex :edit C:/vim/plugged/vim-snipmate/snippets/tex.snippets
+command! Stex :edit c:/vim/plugged/vim-snipmate/snippets/tex.snippets
+command! Ttex :edit c:/vim/plugged/vim-snipmate/snippets/tex.snippets
 command! Folder :e C:/Users/llinfeng/Dropbox/Shu/Stata/DeployingFolderStructure.do
-command! Vstata :e c:/vim/vimfiles/ftplugin/stata.vim
 command! FTtex :e c:/vim/vimfiles/ftplugin/tex.vim
 command! U :e c:/Users/llinfeng/Dropbox/Wiki/Warehouse/URL.wiki
 command! Stata :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/stata.wiki
@@ -707,7 +715,7 @@ autocmd BufDelete * let g:latest_deleted_buffer = expand("<afile>:p")
 nnoremap Y :let @* = expand("%:p")<CR>
 "Copy the file name to windows clipboard.
 nnoremap yyy :let @* = expand("%:p:t")<CR>
-nnoremap DDD :call delete(expand('%'))<CR>:bclose<CR>
+nnoremap DDD :call delete(expand('%'))<CR>:bd<CR>
 nnoremap DD :call delete(expand('%'))<CR>
 "Now using leaders:
 " Full path
@@ -718,7 +726,10 @@ nnoremap <leader><leader>n :let @* = expand("%:t:r")<CR>
 nnoremap <leader><leader>e :let @* = expand("%:t:e")<CR>
 " Parent directory, full.
 nnoremap <leader><leader>p :let @* = expand("%:p:h")<CR>
+" Copy the line number with file name
+nnoremap <leader><leader>l :let @* = expand("%:p").":".line(".")<CR>
 "}}}
+
 
 
 " avoid the ESC on the left top corner!
@@ -732,6 +743,7 @@ cab hoome C:/users/llinfeng
 cab template C:/vim/vimfiles/bundle/vim-latex-suite/ftplugin/latex-suite/templates
 cab ~ C:\users\llinfeng
 cab ftpl C:\vim\vimfiles\ftplugin
+cab after C:\vim\vimfiles\after\syntax
 " Shortcut for files.
 cab bat_dir c:\Users\llinfeng\Dropbox\Tool\bat_file
 " Color scheme switching:
@@ -775,44 +787,6 @@ vnoremap q gq
 
 " Vim-R-plugin{{{
 "let vimrplugin_r_path = 'C:\\Program Files\\R\\R-3.2.3\\bin\\i386'
-" }}}
-
-" {{{
-" Python-mode
-" Activate rope
-" Keys:
-" K Show python docs
-" <Ctrl-Space> Rope autocomplete
-" <Ctrl-c>g Rope goto definition
-" <Ctrl-c>d Rope show documentation
-" <Ctrl-c>f Rope find occurrences
-" <Leader>b Set, unset breakpoint (g:pymode_breakpoint enabled)
-" [[ Jump on previous class or function (normal, visual, operator modes)
-" ]] Jump on next class or function (normal, visual, operator modes)
-" [M Jump on previous class or method (normal, visual, operator modes)
-" ]M Jump on next class or method (normal, visual, operator modes)
-let g:pymode_rope = 1
-" Documentation
-let g:pymode_doc = 1
-let g:pymode_doc_key = 'K'
-"Linting
-let g:pymode_lint = 1
-let g:pymode_lint_checker = "pyflakes,pep8"
-let g:pymode_lint_ignore = "E501,W"
-" Auto check on save
-let g:pymode_lint_write = 1
-" Support virtualenv
-let g:pymode_virtualenv = 1
-" Enable breakpoints plugin
-let g:pymode_breakpoint = 1
-let g:pymode_breakpoint_bind = '<leader>b'
-" syntax highlighting
-let g:pymode_syntax = 1
-let g:pymode_syntax_all = 1
-let g:pymode_syntax_indent_errors = g:pymode_syntax_all
-let g:pymode_syntax_space_errors = g:pymode_syntax_all
-" Don't autofold code
-let g:pymode_folding = 0
 " }}}
 
 
@@ -888,9 +862,35 @@ autocmd bufreadpre *.txt setlocal textwidth=80
 
 "autocmd TextChanged,TextChangedI <buffer> silent write
 
+"Source an additional position for spell file?
+"mkspell! D:/en.utf-8.add
+
+" don't as a word
+set iskeyword+='
+
+let g:startify_session_persistence = 1
+let g:startify_session_dir = '~/Dropbox/Tool_Private/Vim-Spelling/Views'
+
+
 " Source the macros
 source c:\Users\llinfeng\Dropbox\Tool_Private\Vim-Spelling\macro_sourcing.vim
-command! Macro e c:\Users\llinfeng\Dropbox\Tool_Private\Vim-Spelling\macro_sourcing.vim
-" Source the command settings (across platforms)
 source c:\Users\llinfeng\Dropbox\Tool_Private\Vim-Spelling\general_setting.vim
 
+command! Macro e c:\Users\llinfeng\Dropbox\Tool_Private\Vim-Spelling\macro_sourcing.vim
+command! General e c:\Users\llinfeng\Dropbox\Tool_Private\Vim-Spelling\general_setting.vim
+
+
+
+
+" File shortcuts
+command! Notes e C:/users/llinfeng/SI/Notes/Notes.tex
+command! NOtes e C:/users/llinfeng/SI/Notes/Notes.tex
+command! Nref e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/N_ref.wiki
+
+"" Latex setting - syntax
+"let s:tex_fast= "bcmMprsSvV"
+"let s:tex_fast= "mMp"
+"let s:tex_fast= 0
+
+" Setting for markdown conversion
+let g:instant_markdown_autostart = 0
