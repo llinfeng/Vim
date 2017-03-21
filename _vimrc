@@ -32,6 +32,7 @@ Plug 'tomtom/tlib_vim'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-vinegar'
 "Plug 'twe4ked/vim-colorscheme-switcher'
 Plug 'vim-scripts/Align'
 Plug 'vim-scripts/listmaps.vim'
@@ -427,10 +428,8 @@ nnoremap <leader>l :Unite -start-insert line<CR>
 "nnoremap <leader>y :<C-u>Unite history/yank<CR>
 "nnoremap <leader>s :Unite -start-insert file buffer file_mru<CR>
 "nnoremap <leader>g :Unite -start-insert grep<CR>
-"nnoremap <leader>m :Unite -start-insert file_mru<CR>
 "nnoremap <leader><leader> :Unite -start-insert file buffer file_mru<CR>
 "nnoremap <leader>r :<C-u>Unite -start-insert file_rec/async:!<CR>
-"nnoremap <leader>m :<C-u>Unite -start-insert file_mru<CR>
 " Command line mapping for Unite
 command! M :Unite -start-insert file_mru
 " }}}
@@ -875,7 +874,10 @@ let g:startify_session_dir = '~/Dropbox/Tool_Private/Vim-Spelling/Views'
 
 " Source the macros
 source c:\Users\llinfeng\Dropbox\Tool_Private\Vim-Spelling\macro_sourcing.vim
+source c:\Users\llinfeng\Dropbox\Tool_Private\Vim-Spelling\general_setting.vim
+
 command! Macro e c:\Users\llinfeng\Dropbox\Tool_Private\Vim-Spelling\macro_sourcing.vim
+command! General e c:\Users\llinfeng\Dropbox\Tool_Private\Vim-Spelling\general_setting.vim
 
 
 
@@ -892,4 +894,3 @@ command! Nref e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/N_ref.wiki
 
 " Setting for markdown conversion
 let g:instant_markdown_autostart = 0
-
