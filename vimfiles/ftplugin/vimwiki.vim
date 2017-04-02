@@ -9,7 +9,7 @@ nnoremap <buffer> <F10> I* [ ] <ESC>
 inoremap <buffer> <F10> <ESC>I* [ ]
 nnoremap <buffer> <C-D> :VimwikiToggleListItem<CR>j
 
-nnoremap <buffer> C VC
+"nnoremap <buffer> C VC
 
 " Time tag
 "inorea <buffer> sj ===<c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>===<CR><CR><C-R>=Eatchar('\s')<CR>

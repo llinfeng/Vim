@@ -24,7 +24,7 @@ setlocal iskeyword+=:
 setlocal iskeyword+=-
 setlocal iskeyword+=_
 
-map <buffer> <C-s> :wall!<CR><leader>ll
+"map <buffer> <C-s> :wall!<CR><leader>ll
 inoremap <buffer> <C-s> <ESC>:wall!<CR>
 inoremap <buffer> <F10> <F9>
 nnoremap <buffer> <leader>v :Voom latex<cr>

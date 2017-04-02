@@ -12,15 +12,15 @@ Plug 'dkprice/vim-easygrep'
 Plug 'finbarrocallaghan/highlights.vim'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-Plug 'kien/tabman.vim'
 Plug 'klen/python-mode'
 Plug 'kshenoy/vim-signature'
 Plug 'llinfeng/FeralToggleCommentify.vim'
 Plug 'llinfeng/LanguageTool'
-Plug 'llinfeng/dwm.vim'
+"Plug 'llinfeng/dwm.vim'
 Plug 'llinfeng/linediff.vim'
 Plug 'llinfeng/vim-airline'
 Plug 'llinfeng/vim-latex-suite'
+" Alternative: https://github.com/gerw/vim-latex-suite
 Plug 'llinfeng/vim-snipmate'
 Plug 'nathanaelkane/vim-indent-guides'
 "Plug 'ntpeters/vim-better-whitespace'
@@ -38,8 +38,6 @@ Plug 'vim-scripts/Align'
 Plug 'vim-scripts/listmaps.vim'
 "Plug 'vim-scripts/matlab_run.vim'
 "Plug 'sgeb/vim-matlab'
-" buffer kill
-Plug 'qpkorr/vim-bufkill'
 " Add Support for R
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'vim-pandoc/vim-rmarkdown'
@@ -61,15 +59,21 @@ Plug 'vimwiki/vimwiki'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-reload'
 Plug 'xolox/vim-shell'
+" BD for closing
+Plug 'qpkorr/vim-bufkill'
 " Add plugins to &runtimepath
 call plug#end()
 " }}}
-
+" Uninstalled plugins {{{
+"Plug 'jeetsukumaran/vim-buffergator'
+"}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " The Old _vimrc settings (May be a minefield)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set guifont=Bitstream_Vera_Sans_Mono:h12:cANSI
 "set guifont=Bitstream_Vera_Sans_Mono:h24:cANSI
+" Show status line
+set laststatus=2
 set fileencoding=utf-8
 set encoding=utf-8
 :set fileformat=unix
@@ -96,7 +100,7 @@ nnoremap gQ <Nop>
 autocmd BufEnter * silent! lcd %:p:h
 " Linfeng's Directory setting {{{
 set undodir=C:\Users\llinfeng\Documents\Vim-document\undodir
-set rtp+=c:\Vim\vimfiles\bundle\vim-snipmate\snippets\
+set rtp+=c:\Users\llinfeng\Dropbox\Tool_Private\Vim_Settings\
 let path='C:/Vim/vimfiles/bundle'
 " For handling the .swp file and files that ends with ~
 set noswapfile
@@ -164,19 +168,6 @@ set scrolloff=1
 "Always show current position
 set ruler
 set hidden
-" Wild menu settings {{{
-set wildmenu
-" Ignore compiled files (including those from tex files).
-set wildignore=*.o,*~,*.pyc,*.aux,*.bak,*.bbl,*.blg,*.out,*.synctex,*.png,*.jpg,*.pdf
-set wildignore+=*.pdfsync,*.sty,*.bst
-set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
-set wildignore+=*.xlsx,*.mm,*.pptx,*.docx,*.doc,*.xls
-set wildignore+=*.bbl,*.blg,*.sav
-set wildignore+=*.dta,*.csv "Comment his when trying to get a grasp of the structure of the dataset
-set wildmode=list:full
-"set wildmode=""
-"set wildmode=longest,list
-" }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ==> Setting for text editor
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -299,17 +290,6 @@ let g:Tex_GotoError=0 " Will keep the cursor as is.
 "        \'There were undefined references'."\n".
 "        \'Citation %.%# undefined'."\n".
 "        \'Font Warning'
-let g:tex_IgnoredWarnings =
-    \'Underfull'."\n".
-    \'Overfull'."\n".
-    \'specifier changed to'."\n".
-    \'You have requested'."\n".
-    \'Missing number, treated as zero.'."\n".
-    \'There were undefined references'."\n".
-    \'Citation %.%# undefined'."\n".
-    \'Double space found.'."\n".
-    \'Latex Warning'."\n"
-let g:Tex_IgnoreLevel = 9
 let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_CompileRule_pdf = 'pdflatex --synctex=-1 -src-specials -interaction=nonstopmode $*'
 "let g:Tex_CompileRule_pdf = 'xelatex --synctex=-1 -src-specials -interaction=nonstopmode $*'
@@ -327,27 +307,6 @@ let NERDTreeWinSize=35
 " }}}
 
 
-" Vim Airline {{{
-" Show status line
-set laststatus=2
-" Change theme
-let g:airline_theme='solarized'
-" Enable the list of buffers
-let g:airline#extensions#tabline#enabled = 1
-" Show just the filename
-let g:airline#extensions#tabline#fnamemod = ':t'
-" Displaying Time ^.^
-let g:airline_section_b = '%{strftime("%c")}'
-let g:airline_section_y = 'BN: %{bufnr("%")}'
-" Word count?
-"let g:airline_section_x = "%{airline#extensions#pandoc#word_count()} Words"
-
-" Separators can be configured independently for the tabline, so here is how you can define "straight" tabs:
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-"To avoid the short pause in insert mode
-set ttimeoutlen=50
-" }}}
 
 " VimWiki {{{
 " Use <Leader>whh to both update the *.wiki and copy/overwrite `style.css`
@@ -462,8 +421,9 @@ let g:shell_mappings_enabled = 1
 nnoremap <C-S-CR> :Open<CR>
 " }}}
 " DWM (for window managing) {{{
-let g:dwm_master_pane_width="50%"
-nnoremap <c-c> <C-W>c
+let g:dwm_master_pane_width=10
+"<c-h> for moving the mid-divider to the left, the cursor is at the left
+"buffer.
 " }}}
 " twe4ked/vim-colorscheme-switcher {{{
 nnoremap <F6> :call NextColor(1)<CR>
@@ -493,36 +453,6 @@ augroup vimscript
 augroup END
 " }}}
 
-" Leader Mapping {{{
-" With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current file
-nnoremap <Leader>d :BD<CR>:bnext<CR>
-nnoremap <Leader>D :bd!<CR>
-nnoremap <Leader>e :e $MYVIMRC<CR>
-noremap <leader>f <ESC>:Fullscreen<CR>
-" For togging the Menu.
-"nnoremap <leader>M :if &go=~'m'<bar>set go-=m<bar>else<bar>set go+=m<bar>endif<cr>
-nnoremap <leader><space> :nohl<CR>
-" For buffer management
-nnoremap <leader>o :only<CR>
-" For triggering commenting, used "FeralToggleCommentify.vim"
-nnoremap <leader>c :CC<CR>
-nnoremap <leader>u :UC<CR>
-nnoremap <leader>t :TC<CR>
-vnoremap <leader>c :CC<CR>
-vnoremap <leader>u :UC<CR>
-vnoremap <leader>t :TC<CR>
-" Construct a table though Vimwiki, with column-num + row-num.
-nnoremap <leader>table :VimwikiTable
-""""""""""""""""  Of potential use """""""""""""""""""""""""""""""""""""""""""""
-" k for keyword, use the system local grep.
-" easy-grep had solved this issue. <leader>vv was used there.
-"nnoremap <leader>k :grep <cword> *<CR>
-nnoremap <leader>w :wall!<CR>
-" For invoking the Work wiki.
-nnoremap <leader>W :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/Work.wiki<CR>
-"nnoremap <leader>W <Plug>VimwikiMakeDiaryNote
-" }}}
 
 " Mapings {{{
 " Line-toggle using Alt+J/K {{{
@@ -604,6 +534,7 @@ nnoremap <space> <C-F>
 
 " Command Line: {{{
 " Command line shortcuts for font size
+" Fonts are local to operating systems
 command! F :set guifont=Bitstream_Vera_Sans_Mono:h15:cANSI
 command! Fnormal :set guifont=Bitstream_Vera_Sans_Mono:h12:cANSI
 command! FONT :set guifont=Bitstream_Vera_Sans_Mono:h18:cANSI
@@ -613,28 +544,8 @@ command! R right
 command! Co :copen
 command! CO :copen
 command! C :center
-" Command line shortcuts for files.
-command! L :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/Life.wiki
-command! Spell :e c:\Users\llinfeng\Dropbox\Tool\Vim_Spell_add\en.utf-8.add
-command! S :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/stata.wiki
-command! V :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/Vault.wiki
-command! T :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/todo.wiki
-command! Shu :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/shu.wiki
-command! D :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/dao.wiki
-command! Sstata :edit c:/vim/plugged/vim-snipmate/snippets/stata.snippets
-command! Stex :edit c:/vim/plugged/vim-snipmate/snippets/tex.snippets
-command! Ttex :edit c:/vim/plugged/vim-snipmate/snippets/tex.snippets
-command! Folder :e C:/Users/llinfeng/Dropbox/Shu/Stata/DeployingFolderStructure.do
+" Editing the ftplugin settings for tex (not used much)
 command! FTtex :e c:/vim/vimfiles/ftplugin/tex.vim
-command! U :e c:/Users/llinfeng/Dropbox/Wiki/Warehouse/URL.wiki
-command! Stata :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/stata.wiki
-command! D :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/dao.wiki
-" Command line shortcuts for sourcing.
-command! S :so $MYVIMRC
-nnoremap <leader>s :so $MYVIMRC<CR>
-command! SO :so $MYVIMRC
-command! So :so $MYVIMRC
-command! DU :diffupdate
 " }}}
 
 " User defined functions {{{
@@ -772,15 +683,6 @@ endfunc
 " <C-K> in visual mode to replace gq
 vnoremap <c-k> gq<CR>
 
-" Making sure that the *.tex files come first upon wildcard completion
-set suffixes+=.log
-set suffixes+=.bcf
-set suffixes+=.xml
-set suffixes+=.nav
-set suffixes+=.snm
-set suffixes+=.toc
-set suffixes+=.latexmain
-
 
 vnoremap <leader>q gq
 vnoremap q gq
@@ -870,21 +772,19 @@ autocmd bufreadpre *.txt setlocal textwidth=80
 " don't as a word
 set iskeyword+='
 
-let g:startify_session_persistence = 1
-let g:startify_session_dir = '~/Dropbox/Tool_Private/Vim-Spelling/Views'
-
 
 " Source the macros
-source c:\Users\llinfeng\Dropbox\Tool_Private\Vim-Spelling\macro_sourcing.vim
-source c:\Users\llinfeng\Dropbox\Tool_Private\Vim-Spelling\general_setting.vim
+source c:\Users\llinfeng\Dropbox\Tool_Private\Vim_Settings\macro_sourcing.vim
+source c:\Users\llinfeng\Dropbox\Tool_Private\Vim_Settings\general_setting.vim
 
-command! Macro e c:\Users\llinfeng\Dropbox\Tool_Private\Vim-Spelling\macro_sourcing.vim
-command! General e c:\Users\llinfeng\Dropbox\Tool_Private\Vim-Spelling\general_setting.vim
+command! Macro e c:\Users\llinfeng\Dropbox\Tool_Private\Vim_Settings\macro_sourcing.vim
+command! General e c:\Users\llinfeng\Dropbox\Tool_Private\Vim_Settings\general_setting.vim
+command! Spell e c:\Users\llinfeng\Dropbox\Tool\Vim_Spell_add\en.utf-8.add
 
 
-
-
-" File shortcuts
+command! Fmacro e C:\Users\llinfeng\Dropbox\Tool_Private\Vim_Settings\vimperator.vim
+command! FMacro e C:\Users\llinfeng\Dropbox\Tool_Private\Vim_Settings\vimperator.vim
+" Notes taking + ref
 command! Notes e C:/users/llinfeng/SI/Notes/Notes.tex
 command! NOtes e C:/users/llinfeng/SI/Notes/Notes.tex
 command! Nref e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/N_ref.wiki
@@ -893,6 +793,3 @@ command! Nref e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/N_ref.wiki
 "let s:tex_fast= "bcmMprsSvV"
 "let s:tex_fast= "mMp"
 "let s:tex_fast= 0
-
-" Setting for markdown conversion
-let g:instant_markdown_autostart = 0

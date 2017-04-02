@@ -37,6 +37,7 @@ syn sync match texSyncMathZoneA		groupthere NONE		"\\\(sub\)*section\>"
 hi def link texMath  Number
 
 " Other keywords:
+syn match texItem   "TODO"                                            
 syn match texItem   "\\item"                                            
 syn match texItem   "\\cite"
 syn match texItem   "\\documentclass"
@@ -52,6 +53,7 @@ syn match texItem   "\\chapter"
 syn match texItem   "\\section"
 syn match texItem   "\\subsection"
 syn match texItem   "\\subsubsection"
+syn match texItem   "\\subsubsection"
 syn match texItem   "\\paragraph"
 syn match texItem   "\\subparagraph"
 syn match texItem   "\\url"
@@ -61,6 +63,10 @@ syn match texSymbols_option "\[.*\]"
 "syn match texSymbols_setting "{.*}"
 syn match texSymbols_setting "\\\\"
 syn match texSymbols_setting "&"
+syn match texSymbols_setting   "\\label"
+syn match texSymbols_setting   "\\caption"
+syn match texSymbols_setting   "\\centering"
+syn match texSymbols_setting   "\\hline"
 
 " Implmeenting the highlightings 
 hi def link texItem  Identifier
