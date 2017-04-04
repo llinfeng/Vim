@@ -9,7 +9,7 @@ nnoremap <buffer> <F10> I* [ ] <ESC>
 inoremap <buffer> <F10> <ESC>I* [ ]
 nnoremap <buffer> <C-D> :VimwikiToggleListItem<CR>j
 
-nnoremap <buffer> C VC
+"nnoremap <buffer> C VC
 
 " Time tag
 "inorea <buffer> sj ===<c-r>=strftime("20%y-%m-%d %H:%M:%S")<cr>===<CR><CR><C-R>=Eatchar('\s')<CR>
@@ -37,3 +37,12 @@ setlocal conceallevel=0
 " Mappings:
 "inoremap  <buffer> <C-E> <Plug>VimwikiIncreaseLvlSingleItem
 "nnoremap <buffer> <C-CR> <Plug>VimwikiVSplitLink
+
+" Go to the bottom line of the current header section
+nnoremap <buffer> he vah<esc>
+nnoremap <buffer> hp vaho<esc>O
+nnoremap <buffer> hn vaho<esc>
+
+nnoremap <buffer> <leader>he vah<esc>
+nnoremap <buffer> <leader>hp vaho<esc>O
+nnoremap <buffer> <leader>hn vaho<esc>

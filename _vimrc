@@ -1,6 +1,7 @@
 set background=light
 " Let plug.vim handle the packages {{{
 call plug#begin('C:/Vim/plugged')
+Plug 'chrisbra/vim-diff-enhanced'
 Plug 'MarcWeber/vim-addon-async'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'Shougo/neomru.vim'
@@ -21,7 +22,9 @@ Plug 'llinfeng/dwm.vim'
 Plug 'llinfeng/linediff.vim'
 Plug 'llinfeng/vim-airline'
 Plug 'llinfeng/vim-latex-suite'
-Plug 'llinfeng/vim-snipmate'
+Plug 'garbas/vim-snipmate'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
 Plug 'nathanaelkane/vim-indent-guides'
 "Plug 'ntpeters/vim-better-whitespace'
 Plug 'scrooloose/nerdtree'
@@ -62,6 +65,8 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-reload'
 Plug 'xolox/vim-shell'
 " Add plugins to &runtimepath
+" Running test
+Plug 'alfredodeza/pytest.vim'
 call plug#end()
 " }}}
 
@@ -96,8 +101,8 @@ nnoremap gQ <Nop>
 autocmd BufEnter * silent! lcd %:p:h
 " Linfeng's Directory setting {{{
 set undodir=C:\Users\llinfeng\Documents\Vim-document\undodir
-set rtp+=c:\Vim\vimfiles\bundle\vim-snipmate\snippets\
-let path='C:/Vim/vimfiles/bundle'
+" Example for changing rdp setting
+set rtp+=c:\Users\llinfeng\Dropbox\Tool_Private\Vim_Settings
 " For handling the .swp file and files that ends with ~
 set noswapfile
 " Set to auto read when a file is changed from the outside
@@ -604,7 +609,7 @@ nnoremap <space> <C-F>
 
 " Command Line: {{{
 " Command line shortcuts for font size
-command! F :set guifont=Bitstream_Vera_Sans_Mono:h15:cANSI
+command! F :set guifont=Bitstream_Vera_Sans_Mono:h16:cANSI
 command! Fnormal :set guifont=Bitstream_Vera_Sans_Mono:h12:cANSI
 command! FONT :set guifont=Bitstream_Vera_Sans_Mono:h18:cANSI
 " Command line shortcuts for motion.
@@ -645,21 +650,21 @@ command! DU :diffupdate
         !start /min "C:\Vim\vimfiles\ftplugin\Stata-Vim-Suite\rundo.exe" "%:p"
     endfun
 " Run the lines that has been visually selected.
-    fun! RunDoLines()
-        let selectedLines = getbufline('%', line("'<"), line("'>"))
-        if col("'>") < strlen(getline(line("'>")))
-            let selectedLines[-1] = strpart(selectedLines[-1], 0, col("'>"))
-        endif
-        if col("'<") != 1
-            let selectedLines[0] = strpart(selectedLines[0], col("'<")-1)
-        endif
-        let temp = tempname() . ".do"
-        call writefile(selectedLines, temp)
-        " *** CHANGE PATH AND NAME TO REFLECT YOUR SETUP. USE \\ INSTEAD OF \ ***
-        exec "!start C:\\Vim\\vimfiles\\ftplugin\\Stata-Vim-Suite\\rundo.exe " . temp
-        " Delete the temp file after Vim closes
-        au VimLeave * exe "!del -y" temp
-    endfun
+fun! RunDoLines()
+    let selectedLines = getbufline('%', line("'<"), line("'>"))
+    if col("'>") < strlen(getline(line("'>")))
+        let selectedLines[-1] = strpart(selectedLines[-1], 0, col("'>"))
+    endif
+    if col("'<") != 1
+        let selectedLines[0] = strpart(selectedLines[0], col("'<")-1)
+    endif
+    let temp = tempname() . ".do"
+    call writefile(selectedLines, temp)
+    " *** CHANGE PATH AND NAME TO REFLECT YOUR SETUP. USE \\ INSTEAD OF \ ***
+    exec "!start C:\\Vim\\vimfiles\\ftplugin\\Stata-Vim-Suite\\rundo.exe " . temp
+    " Delete the temp file after Vim closes
+    au VimLeave * exe "!del -y" temp
+endfun
 " }}}
 " Toggle Slash in a line {{{
 nnoremap <c-s-t> :vs<bar>:b#<cr>
@@ -853,8 +858,9 @@ imap <c-q> <Plug>snipMateNextOrTrigger
 smap <c-q> <Plug>snipMateNextOrTrigger
 "}}}
 
-"let $PYTHONHOME = 'C:/python27'
-let $PYTHONHOME = 'c:/Program Files (x86)/Anaconda2/'
+let $PYTHONHOME = 'C:/python27'
+"let $PYTHONHOME = 'c:/Program Files (x86)/Anaconda2/'
+"let $PYTHONHOME = 'C:/ProgramData/Miniconda2'
 
 " Section for Auto Commands
 autocmd bufreadpre *.tmp setlocal textwidth=80
@@ -871,15 +877,16 @@ autocmd bufreadpre *.txt setlocal textwidth=80
 set iskeyword+='
 
 let g:startify_session_persistence = 1
-let g:startify_session_dir = '~/Dropbox/Tool_Private/Vim-Spelling/Views'
+let g:startify_session_dir = '~/Dropbox/Tool_Private/Vim_Settings/Views'
 
 
 " Source the macros
-source c:\Users\llinfeng\Dropbox\Tool_Private\Vim-Spelling\macro_sourcing.vim
-source c:\Users\llinfeng\Dropbox\Tool_Private\Vim-Spelling\general_setting.vim
+source c:\Users\llinfeng\Dropbox\Tool_Private\Vim_Settings\macro_sourcing.vim
+source c:\Users\llinfeng\Dropbox\Tool_Private\Vim_Settings\general_setting.vim
 
-command! Macro e c:\Users\llinfeng\Dropbox\Tool_Private\Vim-Spelling\macro_sourcing.vim
-command! General e c:\Users\llinfeng\Dropbox\Tool_Private\Vim-Spelling\general_setting.vim
+command! Macro e c:\Users\llinfeng\Dropbox\Tool_Private\Vim_Settings\macro_sourcing.vim
+command! General e c:\Users\llinfeng\Dropbox\Tool_Private\Vim_Settings\general_setting.vim
+command! Spell e C:/Users/llinfeng/Dropbox/Tool/Vim_Spell_add/en.utf-8.add
 
 
 
@@ -896,3 +903,12 @@ command! Nref e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/N_ref.wiki
 
 " Setting for markdown conversion
 let g:instant_markdown_autostart = 0
+
+" Commandline shortcuts
+command! Fmacro e C:\Users\llinfeng\Dropbox\Tool_Private\Vim_Settings\vimperator.vim
+
+
+
+" Not sure why had changed the $TMP setting at all.
+let $TMP=$HOME . "/TEMP_for_Vim"
+"let $TMP=$HOME . "/temp_dir"  " <== Note the usage of the syntax.
