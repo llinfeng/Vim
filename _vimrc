@@ -468,7 +468,6 @@ nnoremap <C-S-CR> :Open<CR>
 " }}}
 " DWM (for window managing) {{{
 let g:dwm_master_pane_width="50%"
-nnoremap <c-c> <C-W>c
 " }}}
 " twe4ked/vim-colorscheme-switcher {{{
 nnoremap <F6> :call NextColor(1)<CR>
