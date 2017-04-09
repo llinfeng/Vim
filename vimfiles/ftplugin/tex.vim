@@ -1,3 +1,4 @@
+"set background=light
 " Behavior of text wrapping.
 setlocal formatoptions=crtnqj
 

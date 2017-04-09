@@ -1,12 +1,17 @@
-set background=light
+set background=dark
 " Let plug.vim handle the packages {{{
 call plug#begin('C:/Vim/plugged')
+" Better json
+Plug 'elzr/vim-json'
 Plug 'chrisbra/vim-diff-enhanced'
+Plug 'itchyny/calendar.vim'
+"Plug 'Siprah/vim-todoist'
 Plug 'MarcWeber/vim-addon-async'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'Shougo/neomru.vim'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim'
+Plug 'morhetz/gruvbox'
 Plug 'altercation/vim-colors-solarized'
 "Plug 'danielmiessler/VimBlog'
 Plug 'dkprice/vim-easygrep'
@@ -153,8 +158,6 @@ endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ==> Setting for Vim functionality.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" To be god like coder who concerned about 80 and 120 boundaries.
-let &colorcolumn="80,".join(range(120,999),",")
 " Enabling Spell-check and make changes to how it looks.
 set spell spelllang=en_us spell
     set spellsuggest=fast,5 "Don't show too much suggestion for spell check.
@@ -226,7 +229,8 @@ set showmatch
 " ==> Vim display setting
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Highlight the row and column. (row = line)
-set nocursorline
+let &colorcolumn="80,".join(range(120,999),",")
+set cursorline
 set nocursorcolumn
 " Sets how many lines of history VIM has to remember
 set history=200
@@ -332,28 +336,6 @@ let NERDTreeWinSize=35
 " }}}
 
 
-" Vim Airline {{{
-" Show status line
-set laststatus=2
-" Change theme
-let g:airline_theme='solarized'
-" Enable the list of buffers
-let g:airline#extensions#tabline#enabled = 1
-" Show just the filename
-let g:airline#extensions#tabline#fnamemod = ':t'
-" Displaying Time ^.^
-let g:airline_section_b = '%{strftime("%c")}'
-let g:airline_section_y = 'BN: %{bufnr("%")}'
-" Word count?
-"let g:airline_section_x = "%{airline#extensions#pandoc#word_count()} Words"
-
-" Separators can be configured independently for the tabline, so here is how you can define "straight" tabs:
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-"To avoid the short pause in insert mode
-set ttimeoutlen=50
-" }}}
-
 " VimWiki {{{
 " Use <Leader>whh to both update the *.wiki and copy/overwrite `style.css`
 nmap <leader>whh :VimwikiAll2HTML<CR>
@@ -374,7 +356,7 @@ let wiki_1 = {}
 let wiki_1.index = 'Academia'
 " This option is turned down since Vimwiki cannot convert markdown syntax to html.
 "let wiki_1.syntax = 'markdown'
-let wiki_1.path = 'C:\Users\llinfeng\Dropbox\Wiki\Warehouse'
+let wiki_1.path = 'C:/Users/llinfeng/Dropbox/Wiki/Warehouse/'
 let wiki_1.diary_rel_path = ''
 let wiki_1.diary_index = 'Journal'
 let wiki_1.path_html = 'C:/Users/llinfeng/Dropbox/Wiki/html'
@@ -386,7 +368,7 @@ let wiki_1.auto_export = 0
 " Second wiki, for personal use.
 let wiki_2 = {}
 let wiki_2.index = 'Life'
-let wiki_2.path = 'C:\Users\llinfeng\Dropbox\Wiki\Warehouse'
+let wiki_2.path = 'C:/Users/llinfeng/Dropbox/Wiki/Warehouse/'
 let wiki_2.diary_rel_path = ''
 let wiki_2.diary_index = 'Journal'
 let wiki_2.path_html = 'C:/Users/llinfeng/Dropbox/Wiki/html'
@@ -398,7 +380,7 @@ let wiki_2.auto_export = 0
 " Third wiki, for working purpose (not heavily used.)
 let wiki_3 = {}
 let wiki_3.index = 'Work'
-let wiki_3.path = 'C:\Users\llinfeng\Dropbox\Wiki\Warehouse'
+let wiki_3.path = 'C:/Users/llinfeng/Dropbox/Wiki/Warehouse/'
 let wiki_3.path_html = 'C:/Users/llinfeng/Dropbox/Wiki/html'
 let wiki_3.html_header = 'C:/Users/llinfeng/Dropbox/Wiki/html'
 let wiki_3.template_path = 'C:/Users/llinfeng/Dropbox/Shu/HTML/Template-Defualt'
@@ -438,26 +420,47 @@ nnoremap <leader>l :Unite -start-insert line<CR>
 "nnoremap <leader><leader> :Unite -start-insert file buffer file_mru<CR>
 "nnoremap <leader>r :<C-u>Unite -start-insert file_rec/async:!<CR>
 " Command line mapping for Unite
-command! M :Unite -start-insert file_mru
+command! M :Unite -start -insert file_mru
 " }}}
-" Solarized Coloring {{{
+
+" Color Scheme: featuring solarized and his new friend{{{
 syntax enable
-" All parameters should be set before calling the color scheme.
-let g:solarized_contrast = "low"
-let g:solarized_termcolors=256
-"Or | "high" or "low"
-let g:solarized_visibility="normal"
-let g:solarized_italic=0
-"let g:solarized_bold=0
-let g:solarized_degrade   =   0
+" New section for a new color scheme.
+let g:gruvbox_italic=0
+let g:gruvbox_undercurl=1
+" Color tastes:
+    " options: `soft`, `medium` and `hard`
+    "let g:gruvbox_contrast_dark="hard"
+    "let g:gruvbox_contrast_dark="medium"
+    let g:gruvbox_contrast_dark="soft"
+    "let g:gruvbox_contrast_light="hard"
+    let g:gruvbox_contrast_light="medium"
+    "let g:gruvbox_contrast_light="soft"
+let g:gruvbox_italicize_comments = 0
+let g:gruvbox_improved_strings = 0
+let g:gruvbox_improved_warnings = 1
 call togglebg#map("<leader>ttt")
-" Color scheme and background.
-" Only enforce colorscheme  after having specified its parameters.
-colorscheme solarized
-"colorscheme papayawhip
-"default
-"olive
+
+
+"" Old section on Solarized
+"    " All parameters should be set before calling the color scheme.
+"    let g:solarized_contrast = "low"
+"    let g:solarized_termcolors=256
+"    "Or | "high" or "low"
+"    let g:solarized_visibility="normal"
+"    let g:solarized_italic=0
+"    "let g:solarized_bold=0
+"    let g:solarized_degrade   =   0
+"    " Color scheme and background.
+"    " Only enforce colorscheme  after having specified its parameters.
+" Load the coloar scheme after specifying the goodies.
+colorscheme gruvbox
+"    colorscheme solarized
+"    colorscheme papayawhip
+"    default
+"    olive
 " }}}
+
 " restore_view {{{
 "The suggested options for functionality of the plug-in.
 set viewoptions=cursor,folds,slash,unix
