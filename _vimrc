@@ -2,6 +2,8 @@ set background=dark
 " Let plug.vim handle the packages {{{
 call plug#begin('C:/Vim/plugged')
 Plug 'chrisbra/vim-diff-enhanced'
+" File name enhanced
+Plug 'EinfachToll/DidYouMean'
 " Jumping in bib files
 Plug 'vim-scripts/bibFindIndex'
 " Better json
