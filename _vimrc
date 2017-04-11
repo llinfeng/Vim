@@ -1,9 +1,14 @@
 set background=dark
 " Let plug.vim handle the packages {{{
 call plug#begin('C:/Vim/plugged')
+Plug 'chrisbra/vim-diff-enhanced'
+" Jumping in bib files
+Plug 'vim-scripts/bibFindIndex'
 " Better json
 Plug 'elzr/vim-json'
-Plug 'chrisbra/vim-diff-enhanced'
+" Better coloring
+Plug 'morhetz/gruvbox'
+" Calendar display
 Plug 'itchyny/calendar.vim'
 "Plug 'Siprah/vim-todoist'
 Plug 'MarcWeber/vim-addon-async'
@@ -11,7 +16,6 @@ Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'Shougo/neomru.vim'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim'
-Plug 'morhetz/gruvbox'
 Plug 'altercation/vim-colors-solarized'
 "Plug 'danielmiessler/VimBlog'
 Plug 'dkprice/vim-easygrep'
@@ -159,10 +163,6 @@ endfunction
 " ==> Setting for Vim functionality.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enabling Spell-check and make changes to how it looks.
-set spell spelllang=en_us spell
-    set spellsuggest=fast,5 "Don't show too much suggestion for spell check.
-    set spellfile=c:\Users\llinfeng\Dropbox\Tool\Vim_Spell_add\en.utf-8.add
-"    set spellfile+=c:\vim\vimfiles\spell\en.utf-8.add
 " To enable spell check for main body of tex file.
 autocmd BufEnter * syntax spell toplevel
 " to jump BRIEFLY to the matching bracket
@@ -330,11 +330,6 @@ let g:Tex_ViewRule_pdf = 'C:\Program Files\SumatraPDF\SumatraPDF.exe -reuse-inst
 let g:Tex_MultipleCompileFormats='pdf'
 " }}}
 
-" NERDTree {{{
-let NERDTreeIgnore=['\~$', '\.aux', '\.pdf','\.out', '\.pdfsync', '\.synctex', '\.latexmain', '\.bst', '\.sty', '\.bbl', '\.blg', '\.bak', '\.sav']
-let NERDTreeWinSize=35
-" }}}
-
 
 " VimWiki {{{
 " Use <Leader>whh to both update the *.wiki and copy/overwrite `style.css`
@@ -396,10 +391,6 @@ let g:vimwiki_list = [wiki_1, wiki_2, wiki_3]
 let g:shell_fullscreen_always_on_top = 0
 let g:shell_fullscreen_items="mT"
 "}}}
-" Voom {{{
-let g:voom_tree_width = 17
-let g:voom_tree_placement = "right"
-" }}}
 " Unite {{{
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 " Search through yank history.
@@ -434,11 +425,13 @@ let g:gruvbox_undercurl=1
     "let g:gruvbox_contrast_dark="medium"
     let g:gruvbox_contrast_dark="soft"
     "let g:gruvbox_contrast_light="hard"
-    let g:gruvbox_contrast_light="medium"
-    "let g:gruvbox_contrast_light="soft"
+    "let g:gruvbox_contrast_light="medium"
+    let g:gruvbox_contrast_light="soft"
 let g:gruvbox_italicize_comments = 0
 let g:gruvbox_improved_strings = 0
 let g:gruvbox_improved_warnings = 1
+let g:gruvbox_vert_split = "green"
+let g:gruvbox_invert_tabline = 1
 call togglebg#map("<leader>ttt")
 
 
@@ -609,41 +602,6 @@ nnoremap <space> <C-F>
 " }}}
 
 
-" Command Line: {{{
-" Command line shortcuts for font size
-command! F :set guifont=Bitstream_Vera_Sans_Mono:h16:cANSI
-command! Fnormal :set guifont=Bitstream_Vera_Sans_Mono:h12:cANSI
-command! FONT :set guifont=Bitstream_Vera_Sans_Mono:h18:cANSI
-" Command line shortcuts for motion.
-command! O only
-command! R right
-command! Co :copen
-command! CO :copen
-command! C :center
-" Command line shortcuts for files.
-command! L :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/Life.wiki
-command! Spell :e c:\Users\llinfeng\Dropbox\Tool\Vim_Spell_add\en.utf-8.add
-command! S :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/stata.wiki
-command! V :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/Vault.wiki
-command! T :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/todo.wiki
-command! Shu :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/shu.wiki
-command! D :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/dao.wiki
-command! Sstata :edit c:/vim/plugged/vim-snipmate/snippets/stata.snippets
-command! Stex :edit c:/vim/plugged/vim-snipmate/snippets/tex.snippets
-command! Ttex :edit c:/vim/plugged/vim-snipmate/snippets/tex.snippets
-command! Folder :e C:/Users/llinfeng/Dropbox/Shu/Stata/DeployingFolderStructure.do
-command! FTtex :e c:/vim/vimfiles/ftplugin/tex.vim
-command! U :e c:/Users/llinfeng/Dropbox/Wiki/Warehouse/URL.wiki
-command! Stata :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/stata.wiki
-command! D :e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/dao.wiki
-" Command line shortcuts for sourcing.
-command! S :so $MYVIMRC
-nnoremap <leader>s :so $MYVIMRC<CR>
-command! SO :so $MYVIMRC
-command! So :so $MYVIMRC
-command! DU :diffupdate
-" }}}
-
 " User defined functions {{{
 " Vim as Stata IDE, the support functions {{{
 " Run the whole do file at a time.
@@ -747,14 +705,14 @@ inoremap <C-]> <ESC>
 " Shortcut for directories
     " Rules: the cab shortcuts shall not used as query item;
     "        the cab shortcuts shall be most-usually-used items.
-cab drop_dir C:/users/llinfeng/dropbox
+cab drop_dir ~/dropbox
 cab hoome C:/users/llinfeng
 cab template C:/vim/vimfiles/bundle/vim-latex-suite/ftplugin/latex-suite/templates
-cab ~ C:\users\llinfeng
-cab ftpl C:\vim\vimfiles\ftplugin
-cab after C:\vim\vimfiles\after\syntax
+cab ~ C:/users/llinfeng
+cab ftpl C:/vim/vimfiles/ftplugin
+cab after C:/vim/vimfiles/after/syntax
 " Shortcut for files.
-cab bat_dir c:\Users\llinfeng\Dropbox\Tool\bat_file
+cab bat_dir ~/Dropbox/Tool/bat_file
 " Color scheme switching:
 "cab pap colorscheme papayawhip
 " Shortcut for command-line deleting empty lines!
@@ -766,7 +724,7 @@ cab t w! C:/users/llinfeng/Desktop/Tasks.txt
 "cab TODO w! C:/users/llinfeng/Desktop/Tasks.txt
 "cab todo w! C:/users/llinfeng/Desktop/Tasks.txt
 "cab task w! C:/users/llinfeng/Desktop/Tasks.txt
-cab ILL e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/illusion.wiki
+cab ILL e ~/Dropbox/Wiki/Warehouse/illusion.wiki
 
 " Supporting function that deletes the trailing space entered though expending abbreviation. (This function may serve for some plugin)
 func! Eatchar(pat)
@@ -883,20 +841,8 @@ let g:startify_session_dir = '~/Dropbox/Tool_Private/Vim_Settings/Views'
 
 
 " Source the macros
-source c:\Users\llinfeng\Dropbox\Tool_Private\Vim_Settings\macro_sourcing.vim
-source c:\Users\llinfeng\Dropbox\Tool_Private\Vim_Settings\general_setting.vim
-
-command! Macro e c:\Users\llinfeng\Dropbox\Tool_Private\Vim_Settings\macro_sourcing.vim
-command! General e c:\Users\llinfeng\Dropbox\Tool_Private\Vim_Settings\general_setting.vim
-command! Spell e C:/Users/llinfeng/Dropbox/Tool/Vim_Spell_add/en.utf-8.add
-
-
-
-
-" File shortcuts
-command! Notes e C:/users/llinfeng/SI/Notes/Notes.tex
-command! NOtes e C:/users/llinfeng/SI/Notes/Notes.tex
-command! Nref e C:/Users/llinfeng/Dropbox/Wiki/Warehouse/N_ref.wiki
+source ~/Dropbox\Tool_Private\Vim_Settings\macro_sourcing.vim
+source ~/Dropbox\Tool_Private\Vim_Settings\general_setting.vim
 
 "" Latex setting - syntax
 "let s:tex_fast= "bcmMprsSvV"
