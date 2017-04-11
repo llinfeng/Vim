@@ -16,3 +16,5 @@ following specification file:
 
 ## MISC
 * Vimwiki 2.3 is working fine on my side, with image display through the new syntax `{{image.jpg}}`
+
+# 另有 中文 快速安裝 指南
