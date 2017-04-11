@@ -172,6 +172,7 @@ set scrolloff=1
 "Always show current position
 set ruler
 set hidden
+
 " Wild menu settings {{{
 set wildmenu
 " Ignore compiled files (including those from tex files).
@@ -185,6 +186,7 @@ set wildmode=list:full
 "set wildmode=""
 "set wildmode=longest,list
 " }}}
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ==> Setting for text editor
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -412,46 +414,6 @@ nnoremap <leader>l :Unite -start-insert line<CR>
 "nnoremap <leader>r :<C-u>Unite -start-insert file_rec/async:!<CR>
 " Command line mapping for Unite
 command! M :Unite -start -insert file_mru
-" }}}
-
-" Color Scheme: featuring solarized and his new friend{{{
-syntax enable
-" New section for a new color scheme.
-let g:gruvbox_italic=0
-let g:gruvbox_undercurl=1
-" Color tastes:
-    " options: `soft`, `medium` and `hard`
-    "let g:gruvbox_contrast_dark="hard"
-    "let g:gruvbox_contrast_dark="medium"
-    let g:gruvbox_contrast_dark="soft"
-    "let g:gruvbox_contrast_light="hard"
-    "let g:gruvbox_contrast_light="medium"
-    let g:gruvbox_contrast_light="soft"
-let g:gruvbox_italicize_comments = 0
-let g:gruvbox_improved_strings = 0
-let g:gruvbox_improved_warnings = 1
-let g:gruvbox_vert_split = "green"
-let g:gruvbox_invert_tabline = 1
-call togglebg#map("<leader>ttt")
-
-
-"" Old section on Solarized
-"    " All parameters should be set before calling the color scheme.
-"    let g:solarized_contrast = "low"
-"    let g:solarized_termcolors=256
-"    "Or | "high" or "low"
-"    let g:solarized_visibility="normal"
-"    let g:solarized_italic=0
-"    "let g:solarized_bold=0
-"    let g:solarized_degrade   =   0
-"    " Color scheme and background.
-"    " Only enforce colorscheme  after having specified its parameters.
-" Load the coloar scheme after specifying the goodies.
-colorscheme gruvbox
-"    colorscheme solarized
-"    colorscheme papayawhip
-"    default
-"    olive
 " }}}
 
 " restore_view {{{
@@ -717,14 +679,13 @@ cab bat_dir ~/Dropbox/Tool/bat_file
 "cab pap colorscheme papayawhip
 " Shortcut for command-line deleting empty lines!
 cab empty v/\S/d
-cab WW w! C:/users/llinfeng/Desktop/Tasks.txt
-cab Ww w! C:/users/llinfeng/Desktop/Tasks.txt
-cab tt w! C:/users/llinfeng/Desktop/Tasks.txt
-cab t w! C:/users/llinfeng/Desktop/Tasks.txt
+cab WW w! ~/Desktop/Tasks.txt
+cab Ww w! ~/Desktop/Tasks.txt
+cab tt w! ~/Desktop/Tasks.txt
+cab t w! ~/Desktop/Tasks.txt
 "cab TODO w! C:/users/llinfeng/Desktop/Tasks.txt
 "cab todo w! C:/users/llinfeng/Desktop/Tasks.txt
 "cab task w! C:/users/llinfeng/Desktop/Tasks.txt
-cab ILL e ~/Dropbox/Wiki/Warehouse/illusion.wiki
 
 " Supporting function that deletes the trailing space entered though expending abbreviation. (This function may serve for some plugin)
 func! Eatchar(pat)
@@ -751,23 +712,6 @@ vnoremap <leader>q gq
 vnoremap q gq
 
 
-
-" Vim-R-plugin{{{
-"let vimrplugin_r_path = 'C:\\Program Files\\R\\R-3.2.3\\bin\\i386'
-" }}}
-
-
-
-
-" Vim-indent-guidelines {{{
-"let g:indent_guides_auto_colors = 0
-"let g:indent_guides_start_level = 2
-"let g:indent_guides_guide_size = 1
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=red ctermbg=3
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
-"hi IndentGuidesOdd guibg=red ctermbg=3
-"hi IndentGuidesEven guibg=green ctermbg=4
-"}}}
 
 
 
@@ -836,9 +780,6 @@ autocmd bufreadpre *.txt setlocal textwidth=80
 " don't as a word
 set iskeyword+='
 
-let g:startify_session_persistence = 1
-let g:startify_session_dir = '~/Dropbox/Tool_Private/Vim_Settings/Views'
-
 
 " Source the macros
 source ~/Dropbox\Tool_Private\Vim_Settings\macro_sourcing.vim
@@ -848,12 +789,6 @@ source ~/Dropbox\Tool_Private\Vim_Settings\general_setting.vim
 "let s:tex_fast= "bcmMprsSvV"
 "let s:tex_fast= "mMp"
 "let s:tex_fast= 0
-
-" Setting for markdown conversion
-let g:instant_markdown_autostart = 0
-
-" Commandline shortcuts
-command! Fmacro e C:\Users\llinfeng\Dropbox\Tool_Private\Vim_Settings\vimperator.vim
 
 
 
