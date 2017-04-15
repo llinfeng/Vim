@@ -1,6 +1,10 @@
 set background=dark
 " Let plug.vim handle the packages {{{
 call plug#begin('C:/Vim/plugged')
+" Color-matched parenthesis
+Plug 'kien/rainbow_parentheses.vim'
+" Timing plugin
+"Plug 'wakatime/vim-wakatime'
 Plug 'chrisbra/vim-diff-enhanced'
 " File name enhanced
 Plug 'EinfachToll/DidYouMean'
@@ -797,3 +801,31 @@ source ~/Dropbox\Tool_Private\Vim_Settings\general_setting.vim
 " Not sure why had changed the $TMP setting at all.
 let $TMP=$HOME . "/TEMP_for_Vim"
 "let $TMP=$HOME . "/temp_dir"  " <== Note the usage of the syntax.
+
+let g:wakatime_PythonBinary='C:/python27'
+
+" New Rainbow Parentheses
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+let g:wakatime_PythonBinary = 'c:/python27/pythonw.exe'
