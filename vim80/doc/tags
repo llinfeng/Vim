@@ -774,6 +774,8 @@ $VIM_POSIX	vi_diff.txt	/*$VIM_POSIX*
 'pvw'	options.txt	/*'pvw'*
 'pythondll'	options.txt	/*'pythondll'*
 'pythonthreedll'	options.txt	/*'pythonthreedll'*
+'pyx'	options.txt	/*'pyx'*
+'pyxversion'	options.txt	/*'pyxversion'*
 'qe'	options.txt	/*'qe'*
 'quote	motion.txt	/*'quote*
 'quoteescape'	options.txt	/*'quoteescape'*
@@ -923,6 +925,8 @@ $VIM_POSIX	vi_diff.txt	/*$VIM_POSIX*
 't_AB'	term.txt	/*'t_AB'*
 't_AF'	term.txt	/*'t_AF'*
 't_AL'	term.txt	/*'t_AL'*
+'t_BD'	term.txt	/*'t_BD'*
+'t_BE'	term.txt	/*'t_BE'*
 't_CS'	term.txt	/*'t_CS'*
 't_CV'	term.txt	/*'t_CV'*
 't_Ce'	term.txt	/*'t_Ce'*
@@ -961,6 +965,8 @@ $VIM_POSIX	vi_diff.txt	/*$VIM_POSIX*
 't_KJ'	term.txt	/*'t_KJ'*
 't_KK'	term.txt	/*'t_KK'*
 't_KL'	term.txt	/*'t_KL'*
+'t_PE'	term.txt	/*'t_PE'*
+'t_PS'	term.txt	/*'t_PS'*
 't_RB'	term.txt	/*'t_RB'*
 't_RI'	term.txt	/*'t_RI'*
 't_RV'	term.txt	/*'t_RV'*
@@ -1357,6 +1363,7 @@ $VIM_POSIX	vi_diff.txt	/*$VIM_POSIX*
 --servername	remote.txt	/*--servername*
 --socketid	starting.txt	/*--socketid*
 --startuptime	starting.txt	/*--startuptime*
+--ttyfail	starting.txt	/*--ttyfail*
 --version	starting.txt	/*--version*
 --windowid	starting.txt	/*--windowid*
 -A	starting.txt	/*-A*
@@ -1844,6 +1851,7 @@ $VIM_POSIX	vi_diff.txt	/*$VIM_POSIX*
 :$	cmdline.txt	/*:$*
 :%	cmdline.txt	/*:%*
 :&	change.txt	/*:&*
+:&&	change.txt	/*:&&*
 :'	cmdline.txt	/*:'*
 :,	cmdline.txt	/*:,*
 :.	cmdline.txt	/*:.*
@@ -2720,6 +2728,10 @@ $VIM_POSIX	vi_diff.txt	/*$VIM_POSIX*
 :pyfile	if_pyth.txt	/*:pyfile*
 :python	if_pyth.txt	/*:python*
 :python3	if_pyth.txt	/*:python3*
+:pythonx	if_pyth.txt	/*:pythonx*
+:pyx	if_pyth.txt	/*:pyx*
+:pyxdo	if_pyth.txt	/*:pyxdo*
+:pyxfile	if_pyth.txt	/*:pyxfile*
 :q	editing.txt	/*:q*
 :qa	editing.txt	/*:qa*
 :qall	editing.txt	/*:qall*
@@ -4486,7 +4498,11 @@ E933	eval.txt	/*E933*
 E934	sign.txt	/*E934*
 E935	eval.txt	/*E935*
 E936	autocmd.txt	/*E936*
+E937	autocmd.txt	/*E937*
+E938	eval.txt	/*E938*
+E939	change.txt	/*E939*
 E94	windows.txt	/*E94*
+E940	eval.txt	/*E940*
 E95	message.txt	/*E95*
 E96	diff.txt	/*E96*
 E97	diff.txt	/*E97*
@@ -4766,6 +4782,8 @@ W16	message.txt	/*W16*
 W17	arabic.txt	/*W17*
 W18	syntax.txt	/*W18*
 W19	autocmd.txt	/*W19*
+W20	if_pyth.txt	/*W20*
+W21	if_pyth.txt	/*W21*
 WORD	motion.txt	/*WORD*
 WWW	intro.txt	/*WWW*
 Win32	os_win32.txt	/*Win32*
@@ -5056,6 +5074,7 @@ backup-changed	version4.txt	/*backup-changed*
 backup-extension	version4.txt	/*backup-extension*
 backup-table	editing.txt	/*backup-table*
 balloon-eval	debugger.txt	/*balloon-eval*
+balloon_show()	eval.txt	/*balloon_show()*
 bar	motion.txt	/*bar*
 bars	help.txt	/*bars*
 base_font_name_list	mbyte.txt	/*base_font_name_list*
@@ -5184,6 +5203,7 @@ c_CTRL-I	cmdline.txt	/*c_CTRL-I*
 c_CTRL-J	cmdline.txt	/*c_CTRL-J*
 c_CTRL-K	cmdline.txt	/*c_CTRL-K*
 c_CTRL-L	cmdline.txt	/*c_CTRL-L*
+c_CTRL-M	cmdline.txt	/*c_CTRL-M*
 c_CTRL-N	cmdline.txt	/*c_CTRL-N*
 c_CTRL-P	cmdline.txt	/*c_CTRL-P*
 c_CTRL-Q	cmdline.txt	/*c_CTRL-Q*
@@ -5200,6 +5220,7 @@ c_CTRL-U	cmdline.txt	/*c_CTRL-U*
 c_CTRL-V	cmdline.txt	/*c_CTRL-V*
 c_CTRL-W	cmdline.txt	/*c_CTRL-W*
 c_CTRL-Y	cmdline.txt	/*c_CTRL-Y*
+c_CTRL-[	cmdline.txt	/*c_CTRL-[*
 c_CTRL-\_CTRL-G	intro.txt	/*c_CTRL-\\_CTRL-G*
 c_CTRL-\_CTRL-N	intro.txt	/*c_CTRL-\\_CTRL-N*
 c_CTRL-\_e	cmdline.txt	/*c_CTRL-\\_e*
@@ -5246,6 +5267,7 @@ catch-text	eval.txt	/*catch-text*
 cc	change.txt	/*cc*
 ceil()	eval.txt	/*ceil()*
 ch.vim	syntax.txt	/*ch.vim*
+ch_canread()	eval.txt	/*ch_canread()*
 ch_close()	eval.txt	/*ch_close()*
 ch_close_in()	eval.txt	/*ch_close_in()*
 ch_evalexpr()	eval.txt	/*ch_evalexpr()*
@@ -5293,6 +5315,7 @@ channel-close	channel.txt	/*channel-close*
 channel-close-in	channel.txt	/*channel-close-in*
 channel-commands	channel.txt	/*channel-commands*
 channel-demo	channel.txt	/*channel-demo*
+channel-drop	channel.txt	/*channel-drop*
 channel-functions	usr_41.txt	/*channel-functions*
 channel-mode	channel.txt	/*channel-mode*
 channel-more	channel.txt	/*channel-more*
@@ -6025,6 +6048,7 @@ ft-csh-syntax	syntax.txt	/*ft-csh-syntax*
 ft-css-omni	insert.txt	/*ft-css-omni*
 ft-cweb-syntax	syntax.txt	/*ft-cweb-syntax*
 ft-cynlib-syntax	syntax.txt	/*ft-cynlib-syntax*
+ft-dash-syntax	syntax.txt	/*ft-dash-syntax*
 ft-desktop-syntax	syntax.txt	/*ft-desktop-syntax*
 ft-dircolors-syntax	syntax.txt	/*ft-dircolors-syntax*
 ft-docbk-syntax	syntax.txt	/*ft-docbk-syntax*
@@ -6085,6 +6109,7 @@ ft-php-syntax	syntax.txt	/*ft-php-syntax*
 ft-php3-syntax	syntax.txt	/*ft-php3-syntax*
 ft-phtml-syntax	syntax.txt	/*ft-phtml-syntax*
 ft-plaintex-syntax	syntax.txt	/*ft-plaintex-syntax*
+ft-posix-synax	syntax.txt	/*ft-posix-synax*
 ft-postscr-syntax	syntax.txt	/*ft-postscr-syntax*
 ft-ppwiz-syntax	syntax.txt	/*ft-ppwiz-syntax*
 ft-printcap-syntax	syntax.txt	/*ft-printcap-syntax*
@@ -6338,8 +6363,6 @@ g:netrw_win95ftp	pi_netrw.txt	/*g:netrw_win95ftp*
 g:netrw_winsize	pi_netrw.txt	/*g:netrw_winsize*
 g:netrw_wiw	pi_netrw.txt	/*g:netrw_wiw*
 g:netrw_xstrlen	pi_netrw.txt	/*g:netrw_xstrlen*
-g:sh_isk	syntax.txt	/*g:sh_isk*
-g:sh_noisk	syntax.txt	/*g:sh_noisk*
 g:syntax_on	syntax.txt	/*g:syntax_on*
 g:tar_browseoptions	pi_tar.txt	/*g:tar_browseoptions*
 g:tar_cmd	pi_tar.txt	/*g:tar_cmd*
@@ -6370,6 +6393,8 @@ g:vimsyn_maxlines	syntax.txt	/*g:vimsyn_maxlines*
 g:vimsyn_minlines	syntax.txt	/*g:vimsyn_minlines*
 g:vimsyn_noerror	syntax.txt	/*g:vimsyn_noerror*
 g:yaml_schema	syntax.txt	/*g:yaml_schema*
+g:zipPlugin_ext	pi_zip.txt	/*g:zipPlugin_ext*
+g:zip_extractcmd	pi_zip.txt	/*g:zip_extractcmd*
 g:zip_nomax	pi_zip.txt	/*g:zip_nomax*
 g:zip_shq	pi_zip.txt	/*g:zip_shq*
 g:zip_unzipcmd	pi_zip.txt	/*g:zip_unzipcmd*
@@ -6552,7 +6577,7 @@ gui-w32-printing	gui_w32.txt	/*gui-w32-printing*
 gui-w32-start	gui_w32.txt	/*gui-w32-start*
 gui-w32-various	gui_w32.txt	/*gui-w32-various*
 gui-w32-windowid	gui_w32.txt	/*gui-w32-windowid*
-gui-w32s	gui_w32.txt	/*gui-w32s*
+gui-w32s	os_win32.txt	/*gui-w32s*
 gui-win32-maximized	gui_w32.txt	/*gui-win32-maximized*
 gui-x11	gui_x11.txt	/*gui-x11*
 gui-x11-athena	gui_x11.txt	/*gui-x11-athena*
@@ -6568,7 +6593,7 @@ gui-x11-various	gui_x11.txt	/*gui-x11-various*
 gui.txt	gui.txt	/*gui.txt*
 gui_w32.txt	gui_w32.txt	/*gui_w32.txt*
 gui_x11.txt	gui_x11.txt	/*gui_x11.txt*
-guifontwide_gtk2	options.txt	/*guifontwide_gtk2*
+guifontwide_gtk	options.txt	/*guifontwide_gtk*
 guifontwide_win_mbyte	options.txt	/*guifontwide_win_mbyte*
 guioptions_a	options.txt	/*guioptions_a*
 guu	change.txt	/*guu*
@@ -6593,6 +6618,7 @@ hangulin.txt	hangulin.txt	/*hangulin.txt*
 has()	eval.txt	/*has()*
 has-patch	eval.txt	/*has-patch*
 has-python	if_pyth.txt	/*has-python*
+has-pythonx	if_pyth.txt	/*has-pythonx*
 has_key()	eval.txt	/*has_key()*
 haskell.vim	syntax.txt	/*haskell.vim*
 haslocaldir()	eval.txt	/*haslocaldir()*
@@ -6956,6 +6982,7 @@ job-callback	channel.txt	/*job-callback*
 job-channel-overview	channel.txt	/*job-channel-overview*
 job-close_cb	channel.txt	/*job-close_cb*
 job-control	channel.txt	/*job-control*
+job-drop	channel.txt	/*job-drop*
 job-err_cb	channel.txt	/*job-err_cb*
 job-err_io	channel.txt	/*job-err_io*
 job-exit_cb	channel.txt	/*job-exit_cb*
@@ -7091,7 +7118,6 @@ logiPat-man	pi_logipat.txt	/*logiPat-man*
 logiPat-manual	pi_logipat.txt	/*logiPat-manual*
 logiPat-operators	pi_logipat.txt	/*logiPat-operators*
 logiPat-pattern	pi_logipat.txt	/*logiPat-pattern*
-logiPat.txt	pi_logipat.txt	/*logiPat.txt*
 long-lines	version5.txt	/*long-lines*
 love	intro.txt	/*love*
 lowercase	change.txt	/*lowercase*
@@ -7258,7 +7284,6 @@ mouse_winid-variable	eval.txt	/*mouse_winid-variable*
 movement	intro.txt	/*movement*
 ms-dos	os_msdos.txt	/*ms-dos*
 msdos	os_msdos.txt	/*msdos*
-msdos-mode	gui_w32.txt	/*msdos-mode*
 msql.vim	syntax.txt	/*msql.vim*
 mswin.vim	gui_w32.txt	/*mswin.vim*
 multi-byte	mbyte.txt	/*multi-byte*
@@ -7774,6 +7799,7 @@ php3.vim	syntax.txt	/*php3.vim*
 phtml.vim	syntax.txt	/*phtml.vim*
 pi_getscript.txt	pi_getscript.txt	/*pi_getscript.txt*
 pi_gzip.txt	pi_gzip.txt	/*pi_gzip.txt*
+pi_logipat.txt	pi_logipat.txt	/*pi_logipat.txt*
 pi_netrw.txt	pi_netrw.txt	/*pi_netrw.txt*
 pi_paren.txt	pi_paren.txt	/*pi_paren.txt*
 pi_spec.txt	pi_spec.txt	/*pi_spec.txt*
@@ -7891,7 +7917,11 @@ python.vim	syntax.txt	/*python.vim*
 python2-directory	if_pyth.txt	/*python2-directory*
 python3	if_pyth.txt	/*python3*
 python3-directory	if_pyth.txt	/*python3-directory*
+python_x	if_pyth.txt	/*python_x*
+python_x-special-comments	if_pyth.txt	/*python_x-special-comments*
+pythonx	if_pyth.txt	/*pythonx*
 pythonx-directory	if_pyth.txt	/*pythonx-directory*
+pyxeval()	eval.txt	/*pyxeval()*
 q	repeat.txt	/*q*
 q/	cmdline.txt	/*q\/*
 q:	cmdline.txt	/*q:*
@@ -8433,6 +8463,8 @@ t_@7	term.txt	/*t_@7*
 t_AB	term.txt	/*t_AB*
 t_AF	term.txt	/*t_AF*
 t_AL	term.txt	/*t_AL*
+t_BD	term.txt	/*t_BD*
+t_BE	term.txt	/*t_BE*
 t_CS	term.txt	/*t_CS*
 t_CV	term.txt	/*t_CV*
 t_Ce	term.txt	/*t_Ce*
@@ -8471,6 +8503,8 @@ t_KI	term.txt	/*t_KI*
 t_KJ	term.txt	/*t_KJ*
 t_KK	term.txt	/*t_KK*
 t_KL	term.txt	/*t_KL*
+t_PE	term.txt	/*t_PE*
+t_PS	term.txt	/*t_PS*
 t_RB	term.txt	/*t_RB*
 t_RI	term.txt	/*t_RI*
 t_RV	term.txt	/*t_RV*
@@ -8596,6 +8630,7 @@ tab-page-commands	tabpage.txt	/*tab-page-commands*
 tab-page-intro	tabpage.txt	/*tab-page-intro*
 tab-page-other	tabpage.txt	/*tab-page-other*
 tabline-menu	tabpage.txt	/*tabline-menu*
+tabnew-autocmd	tabpage.txt	/*tabnew-autocmd*
 tabpage	tabpage.txt	/*tabpage*
 tabpage-variable	eval.txt	/*tabpage-variable*
 tabpage.txt	tabpage.txt	/*tabpage.txt*
@@ -8701,7 +8736,9 @@ termcap-options	term.txt	/*termcap-options*
 termcap-title	term.txt	/*termcap-title*
 terminal-colors	os_unix.txt	/*terminal-colors*
 terminal-info	term.txt	/*terminal-info*
+terminal-key-codes	term.txt	/*terminal-key-codes*
 terminal-options	term.txt	/*terminal-options*
+terminal-output-codes	term.txt	/*terminal-output-codes*
 terminfo	term.txt	/*terminfo*
 termresponse-variable	eval.txt	/*termresponse-variable*
 test-functions	usr_41.txt	/*test-functions*
@@ -8709,6 +8746,7 @@ test_alloc_fail()	eval.txt	/*test_alloc_fail()*
 test_autochdir()	eval.txt	/*test_autochdir()*
 test_disable_char_avail()	eval.txt	/*test_disable_char_avail()*
 test_garbagecollect_now()	eval.txt	/*test_garbagecollect_now()*
+test_ignore_error()	eval.txt	/*test_ignore_error()*
 test_null_channel()	eval.txt	/*test_null_channel()*
 test_null_dict()	eval.txt	/*test_null_dict()*
 test_null_job()	eval.txt	/*test_null_job()*
@@ -9115,15 +9153,19 @@ vim-dev	intro.txt	/*vim-dev*
 vim-mac	intro.txt	/*vim-mac*
 vim-modes	intro.txt	/*vim-modes*
 vim-modes-intro	intro.txt	/*vim-modes-intro*
-vim-multibyte	intro.txt	/*vim-multibyte*
 vim-script-intro	usr_41.txt	/*vim-script-intro*
+vim-use	intro.txt	/*vim-use*
 vim-variable	eval.txt	/*vim-variable*
 vim.vim	syntax.txt	/*vim.vim*
 vim7	version7.txt	/*vim7*
 vim8	version8.txt	/*vim8*
 vim:	options.txt	/*vim:*
+vim_announce	intro.txt	/*vim_announce*
+vim_dev	intro.txt	/*vim_dev*
 vim_did_enter-variable	eval.txt	/*vim_did_enter-variable*
+vim_mac	intro.txt	/*vim_mac*
 vim_starting	eval.txt	/*vim_starting*
+vim_use	intro.txt	/*vim_use*
 vimball	pi_vimball.txt	/*vimball*
 vimball-contents	pi_vimball.txt	/*vimball-contents*
 vimball-extract	pi_vimball.txt	/*vimball-extract*
@@ -9228,6 +9270,7 @@ win32-startup	os_win32.txt	/*win32-startup*
 win32-term	os_win32.txt	/*win32-term*
 win32-vimrun	gui_w32.txt	/*win32-vimrun*
 win32-win3.1	os_win32.txt	/*win32-win3.1*
+win32-win95	os_win32.txt	/*win32-win95*
 win32s	os_win32.txt	/*win32s*
 win_findbuf()	eval.txt	/*win_findbuf()*
 win_getid()	eval.txt	/*win_getid()*
@@ -9257,6 +9300,8 @@ windows-intro	windows.txt	/*windows-intro*
 windows-starting	windows.txt	/*windows-starting*
 windows.txt	windows.txt	/*windows.txt*
 windows95	os_win32.txt	/*windows95*
+windows98	os_win32.txt	/*windows98*
+windowsme	os_win32.txt	/*windowsme*
 winheight()	eval.txt	/*winheight()*
 winid	windows.txt	/*winid*
 winline()	eval.txt	/*winline()*
@@ -9314,6 +9359,7 @@ xterm-8-bit	term.txt	/*xterm-8-bit*
 xterm-8bit	term.txt	/*xterm-8bit*
 xterm-blink	syntax.txt	/*xterm-blink*
 xterm-blinking-cursor	syntax.txt	/*xterm-blinking-cursor*
+xterm-bracketed-paste	term.txt	/*xterm-bracketed-paste*
 xterm-clipboard	term.txt	/*xterm-clipboard*
 xterm-codes	term.txt	/*xterm-codes*
 xterm-color	syntax.txt	/*xterm-color*
@@ -9386,6 +9432,7 @@ zip-extension	pi_zip.txt	/*zip-extension*
 zip-history	pi_zip.txt	/*zip-history*
 zip-manual	pi_zip.txt	/*zip-manual*
 zip-usage	pi_zip.txt	/*zip-usage*
+zip-x	pi_zip.txt	/*zip-x*
 zj	fold.txt	/*zj*
 zk	fold.txt	/*zk*
 zl	scroll.txt	/*zl*
