@@ -1,5 +1,5 @@
 " Set folding method
-setlocal foldmethod=manual
+"setlocal foldmethod=manual
 setlocal nofoldenable
 
 nnoremap <buffer> <leader>t :Voom vimwiki<CR>

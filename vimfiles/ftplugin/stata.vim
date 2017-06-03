@@ -1,10 +1,9 @@
 "syntax off
 " Let vim know all types of commenting styles.
 setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
-setlocal foldmethod=manual
+setlocal foldmethod=marker
 
 " Structural setting.
-setlocal foldmethod=manual
 setlocal wrap nolinebreak nolist textwidth=80 wrapmargin=0
 "
 " c==> only auto format the comments. (to comply with the 80 width standard)
